@@ -1,15 +1,63 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Albert_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import "./styles/main.scss";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Google font: Albert Sans
+const albertSans = Albert_Sans({
+  variable: "--font-albert-sans",
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Local font: Neue Montreal
+const neueMontreal = localFont({
+  variable: "--font-neue-montreal",
+  display: "swap",
+  src: [
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-LightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-Italic.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-MediumItalic.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/neue-montreal/NeueMontreal-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${albertSans.variable} ${neueMontreal.variable} antialiased`}
       >
         {children}
       </body>
