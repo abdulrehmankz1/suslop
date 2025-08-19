@@ -35,7 +35,7 @@ const neueMontreal = localFont({
     {
       path: "../fonts/neue-montreal/NeueMontreal-Italic.otf",
       weight: "400",
-      style: "normal",
+      style: "italic",
     },
     {
       path: "../fonts/neue-montreal/NeueMontreal-Medium.otf",
@@ -43,7 +43,7 @@ const neueMontreal = localFont({
       style: "normal",
     },
     {
-      path: "../fonts/neue-montreal/NeueMontreal-MediumItalic.ttf",
+      path: "../fonts/neue-montreal/NeueMontreal-MediumItalic.otf",
       weight: "500",
       style: "italic",
     },

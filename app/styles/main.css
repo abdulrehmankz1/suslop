@@ -10,4 +10,168 @@ body {
   font-family: var(--font-albert-sans), sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 20px;
+}
+
+.text-fefe {
+  color: #fefefe;
+}
+
+.bg-fefe {
+  background-color: #fefefe;
+}
+
+.border-fefe {
+  border-color: #fefefe;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.text-dark {
+  color: #0e0e0e;
+}
+
+.bg-dark {
+  background-color: #0e0e0e;
+}
+
+.primary_btn {
+  background-color: #fefefe;
+  color: #000000;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #fefefe;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.primary_btn:hover {
+  background-color: rgb(228.5, 228.5, 228.5);
+  border-color: rgb(228.5, 228.5, 228.5);
+}
+
+.primary_btn_outline {
+  background-color: transparent;
+  color: #fefefe;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #fefefe;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.primary_btn_outline:hover {
+  background-color: #fefefe;
+  color: #000000;
+  border-color: rgb(228.5, 228.5, 228.5);
+}
+
+.secondary_btn {
+  background-color: #000000;
+  color: #fefefe;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.secondary_btn:hover {
+  background-color: rgb(25.5, 25.5, 25.5);
+  border-color: rgb(25.5, 25.5, 25.5);
+}
+
+.secondary_btn_outline {
+  background-color: transparent;
+  color: #000000;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.secondary_btn_outline:hover {
+  background-color: #000000;
+  color: #fefefe;
+  border-color: rgb(25.5, 25.5, 25.5);
+}
+
+.hero_section {
+  background: url("/assets/images/hero-image.png") no-repeat top center/cover;
+}
+
+h1 {
+  color: #fefefe;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -2px;
+  text-transform: capitalize;
+}
+
+h2 {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+h3 {
+  color: #0e0e0e;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-family: "Neue Montreal";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h4 {
+  color: #0e0e0e;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.hero_shape {
+  border-radius: 40px 40px 0 0;
+  border: 3px solid #fefefe;
+  background: rgba(254, 254, 254, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  height: 65px;
+}
+
+.logo_wrapper {
+  width: 180px;
+  height: 30px;
+}
+
+.service_section {
+  background: #fefefe;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 }/*# sourceMappingURL=main.css.map */
