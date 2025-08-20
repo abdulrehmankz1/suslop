@@ -6,6 +6,7 @@ $black: #000000;
 $color-dark: #0e0e0e;
 $white-fcfcfc: #fcfcfc;
 $color-green-deep: #114421;
+$gray-light: #f2f2f2;
 
 // =========================
 // Font Utility Classes
@@ -63,12 +64,21 @@ body {
 .bg-white-fcfcfc {
   background-color: $white-fcfcfc;
 }
+
 .text-green-deep {
   color: $color-green-deep;
 }
 
 .bg-green-deep {
   background-color: $color-green-deep;
+}
+
+.text_gray_light {
+  color: $gray-light;
+}
+
+.bg_gray_light {
+  background-color: $gray-light;
 }
 
 // =========================

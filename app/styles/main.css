@@ -57,6 +57,14 @@ body {
   background-color: #114421;
 }
 
+.text_gray_light {
+  color: #f2f2f2;
+}
+
+.bg_gray_light {
+  background-color: #f2f2f2;
+}
+
 .primary_btn {
   background-color: #fefefe;
   color: #000000;

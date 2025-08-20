@@ -1,3 +1,4 @@
+import Blog from "./components/Blog";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import OurEdge from "./components/OurEdge";
@@ -14,6 +15,7 @@ export default function Home() {
       <OurEdge />
       <OurImpact />
       <Reports />
+      <Blog />
     </>
   );
 }
