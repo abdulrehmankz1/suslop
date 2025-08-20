@@ -85,70 +85,73 @@ const Services = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full flex justify-center">
-        <div className="w-[80%] h-28 bg-green-100/30 rounded-b-[100px]"></div>
-      </div>
-      <div className="absolute top-6 left-0 w-full flex justify-center">
-        <div className="w-[90%] h-36 bg-green-200/20 rounded-b-[120px]"></div>
-      </div>
+    <section>
+      <div className="relative -mt-[200px]">
+        {/* Yellow Shape */}
+        <div className="hero_shape w-[80%] h-28 mx-auto"></div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="w-full lg:w-2/3 mx-auto text-center mb-16 px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Holistic Solutions for Complex Challenges
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            We bring decades of multidisciplinary experience to create tailored
-            strategies that work for people and the planet.
-          </p>
-        </div>
+        {/* Red Shape */}
+        <div className="hero_shape w-[90%] h-36 mx-auto -mt-1"></div>
 
-        <div className="px-4">
-          <Swiper
-            modules={[Autoplay]}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            spaceBetween={30}
-            loop={true}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 3 },
-            }}
-            className="services-swiper"
-          >
-            {servicesData.map((service, i) => (
-              <SwiperSlide key={i} className="mb-10">
-                <ServiceCard {...service} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        {/* Service Section */}
+        <div className="service_section w-full py-12 -mt-1">
+          <div className="container mx-auto relative">
+            <div className="w-[60%] mx-auto text-center mb-12">
+              <h2 className="mb-3 text-dark">
+                Holistic Solutions for Complex Challenges
+              </h2>
+              <p className="text-black max-w-2xl mx-auto">
+                We bring decades of multidisciplinary experience to create
+                tailored strategies that work for people and the planet.
+              </p>
+            </div>
 
-          {/* Custom Pagination */}
-          <div className="flex justify-center mt-12 gap-2">
-            {Array.from({ length: totalBullets }).map((_, i) => (
-              <button
-                key={i}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  i === activeBullet
-                    ? "bg-[#0E0E0E] w-[120px]"
-                    : "bg-gray-300 w-[50px] hover:bg-gray-400"
-                }`}
-                onClick={() => goToBullet(i)}
-                aria-label={`Go to slide group ${i + 1}`}
-              />
-            ))}
+            {/* Swiper Slider */}
+            <div className="px-4">
+              <Swiper
+                modules={[Autoplay]}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                spaceBetween={30}
+                loop={true}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                }}
+                slidesPerView={1}
+                breakpoints={{
+                  640: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                  1280: { slidesPerView: 3 },
+                }}
+                className="services-swiper"
+              >
+                {servicesData.map((service, i) => (
+                  <SwiperSlide key={i} className="mb-10">
+                    <ServiceCard {...service} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Custom Pagination */}
+              <div className="flex justify-center mt-12 gap-2">
+                {Array.from({ length: totalBullets }).map((_, i) => (
+                  <button
+                    key={i}
+                    className={`h-3 rounded-full transition-all duration-300 ${
+                      i === activeBullet
+                        ? "bg-[#0E0E0E] w-[120px]"
+                        : "bg-gray-300 w-[50px] hover:bg-gray-400"
+                    }`}
+                    onClick={() => goToBullet(i)}
+                    aria-label={`Go to slide group ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       <style jsx>{`
         .services-swiper {
           padding: 10px 5px 30px;
