@@ -1,5 +1,6 @@
 import Blog from "./components/Blog";
 import HeroSection from "./components/HeroSection";
+import LatestUpdates from "./components/LatestUpdates";
 import Navbar from "./components/Navbar";
 import OurEdge from "./components/OurEdge";
 import OurImpact from "./components/OurImpact";
@@ -16,6 +17,7 @@ export default function Home() {
       <OurImpact />
       <Reports />
       <Blog />
+      <LatestUpdates />
     </>
   );
 }
