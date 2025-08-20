@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-3 left-0 right-0 z-50 text-fefe bg-transparent">
+    <header className="absolute top-3 left-0 right-0 z-50 text-fefe bg-transparent">
       <div
         className="container mx-auto flex items-center justify-between px-6 py-4"
         ref={dropdownRef}

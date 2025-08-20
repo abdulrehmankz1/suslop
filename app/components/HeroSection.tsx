@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="hero_section ">
+    <section className="hero_section relative">
       <div className="container mx-auto">
         <div className="w-[75%] pt-[290px] pb-[350px]">
           <h1>Building Sustainable Futures, Together</h1>
