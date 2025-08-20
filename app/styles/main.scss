@@ -4,54 +4,63 @@
 $white-fefe: #fefefe;
 $black: #000000;
 $color-dark: #0e0e0e;
+$white-fcfcfc: #fcfcfc;
 
 // =========================
 // Font Utility Classes
 // =========================
 .font_albert {
-    font-family: var(--font-albert-sans), sans-serif;
+  font-family: var(--font-albert-sans), sans-serif;
 }
 
 .font_montreal {
-    font-family: var(--font-neue-montreal), sans-serif;
+  font-family: var(--font-neue-montreal), sans-serif;
 }
 
 body {
-    font-family: var(--font-albert-sans), sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
 }
 
 // =========================
 // Color Utilities
 // =========================
 .text-fefe {
-    color: $white-fefe;
+  color: $white-fefe;
 }
 
 .bg-fefe {
-    background-color: $white-fefe;
+  background-color: $white-fefe;
 }
 
 .border-fefe {
-    border-color: $white-fefe;
+  border-color: $white-fefe;
 }
 
 .text-black {
-    color: $black;
+  color: $black;
 }
 
 .bg-black {
-    background-color: $black;
+  background-color: $black;
 }
 
 .text-dark {
-    color: $color-dark;
+  color: $color-dark;
 }
 
 .bg-dark {
-    background-color: $color-dark;
+  background-color: $color-dark;
+}
+
+.text-white-fcfcfc {
+  color: $white-fcfcfc;
+}
+
+.bg-white-fcfcfc {
+  background-color: $white-fcfcfc;
 }
 
 // =========================
@@ -60,150 +69,153 @@ body {
 
 // Filled button - Primary
 .primary_btn {
-    background-color: $white-fefe;
-    color: $black;
-    font-family: var(--font-albert-sans), sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    border: 1px solid $white-fefe;
-    border-radius: 5px;
-    padding: 14px 30px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background-color: $white-fefe;
+  color: $black;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid $white-fefe;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-    &:hover {
-        background-color: color.adjust($white-fefe, $lightness: -10%);
-        border-color: color.adjust($white-fefe, $lightness: -10%);
-    }
+  &:hover {
+    background-color: color.adjust($white-fefe, $lightness: -10%);
+    border-color: color.adjust($white-fefe, $lightness: -10%);
+  }
 }
 
 // Outline button - Primary
 .primary_btn_outline {
-    background-color: transparent;
-    color: $white-fefe;
-    font-family: var(--font-albert-sans), sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    border: 1px solid $white-fefe;
-    border-radius: 5px;
-    padding: 14px 30px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background-color: transparent;
+  color: $white-fefe;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid $white-fefe;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-    &:hover {
-        background-color: $white-fefe;
-        color: $black;
-        border-color: color.adjust($white-fefe, $lightness: -10%);
-    }
+  &:hover {
+    background-color: $white-fefe;
+    color: $black;
+    border-color: color.adjust($white-fefe, $lightness: -10%);
+  }
 }
 
 // Filled button - Secondary
 .secondary_btn {
-    background-color: $black;
-    color: $white-fefe;
-    font-family: var(--font-albert-sans), sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    border: 1px solid $black;
-    border-radius: 5px;
-    padding: 14px 30px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background-color: $black;
+  color: $white-fefe;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid $black;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-    &:hover {
-        background-color: color.adjust($black, $lightness: 10%);
-        border-color: color.adjust($black, $lightness: 10%);
-    }
+  &:hover {
+    background-color: color.adjust($black, $lightness: 10%);
+    border-color: color.adjust($black, $lightness: 10%);
+  }
 }
 
 // Outline button - Secondary
 .secondary_btn_outline {
-    background-color: transparent;
-    color: $black;
-    font-family: var(--font-albert-sans), sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    border: 1px solid $black;
-    border-radius: 5px;
-    padding: 14px 30px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background-color: transparent;
+  color: $black;
+  font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid $black;
+  border-radius: 5px;
+  padding: 14px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-    &:hover {
-        background-color: $black;
-        color: $white-fefe;
-        border-color: color.adjust($black, $lightness: 10%);
-    }
+  &:hover {
+    background-color: $black;
+    color: $white-fefe;
+    border-color: color.adjust($black, $lightness: 10%);
+  }
 }
-
 
 // =========================
 // Hero Section
 // =========================
 .hero_section {
-    background: url("/assets/images/hero-image.png") no-repeat top center / cover;
+  background: url("/assets/images/hero-image.png") no-repeat top center / cover;
 }
 
 h1 {
-    color: $white-fefe;
-    font-family: var(--font-neue-montreal), sans-serif;
-    font-size: 100px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: -2px;
-    text-transform: capitalize;
+  color: $white-fefe;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -2px;
+  text-transform: capitalize;
 }
 
 h2 {
-    color: $color-dark;
-    text-align: center;
-    font-family: var(--font-neue-montreal), sans-serif;
-    font-size: 75px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
+  color: $color-dark;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
 }
 
 h3 {
-    color: $color-dark;
-    font-family: var(--font-neue-montreal), sans-serif;
-    font-family: "Neue Montreal";
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: $color-dark;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-family: "Neue Montreal";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 h4 {
-    color: $color-dark;
-    font-family: var(--font-neue-montreal), sans-serif;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: $color-dark;
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 // Hero Shape Overlay
 .hero_shape {
-    border-radius: 40px 40px 0 0;
-    border: 3px solid $white-fefe;
-    background: rgba(254, 254, 254, 0.4);
-    backdrop-filter: blur(5px);
-    height: 65px;
+  border-radius: 40px 40px 0 0;
+  border: 3px solid $white-fefe;
+  background: rgba(254, 254, 254, 0.4);
+  backdrop-filter: blur(5px);
+  height: 65px;
 }
 
 // =========================
 // Logo Wrapper
 // =========================
 .logo_wrapper {
-    width: 180px;
-    height: 30px;
+  width: 180px;
+  height: 30px;
 }
 
 .service_section {
-    background: $white-fefe;
-    border-top-left-radius: 60px;
-    border-top-right-radius: 60px;
-    box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
+  background: $white-fefe;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
+}
+
+.our_edge {
+  background: $white-fefe;
+  padding-block: 100px;
 }
