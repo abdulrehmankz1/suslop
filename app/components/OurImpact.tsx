@@ -1,0 +1,100 @@
+"use client";
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import Image from "next/image";
+
+const OurImpact = () => {
+  return (
+    <section>
+      <div className="container mx-auto p-10 bg-black rounded-4xl">
+        <div className="grid grid-cols-2 gap-20">
+          <div>
+            <h2 className="text-white text-3xl font-bold">
+              Turning Vision into Reality
+            </h2>
+          </div>
+          <div>
+            <p className="text-fefe">
+              See how Suslop partnered with local communities and industry
+              leaders to deliver a renewable energy project that created jobs,
+              protected ecosystems, and advanced regional sustainability goals.
+            </p>
+            <button className="primary_btn mt-10">View Project</button>
+          </div>
+        </div>
+
+        {/* Swiper Slider */}
+        <div className="mt-12 relative">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            className="rounded-xl overflow-hidden"
+          >
+            <SwiperSlide>
+              <Image
+                src="/assets/images/image-2.png"
+                alt="Project 1"
+                className="w-full h-auto max-h-[600px] object-cover"
+                width={1920}
+                height={1080}
+                priority
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="/assets/images/image-2.png"
+                alt="Project 2"
+                className="w-full h-auto max-h-[600px] object-cover"
+                width={1920}
+                height={1080}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="/assets/images/image-2.png"
+                alt="Project 3"
+                className="w-full h-auto max-h-[600px] object-cover"
+                width={1920}
+                height={1080}
+              />
+            </SwiperSlide>
+          </Swiper>
+
+          {/* Custom pagination positioning */}
+          <style jsx global>{`
+            .swiper-pagination {
+              bottom: 15px !important;
+              right: 20px !important;
+              left: auto !important;
+              display: flex !important;
+              gap: 5px !important;
+              justify-content: flex-end;
+            }
+            .swiper-pagination-bullet {
+              width: 50px !important;
+              height: 5px !important;
+              background: white !important;
+              opacity: 0.2 !important;
+              border-radius: 0 !important;
+              transition: all 0.3s ease;
+            }
+            .swiper-pagination-bullet-active {
+              width: 110px !important;
+              opacity: 1 !important;
+            }
+          `}</style>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default OurImpact;

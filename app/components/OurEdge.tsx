@@ -8,7 +8,7 @@ const OurEdge = () => {
         <div className="flex w-full gap-9">
           {/* First child: 40% */}
           <div className="w-2/5">
-            <h2 className="text-start">Our Difference is in the Details</h2>
+            <h2 className="text-start text-dark">Our Difference is in the Details</h2>
             <div className="my-12">
               <div className="pb-7 border-b border-[#0E0E0E4D]">
                 <h4>Integrated Expertise</h4>
