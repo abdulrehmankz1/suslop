@@ -15,7 +15,7 @@ const OurImpact = () => {
       <div className="container mx-auto p-10 bg-black rounded-4xl">
         <div className="grid grid-cols-2 gap-20">
           <div>
-            <h2 className="text-white text-3xl font-bold">
+            <h2 className="text-white">
               Turning Vision into Reality
             </h2>
           </div>
