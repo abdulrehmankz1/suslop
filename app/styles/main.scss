@@ -85,15 +85,16 @@ body {
 // Buttons
 // =========================
 
-.btn{
+.btn {
   border-radius: 5px;
   padding: 14px 30px;
   transition: all 0.3s ease;
   cursor: pointer;
-    font-family: var(--font-albert-sans), sans-serif;
+  font-family: var(--font-albert-sans), sans-serif;
   font-size: 18px;
   font-weight: 500;
 }
+
 // Filled button - Primary
 .primary_btn {
   background-color: $white-fefe;
@@ -245,22 +246,41 @@ h4 {
   opacity: 1;
 }
 
-.latest_updates{
-    margin: 100px 0 150px;
+.reports_swiper {
+  height: 815px;
+}
+
+.latest_updates {
+  margin: 100px 0 150px;
 }
 
 .footer_banner {
   border-radius: 30px;
-  background: 
-    /* Overlay dark fade from bottom */
-    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.0) 60%),
+  background:
+    /* Overlay dark fade from bottom */ linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 60%
+    ),
     /* Subtle side fade */
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.0) 40%),
-    /* Image */
-    url('../../public/assets/images/footer-banner.png');
-  
+      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */ url("../../public/assets/images/footer-banner.png");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+.service_card .image_wrapper {
+  height: 300px !important;
+}
+
+.slider_container .image_wrapper {
+  height: 590px !important;
+}
+.blog_card .image_wrapper {
+  height: 300px !important;
+}
+.updates_card .image_wrapper {
+  height: 200px !important;
+}
