@@ -18,16 +18,17 @@ const BlogCard = ({
   linkHref,
 }: BlogCardProps) => {
   return (
-    <div>
-      <Image
-        src={image}
-        alt={title}
-        width={500}
-        height={300}
-        draggable="false"
-        className="object-cover w-full my-4"
-      />
-
+    <div className="blog_card">
+      <div className="image_wrapper mb-4">
+        <Image
+          src={image}
+          alt={title}
+          width={500}
+          height={300}
+          draggable="false"
+          className="object-cover w-full! h-full! rounded-lg"
+        />
+      </div>
       <div>
         <h4>{title}</h4>
         <p className="text-dark opacity-[0.7] mt-2 mb-4">{description}</p>

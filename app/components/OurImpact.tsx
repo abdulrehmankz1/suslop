@@ -15,9 +15,7 @@ const OurImpact = () => {
       <div className="container mx-auto p-10 bg-black rounded-4xl">
         <div className="grid grid-cols-2 gap-20">
           <div>
-            <h2 className="text-white">
-              Turning Vision into Reality
-            </h2>
+            <h2 className="text-white">Turning Vision into Reality</h2>
           </div>
           <div>
             <p className="text-fefe">
@@ -30,7 +28,7 @@ const OurImpact = () => {
         </div>
 
         {/* Swiper Slider */}
-        <div className="mt-12 relative">
+        <div className="mt-12 relative slider_container">
           <Swiper
             modules={[Pagination, Autoplay]}
             slidesPerView={1}
@@ -39,14 +37,16 @@ const OurImpact = () => {
             className="rounded-xl overflow-hidden"
           >
             <SwiperSlide>
-              <Image
-                src="/assets/images/image-2.png"
-                alt="Project 1"
-                className="w-full h-auto max-h-[600px] object-cover"
-                width={1920}
-                height={1080}
-                priority
-              />
+              <div className="image_wrapper">
+                <Image
+                  src="/assets/images/image-2.png"
+                  alt="Project 1"
+                  className="w-full! h-full! object-cover"
+                  width={1920}
+                  height={1080}
+                  priority
+                />
+              </div>
             </SwiperSlide>
             <SwiperSlide>
               <Image

@@ -39,7 +39,7 @@ const Reports = () => {
         </div>
 
         {/* Swiper Slider */}
-        <div className="mt-12 relative">
+        <div className="mt-12 relative reports_swiper">
           <Swiper
             modules={[Navigation]}
             spaceBetween={0}
@@ -56,14 +56,16 @@ const Reports = () => {
             {/* Slide 1 */}
             <SwiperSlide>
               <div className="report-card">
-                <Image
-                  src="/assets/images/report-1.png"
-                  alt="Report 1"
-                  width={500}
-                  height={300}
-                  draggable="false"
-                  className="rounded-lg object-cover w-full"
-                />
+                <div className="aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src="/assets/images/report-1.png"
+                    alt="Report 1"
+                    width={500}
+                    height={300}
+                    draggable="false"
+                    className="object-cover w-full! h-full!"
+                  />
+                </div>
                 <div>
                   <div className="text-green-deep mt-5">Report</div>
                   <Link href="#" className="hover:underline">
@@ -100,14 +102,16 @@ const Reports = () => {
             {/* Slide 2 */}
             <SwiperSlide>
               <div className="report-card">
-                <Image
-                  src="/assets/images/report-2.png"
-                  alt="Report 2"
-                  width={500}
-                  height={300}
-                  className="rounded-lg object-cover w-full"
-                  draggable="false"
-                />
+                <div className="aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src="/assets/images/report-2.png"
+                    alt="Report 2"
+                    width={500}
+                    height={300}
+                    className="object-cover w-full! h-full!"
+                    draggable="false"
+                  />
+                </div>
                 <div>
                   <div className="text-green-deep mt-5">Report</div>
                   <Link href="#" className="hover:underline">
@@ -143,14 +147,16 @@ const Reports = () => {
             {/* Slide 3 */}
             <SwiperSlide>
               <div className="report-card">
-                <Image
-                  src="/assets/images/report-1.png"
-                  alt="Report 3"
-                  width={500}
-                  height={300}
-                  className="rounded-lg object-cover w-full"
-                  draggable="false"
-                />
+                <div className="aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src="/assets/images/report-1.png"
+                    alt="Report 3"
+                    width={500}
+                    height={300}
+                    className="object-cover w-full! h-full!"
+                    draggable="false"
+                  />
+                </div>
                 <div>
                   <div className="text-green-deep mt-5">Report</div>
                   <Link href="#" className="hover:underline">
