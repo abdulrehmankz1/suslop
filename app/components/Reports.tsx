@@ -21,7 +21,7 @@ const Reports = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="reports_section">
+    <section className="reports_section px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading Row */}
         <div className="grid grid-cols-2 gap-20">

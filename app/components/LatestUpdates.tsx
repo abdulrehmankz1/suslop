@@ -26,7 +26,7 @@ const updatesData = [
 
 const LatestUpdates = () => {
   return (
-    <section className="latest_updates">
+    <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading Row */}
         <div className="grid grid-cols-2 gap-20 mb-12">

@@ -91,7 +91,7 @@ const Blog = () => {
   };
 
   return (
-    <section>
+    <section className="px-3 md:px-4 lg:px-5">
       <div className="w-full py-12 -mt-1 bg_gray_light rounded-t-[100px]">
         <div className="container mx-auto relative">
           <div className="w-[60%] mx-auto text-center mb-12">

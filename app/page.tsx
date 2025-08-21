@@ -14,14 +14,14 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <Services />
+      {/* <Services />
       <OurEdge />
       <OurImpact />
       <Reports />
       <Blog />
       <LatestUpdates />
       <FooterBanner />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

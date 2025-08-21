@@ -3,7 +3,7 @@ import React from "react";
 
 const OurEdge = () => {
   return (
-    <section className="our_edge">
+    <section className="our_edge px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         <div className="flex w-full gap-9">
           {/* First child: 40% */}
