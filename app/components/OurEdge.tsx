@@ -31,7 +31,7 @@ const OurEdge = () => {
                 </p>
               </div>
             </div>
-            <button className="secondary_btn">Learn More</button>
+            <button className="btn secondary_btn">Learn More</button>
           </div>
 
           {/* Second child: 60% */}

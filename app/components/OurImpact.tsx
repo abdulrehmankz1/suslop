@@ -25,7 +25,7 @@ const OurImpact = () => {
               leaders to deliver a renewable energy project that created jobs,
               protected ecosystems, and advanced regional sustainability goals.
             </p>
-            <button className="primary_btn mt-10">View Project</button>
+            <button className="btn primary_btn mt-10">View Project</button>
           </div>
         </div>
 

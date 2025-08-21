@@ -38,7 +38,7 @@ const LatestUpdates = () => {
               Stay informed on our projects, partnerships, and initiatives
               shaping sustainable development across regions.
             </p>
-            <button className="secondary_btn mt-5">View Newsroom</button>
+            <button className="btn secondary_btn mt-5">View Newsroom</button>
           </div>
         </div>
 

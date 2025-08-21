@@ -12,8 +12,8 @@ const HeroSection = () => {
             economic growth, and social well-being.
           </p>
           <div className="mt-10 flex items-center gap-3">
-            <button className="primary_btn">Start a Conversation</button>
-            <button className="primary_btn_outline">
+            <button className="btn primary_btn">Start a Conversation</button>
+            <button className="btn primary_btn_outline">
               Explore Our Services
             </button>
           </div>

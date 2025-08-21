@@ -32,11 +32,12 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center logo_wrapper">
           <Image
-            src="/assets/images/logo.png"
+            src="/assets/images/logo.svg"
             alt="Logo"
             width={180}
             height={30}
             draggable="false"
+            className="h-full w-full"
             priority
           />
         </Link>
@@ -153,7 +154,7 @@ const Navbar = () => {
         </nav>
 
         {/* CTA Desktop */}
-        <button className="primary_btn_outline hidden lg:inline-flex">
+        <button className="btn primary_btn_outline hidden lg:inline-flex">
           Contact Us
         </button>
 
@@ -262,7 +263,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                className="primary_btn_outline w-full mt-2"
+                className="btn primary_btn_outline w-full mt-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact Us

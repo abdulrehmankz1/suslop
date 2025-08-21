@@ -100,7 +100,7 @@ const Blog = () => {
               Our experts share perspectives on the latest sustainability
               challenges, project innovations, and community-driven solutions.
             </p>
-            <button className="secondary_btn mt-6">View All</button>
+            <button className="btn secondary_btn mt-6">View All</button>
           </div>
 
           {/* Swiper Slider */}

@@ -34,7 +34,7 @@ const ServiceCard = ({
       <div>
         <h4>{title}</h4>
         <p className="text-dark opacity-[0.7] mt-2">{description}</p>
-        <button className="secondary_btn w-full mt-6">Learn More</button>
+        <button className="btn secondary_btn w-full mt-6">Learn More</button>
       </div>
     </div>
   );

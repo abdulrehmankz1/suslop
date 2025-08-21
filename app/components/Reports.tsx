@@ -34,7 +34,7 @@ const Reports = () => {
               leadership on sustainability, resource management, and community
               development.
             </p>
-            <button className="secondary_btn mt-5">View All Reports</button>
+            <button className="btn secondary_btn mt-5">View All Reports</button>
           </div>
         </div>
 
