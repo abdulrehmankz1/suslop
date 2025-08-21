@@ -1,4 +1,6 @@
 import Blog from "./components/Blog";
+import Footer from "./components/Footer";
+import FooterBanner from "./components/CTA";
 import HeroSection from "./components/HeroSection";
 import LatestUpdates from "./components/LatestUpdates";
 import Navbar from "./components/Navbar";
@@ -18,6 +20,8 @@ export default function Home() {
       <Reports />
       <Blog />
       <LatestUpdates />
+      <FooterBanner />
+      <Footer />
     </>
   );
 }

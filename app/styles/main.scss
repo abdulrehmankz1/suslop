@@ -85,18 +85,20 @@ body {
 // Buttons
 // =========================
 
-// Filled button - Primary
-.primary_btn {
-  background-color: $white-fefe;
-  color: $black;
-  font-family: var(--font-albert-sans), sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  border: 1px solid $white-fefe;
+.btn{
   border-radius: 5px;
   padding: 14px 30px;
   transition: all 0.3s ease;
   cursor: pointer;
+    font-family: var(--font-albert-sans), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+// Filled button - Primary
+.primary_btn {
+  background-color: $white-fefe;
+  color: $black;
+  border: 1px solid $white-fefe;
 
   &:hover {
     background-color: color.adjust($white-fefe, $lightness: -10%);
@@ -108,14 +110,7 @@ body {
 .primary_btn_outline {
   background-color: transparent;
   color: $white-fefe;
-  font-family: var(--font-albert-sans), sans-serif;
-  font-size: 18px;
-  font-weight: 500;
   border: 1px solid $white-fefe;
-  border-radius: 5px;
-  padding: 14px 30px;
-  transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     background-color: $white-fefe;
@@ -128,14 +123,7 @@ body {
 .secondary_btn {
   background-color: $black;
   color: $white-fefe;
-  font-family: var(--font-albert-sans), sans-serif;
-  font-size: 18px;
-  font-weight: 500;
   border: 1px solid $black;
-  border-radius: 5px;
-  padding: 14px 30px;
-  transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     // background-color: color.adjust($black, $lightness: 10%);
@@ -150,14 +138,7 @@ body {
 .secondary_btn_outline {
   background-color: transparent;
   color: $black;
-  font-family: var(--font-albert-sans), sans-serif;
-  font-size: 18px;
-  font-weight: 500;
   border: 1px solid $black;
-  border-radius: 5px;
-  padding: 14px 30px;
-  transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     background-color: $black;
@@ -224,7 +205,6 @@ h4 {
 // Logo Wrapper
 // =========================
 .logo_wrapper {
-  width: 180px;
   height: 30px;
 }
 
@@ -268,3 +248,19 @@ h4 {
 .latest_updates{
     margin: 100px 0 150px;
 }
+
+.footer_banner {
+  border-radius: 30px;
+  background: 
+    /* Overlay dark fade from bottom */
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.0) 60%),
+    /* Subtle side fade */
+    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.0) 40%),
+    /* Image */
+    url('../../public/assets/images/footer-banner.png');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
