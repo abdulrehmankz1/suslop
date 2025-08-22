@@ -94,13 +94,15 @@ const Blog = () => {
     <section className="px-3 md:px-4 lg:px-5">
       <div className="w-full py-12 -mt-1 bg_gray_light rounded-t-[100px]">
         <div className="container mx-auto relative">
-          <div className="w-[60%] mx-auto text-center mb-12">
+          <div className="xl:w-[60%] lg:w-[75%] w-[80%] mx-auto text-center lg:mb-12 mb-10">
             <h2 className="mb-3 text-dark">Blog & Perspectives</h2>
             <p className="text-black max-w-2xl mx-auto">
               Our experts share perspectives on the latest sustainability
               challenges, project innovations, and community-driven solutions.
             </p>
-            <button className="btn secondary_btn mt-6">View All</button>
+            <button className="btn secondary_btn lg:mt-6 md:mt-5 mt-4">
+              View All
+            </button>
           </div>
 
           {/* Swiper Slider */}

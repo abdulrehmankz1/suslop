@@ -13,7 +13,7 @@ const OurImpact = () => {
   return (
     <section className="px-3 md:px-4 lg:px-5">
       <div className="container mx-auto p-10 bg-black rounded-4xl">
-        <div className="grid grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 grid-cols-1 xl:gap-20 lg:gap-5 gap-10">
           <div>
             <h2 className="text-white">Turning Vision into Reality</h2>
           </div>
@@ -23,12 +23,14 @@ const OurImpact = () => {
               leaders to deliver a renewable energy project that created jobs,
               protected ecosystems, and advanced regional sustainability goals.
             </p>
-            <button className="btn primary_btn mt-10">View Project</button>
+            <button className="btn primary_btn lg:mt-10 mt-5">
+              View Project
+            </button>
           </div>
         </div>
 
         {/* Swiper Slider */}
-        <div className="mt-12 relative slider_container">
+        <div className="xl:mt-12 lg:mt-10 mt-8 relative slider_container">
           <Swiper
             modules={[Pagination, Autoplay]}
             slidesPerView={1}
@@ -49,22 +51,28 @@ const OurImpact = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <Image
-                src="/assets/images/image-2.png"
-                alt="Project 2"
-                className="w-full h-auto max-h-[600px] object-cover"
-                width={1920}
-                height={1080}
-              />
+              <div className="image_wrapper">
+                <Image
+                  src="/assets/images/image-2.png"
+                  alt="Project 2"
+                  className="w-full! h-full! object-cover"
+                  width={1920}
+                  height={1080}
+                  priority
+                />
+              </div>
             </SwiperSlide>
             <SwiperSlide>
-              <Image
-                src="/assets/images/image-2.png"
-                alt="Project 3"
-                className="w-full h-auto max-h-[600px] object-cover"
-                width={1920}
-                height={1080}
-              />
+              <div className="image_wrapper">
+                <Image
+                  src="/assets/images/image-2.png"
+                  alt="Project 3"
+                  className="w-full! h-full! object-cover"
+                  width={1920}
+                  height={1080}
+                  priority
+                />
+              </div>
             </SwiperSlide>
           </Swiper>
 

@@ -5,26 +5,28 @@ const OurEdge = () => {
   return (
     <section className="our_edge px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <div className="flex w-full gap-9">
+        <div className="flex lg:flex-nowrap flex-wrap w-full xl:gap-9 lg:gap-7 gap-9">
           {/* First child: 40% */}
-          <div className="w-2/5">
-            <h2 className="text-start text-dark">Our Difference is in the Details</h2>
-            <div className="my-12">
-              <div className="pb-7 border-b border-[#0E0E0E4D]">
+          <div className="w-full xl:w-2/5 lg:w-3/6">
+            <h2 className="text-start text-dark">
+              Our Difference is in the Details
+            </h2>
+            <div className="xl:my-12 lg:my-8 md:my-8 my-5">
+              <div className="xl:pb-7 lg:pb-4 md:pb-5 pb-3 border-b border-[#0E0E0E4D]">
                 <h4>Integrated Expertise</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   bridging environmental science, infrastructure, and community
                   engagement.
                 </p>
               </div>
-              <div className="py-7 border-b border-[#0E0E0E4D]">
+              <div className="xl:py-7 lg:py-4 md:py-5 py-3 border-b border-[#0E0E0E4D]">
                 <h4>Local Knowledge</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   deep understanding of regional, cultural, and regulatory
                   contexts.
                 </p>
               </div>
-              <div className="pt-7">
+              <div className="xl:pt-7 lg:pt-4 md:pt-5 pt-3">
                 <h4>Sustainable Impact</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   balancing today’s needs with tomorrow’s priorities.
@@ -35,7 +37,7 @@ const OurEdge = () => {
           </div>
 
           {/* Second child: 60% */}
-          <div className="w-3/5 flex justify-between gap-3">
+          <div className="w-full xl:w-3/5 lg:w-3/6 flex justify-between gap-3">
             <div className="w-[40%] flex flex-col gap-3">
               <Image
                 src="/assets/images/left-top.png"

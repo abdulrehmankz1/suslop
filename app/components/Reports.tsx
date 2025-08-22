@@ -24,9 +24,9 @@ const Reports = () => {
     <section className="reports_section px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading Row */}
-        <div className="grid grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 grid-cols-1 xl:gap-20 lg:gap-5 gap-5">
           <div>
-            <h2 className="text-dark w-1/2">Insights & Reports</h2>
+            <h2 className="text-dark xl:w-1/2 lg:w-3/4">Insights & Reports</h2>
           </div>
           <div>
             <p className="text-black">
@@ -192,10 +192,10 @@ const Reports = () => {
 
           {/* Custom Nav Buttons */}
           <div className="absolute bottom-22 right-4 flex gap-3 z-10">
-            <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursar-pointer">
+            <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
               <ArrowLeft size={35} className="text-[#AAAAAA]" />
             </button>
-            <button className="reports-next p-4 bg-black/70 rounded-full flex items-center justify-center cursar-pointer">
+            <button className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer">
               <ArrowRight size={35} className="text-white" />
             </button>
           </div>
