@@ -52,7 +52,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/about"
+                href="/about-us"
                 className="hover:text-white/70 transition pe-8"
               >
                 About Us
@@ -182,7 +182,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/about"
+                href="/about-us"
                 className="block px-2 py-2 hover:text-white/70 transition"
                 onClick={() => setMobileMenuOpen(false)}
               >

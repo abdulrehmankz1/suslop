@@ -86,7 +86,7 @@ const Services = () => {
 
   return (
     <section>
-      <div className="relative -mt-[200px] px-3 md:px-4 lg:px-5">
+      <div className="relative -mt-[200px]">
         {/* Yellow Shape */}
         <div className="hero_shape w-[80%] h-28 mx-auto"></div>
 

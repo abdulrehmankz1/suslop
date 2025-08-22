@@ -7,6 +7,7 @@ $color-dark: #0e0e0e;
 $white-fcfcfc: #fcfcfc;
 $color-green-deep: #114421;
 $gray-light: #f2f2f2;
+$color-dark-50: #0e0e0e80;
 
 // =========================
 // Font Utility Classes
@@ -72,6 +73,14 @@ $gray-light: #f2f2f2;
 
 .bg_gray_light {
   background-color: $gray-light;
+}
+
+.bg-dark-50 {
+  background-color: $color-dark-50;
+}
+
+.text-dark-50 {
+  color: $color-dark-50;
 }
 
 // =========================
@@ -154,6 +163,10 @@ body {
 
 .hero_section {
   background: url("/assets/images/hero-image.png") no-repeat top center / cover;
+}
+
+.hero_section_img {
+  background: url("/assets/images/hero-2.png") no-repeat top center / cover;
 }
 
 h1 {
@@ -258,14 +271,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */ linear-gradient(
-      to top,
+    /* Overlay dark fade from bottom */
+    linear-gradient(to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%
-    ),
+      rgba(0, 0, 0, 0) 60%),
     /* Subtle side fade */
-      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */ url("../../public/assets/images/footer-banner.png");
+    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */
+    url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -285,6 +298,11 @@ h4 {
 
 .updates_card .image_wrapper {
   height: 200px !important;
+}
+
+.our_story {
+  background-color: $gray-light;
+  border-radius: 100px 100px 0 0;
 }
 
 // Media Queries
@@ -508,5 +526,14 @@ h4 {
 
   .updates_card .image_wrapper {
     height: 200px !important;
+  }
+
+  .py-100 {
+    padding-block: 100px;
+  }
+
+  .text-50 {
+    font-size: 50px;
+    font-weight: 400;
   }
 }

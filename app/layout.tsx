@@ -4,6 +4,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "./styles/main.scss";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import CTA from "./components/CTA";
+
 // Google font: Albert Sans
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
@@ -75,7 +79,10 @@ export default function RootLayout({
       <body
         className={`${albertSans.variable} ${neueMontreal.variable} antialiased`}
       >
+        <Navbar />
         {children}
+        <CTA />
+        <Footer />
       </body>
     </html>
   );
