@@ -23,7 +23,7 @@ const ServiceCard = ({
         <ArrowUpRight size={40} color="#0E0E0E" className="relative top-3" />
       </div>
 
-      <div className="image_wrapper my-4">
+      <div className="image_wrapper my-4 overflow-hidden rounded-lg">
         <Image
           src={image}
           alt={title}
@@ -33,11 +33,12 @@ const ServiceCard = ({
           className="object-cover w-full! h-full!"
         />
       </div>
-
       <div>
         <h4>{title}</h4>
-        <p className="text-dark opacity-[0.7] mt-2">{description}</p>
-        <button className="btn secondary_btn w-full mt-6">Learn More</button>
+        <p className="text-dark opacity-[0.7] md:mt-2 mt-0">{description}</p>
+        <button className="btn secondary_btn w-full xl:mt-6 lg:mt-5 md:mt-4 mt-3">
+          Learn More
+        </button>
       </div>
     </div>
   );

@@ -5,11 +5,11 @@ const CTA = () => {
     <section className="relative z-10">
       <div className="container mx-auto">
         <div className="footer_banner p-10">
-          <div className="flex flex-col gap-28">
-            <div className="w-1/2 p-6">
+          <div className="flex flex-col xl:gap-28 lg:gap-20 gap-10">
+            <div className="xl:w-1/2 lg:w-2/3 w-full p-6">
               <h2 className="text-fefe">Let’s Build Something That Lasts</h2>
             </div>
-            <div className="w-1/2 p-6 flex flex-col self-end mt-auto">
+            <div className="xl:w-1/2 lg:w-2/3 w-full p-6 flex flex-col self-end mt-auto">
               <p className="text-fefe">
                 Whether you’re at the planning stage or ready to deliver, our
                 team is here to help turn your goals into measurable outcomes.

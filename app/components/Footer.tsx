@@ -6,17 +6,14 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-black  py-12 px-6 md:px-12 lg:px-20 rounded-t-[60px] pt-[320px] -mt-64">
+    <footer className="bg-black py-12 rounded-t-[60px] pt-[320px] -mt-64 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Top Section */}
         <div className="flex flex-wrap gap-12 justify-between">
           {/* Logo + About */}
           <div className="w-full md:w-2/3 lg:w-[35%]">
             {/* Logo */}
-            <Link
-              href="/"
-              className="gap-2 mb-4 logo_wrapper"
-            >
+            <Link href="/" className="gap-2 mb-4 logo_wrapper">
               <Image
                 src="/assets/images/logo.svg"
                 alt="Logo"
@@ -78,7 +75,7 @@ const Footer = () => {
           </div>
 
           {/* Links Section */}
-          <div className="w-full md:w-1/3 lg:w-[30%] flex flex-col flex-wrap sm:flex-row justify-between gap-10 text-fefe">
+          <div className="w-full md:w-2/3 xl:w-[30%] lg:w-[40%] flex flex-col flex-wrap sm:flex-row xl:justify-between lg:justify-around justify-between gap-10 text-fefe">
             {/* Links 1 */}
             <div>
               <h4 className="mb-6 md:mb-10 text-fefe">Our links</h4>

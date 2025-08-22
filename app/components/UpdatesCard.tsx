@@ -10,7 +10,7 @@ interface UpdatesCardProps {
 
 const UpdatesCard = ({ image, title, link }: UpdatesCardProps) => {
   return (
-    <div className="updates_card">
+    <Link href={link} className="updates_card">
       <div className="image_wrapper rounded-xl overflow-hidden">
         <Image
           src={image}
@@ -21,10 +21,10 @@ const UpdatesCard = ({ image, title, link }: UpdatesCardProps) => {
           className="object-cover w-full! h-full!"
         />
       </div>
-      <Link href={link} className="hover:underline mt-6 block">
+      <div className="hover:underline mt-6 block">
         <h4 className="text-dark">{title}</h4>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

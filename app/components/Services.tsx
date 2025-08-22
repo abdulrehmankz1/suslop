@@ -94,9 +94,9 @@ const Services = () => {
         <div className="hero_shape w-[90%] h-36 mx-auto -mt-1"></div>
 
         {/* Service Section */}
-        <div className="service_section w-full py-12 -mt-1">
+        <div className="service_section w-full md:py-12 py-10 -mt-1">
           <div className="container mx-auto relative">
-            <div className="w-[60%] mx-auto text-center mb-12">
+            <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
               <h2 className="mb-3 text-dark">
                 Holistic Solutions for Complex Challenges
               </h2>
@@ -127,14 +127,14 @@ const Services = () => {
                 className="services-swiper"
               >
                 {servicesData.map((service, i) => (
-                  <SwiperSlide key={i} className="mb-10">
+                  <SwiperSlide key={i} className="lg:mb-10 mb-4">
                     <ServiceCard {...service} />
                   </SwiperSlide>
                 ))}
               </Swiper>
 
               {/* Custom Pagination */}
-              <div className="flex justify-center mt-12 gap-2">
+              <div className="flex justify-center lg:mt-12 md:mt-8 mt-5 gap-2">
                 {Array.from({ length: totalBullets }).map((_, i) => (
                   <button
                     key={i}
