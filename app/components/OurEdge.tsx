@@ -13,21 +13,21 @@ const OurEdge = () => {
             </h2>
             <div className="xl:my-12 lg:my-8 md:my-8 my-5">
               <div className="xl:pb-7 lg:pb-4 md:pb-5 pb-3 border-b border-[#0E0E0E4D]">
-                <h4>Integrated Expertise</h4>
+                <h4 className="text-dark">Integrated Expertise</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   bridging environmental science, infrastructure, and community
                   engagement.
                 </p>
               </div>
               <div className="xl:py-7 lg:py-4 md:py-5 py-3 border-b border-[#0E0E0E4D]">
-                <h4>Local Knowledge</h4>
+                <h4 className="text-dark">Local Knowledge</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   deep understanding of regional, cultural, and regulatory
                   contexts.
                 </p>
               </div>
               <div className="xl:pt-7 lg:pt-4 md:pt-5 pt-3">
-                <h4>Sustainable Impact</h4>
+                <h4 className="text-dark">Sustainable Impact</h4>
                 <p className="text-dark opacity-[0.7] mt-2.5">
                   balancing today’s needs with tomorrow’s priorities.
                 </p>

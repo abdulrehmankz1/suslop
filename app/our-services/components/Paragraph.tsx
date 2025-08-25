@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react'
 
-const Introduction = () => {
+const Paragraph = () => {
   return (
-    <section className="px-3 md:px-4 lg:px-5">
-      <div className="container mx-auto py-100">
-        <h2 className="text-dark">Introduction</h2>
+      <section className="px-3 md:px-4 lg:px-5 py-100">
+      <div className="container mx-auto">
         <p className="text-dark-50 text-50 lg:mt-12 md:mt-8 mt-5">
           <span className="text-dark me-2">
             At Suslop, we believe sustainability isn’t just a goal — it’s a
@@ -20,7 +19,7 @@ const Introduction = () => {
         </p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Introduction;
+export default Paragraph
