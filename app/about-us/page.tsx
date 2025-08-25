@@ -2,6 +2,8 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import Introduction from "./components/Introduction";
 import OurStory from "../components/OurStory";
+import OurVision from "./components/OurVision";
+import OurTeam from "./components/OurTeam";
 
 const AboutUs = () => {
   return (
@@ -13,6 +15,8 @@ const AboutUs = () => {
       />
       <Introduction />
       <OurStory />
+      <OurVision />
+      <OurTeam />
     </>
   );
 };
