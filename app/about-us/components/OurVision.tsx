@@ -35,20 +35,25 @@ const valuesData = [
 
 const OurVision = () => {
   return (
-    <section>
-      <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-5">
-          <div className="bg-black p-12 rounded-[50px]">
-            <h2 className="text-white">Our Mission</h2>
-            <p className="text-white mt-3">
+    <section className="lg:py-12 py-10 px-3 md:px-4 lg:px-5">
+      <div className="container mx-auto px-4">
+        {/* Mission & Vision */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-black p-8 md:p-12 rounded-3xl">
+            <h2 className="text-white text-xl md:text-2xl font-bold">
+              Our Mission
+            </h2>
+            <p className="text-white mt-3 text-sm md:text-base leading-relaxed">
               To create innovative, practical, and culturally respectful
               solutions that enable communities and industries to prosper while
               protecting the natural environment.
             </p>
           </div>
-          <div className="bg-black p-12 rounded-[50px]">
-            <h2 className="text-white">Our Vision</h2>
-            <p className="text-white mt-3">
+          <div className="bg-black p-8 md:p-12 rounded-3xl">
+            <h2 className="text-white text-xl md:text-2xl font-bold">
+              Our Vision
+            </h2>
+            <p className="text-white mt-3 text-sm md:text-base leading-relaxed">
               A world where sustainable development is the standard — not the
               exception — and every project leaves a positive legacy for future
               generations.
@@ -56,13 +61,15 @@ const OurVision = () => {
           </div>
         </div>
 
-        {/* map data */}
-        <div className="bg-black p-12 rounded-[50px] mt-5">
-          <h2 className="text-white text-center mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-16">
+        {/* Values */}
+        <div className="bg-black p-8 md:p-12 rounded-3xl mt-6">
+          <h2 className="text-white text-center text-xl md:text-2xl font-bold mb-10 md:mb-12">
+            Our Values
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
             {valuesData.map((value, index) => (
-              <div key={index}>
-                <div className="p-4 w-fit rounded-full bg-white">
+              <div key={index} className="text-center sm:text-left">
+                <div className="p-4 w-fit mx-auto sm:mx-0 rounded-full bg-white">
                   <Image
                     src={value.icon}
                     alt={value.title}
@@ -71,8 +78,10 @@ const OurVision = () => {
                     draggable="false"
                   />
                 </div>
-                <h4 className="text-white mt-7">{value.title}</h4>
-                <p className="text-white mt-2 opacity-[0.7]">
+                <h4 className="text-white mt-6 text-lg font-semibold">
+                  {value.title}
+                </h4>
+                <p className="text-white mt-2 opacity-70 text-sm md:text-base leading-relaxed">
                   {value.description}
                 </p>
               </div>

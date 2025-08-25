@@ -270,14 +270,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */ linear-gradient(
-      to top,
+    /* Overlay dark fade from bottom */
+    linear-gradient(to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%
-    ),
+      rgba(0, 0, 0, 0) 60%),
     /* Subtle side fade */
-      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */ url("../../public/assets/images/footer-banner.png");
+    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */
+    url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -300,7 +300,7 @@ h4 {
 // }
 
 .ourTeamSlider {
-  height: 550px;
+  // height: 550px;
 
   .swiper-slide {
     width: auto !important;
@@ -345,10 +345,6 @@ h4 {
   box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 }
 
-.our_team {
-  margin-block: 100px;
-}
-
 // Media Queries
 
 /* Extra Small (Mobile < 640px) */
@@ -373,6 +369,23 @@ h4 {
 
   .latest_updates {
     margin: 50px 0 60px;
+  }
+
+  .text-50 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 50px;
+  }
+
+  .ourTeamSlider {
+    height: 500px;
+  }
+
+  .our_team {
+    margin-block: 50px;
   }
 }
 
@@ -402,6 +415,23 @@ h4 {
 
   .latest_updates {
     margin: 50px 0 60px;
+  }
+
+  .text-50 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 50px;
+  }
+
+  .ourTeamSlider {
+    height: 500px;
+  }
+
+  .our_team {
+    margin-block: 50px;
   }
 }
 
@@ -447,6 +477,23 @@ h4 {
   .latest_updates {
     margin: 60px 0 70px;
   }
+
+  .text-50 {
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 50px;
+  }
+
+  .ourTeamSlider {
+    height: 500px;
+  }
+
+  .our_team {
+    margin-block: 60px;
+  }
 }
 
 /* Large (1024px – 1279px) */
@@ -490,6 +537,23 @@ h4 {
 
   .latest_updates {
     margin: 80px 0 100px;
+  }
+
+  .text-50 {
+    font-size: 35px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 70px;
+  }
+
+  .ourTeamSlider {
+    height: 500px;
+  }
+
+  .our_team {
+    margin-block: 80px;
   }
 }
 
@@ -584,6 +648,23 @@ h4 {
 
   .slider_container .image_wrapper {
     height: 590px !important;
+  }
+
+  .text-50 {
+    font-size: 50px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 100px;
+  }
+
+  .ourTeamSlider {
+    height: 550px;
+  }
+
+  .our_team {
+    margin-block: 80px;
   }
 }
 
@@ -683,5 +764,13 @@ h4 {
 
   .slider_container .image_wrapper {
     height: 590px !important;
+  }
+
+  .ourTeamSlider {
+    height: 550px;
+  }
+
+  .our_team {
+    margin-block: 100px;
   }
 }
