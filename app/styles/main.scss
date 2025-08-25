@@ -294,6 +294,15 @@ h4 {
 .updates_card .image_wrapper {
   height: 200px !important;
 }
+.project_card{
+  background-color: $gray-light;
+  border-radius: 30px;
+border: 1px solid rgba(0, 0, 0, 0.10);
+box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
+}
+.project_card .image_wrapper {
+  height: 360px !important;
+}
 
 // .team_card .image_wrapper {
 //   height: 300px !important;

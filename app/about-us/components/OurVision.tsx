@@ -40,7 +40,7 @@ const OurVision = () => {
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-black p-8 md:p-12 rounded-3xl">
-            <h2 className="text-white text-xl md:text-2xl font-bold">
+            <h2 className="text-white">
               Our Mission
             </h2>
             <p className="text-white mt-3 text-sm md:text-base leading-relaxed">
@@ -50,7 +50,7 @@ const OurVision = () => {
             </p>
           </div>
           <div className="bg-black p-8 md:p-12 rounded-3xl">
-            <h2 className="text-white text-xl md:text-2xl font-bold">
+            <h2 className="text-white">
               Our Vision
             </h2>
             <p className="text-white mt-3 text-sm md:text-base leading-relaxed">
@@ -63,7 +63,7 @@ const OurVision = () => {
 
         {/* Values */}
         <div className="bg-black p-8 md:p-12 rounded-3xl mt-6">
-          <h2 className="text-white text-center text-xl md:text-2xl font-bold mb-10 md:mb-12">
+          <h2 className="text-white text-center mb-10 md:mb-12">
             Our Values
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">

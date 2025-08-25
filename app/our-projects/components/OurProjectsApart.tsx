@@ -21,20 +21,20 @@ const valuesData = [
       "Our academic rigor — paired with real-world experience — ensures each strategy is grounded, relevant, and actionable.",
   },
 ];
-const ChooseUs = () => {
+const OurProjectsApart = () => {
   return (
     <div>
       <section className="lg:py-12 py-10 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto px-4">
           {/* Values */}
-          <div className="bg-black p-8 md:p-12 rounded-3xl mt-6">
-            <h2 className="text-white text-center mb-10 md:mb-12">
-              Why Suslop?
+          <div className="p-8 md:p-12 mt-6">
+            <h2 className="text-center w-[50%] text-dark mb-10 md:mb-12 mx-auto">
+              What Sets Our Projects Apart{" "}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
               {valuesData.map((value, index) => (
                 <div key={index} className="text-center sm:text-left">
-                  <div className="p-4 w-fit mx-auto sm:mx-0 rounded-full bg-white">
+                  <div className="w-fit mx-auto sm:mx-0 rounded-full">
                     <Image
                       src={value.icon}
                       alt={value.title}
@@ -43,10 +43,10 @@ const ChooseUs = () => {
                       draggable="false"
                     />
                   </div>
-                  <h4 className="text-white mt-6 text-lg font-semibold">
+                  <h4 className="text-black mt-4 text-lg font-semibold">
                     {value.title}
                   </h4>
-                  <p className="text-white mt-2 opacity-70 text-sm md:text-base leading-relaxed">
+                  <p className="text-black mt-2 opacity-70 text-sm md:text-base leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -59,4 +59,4 @@ const ChooseUs = () => {
   );
 };
 
-export default ChooseUs;
+export default OurProjectsApart;
