@@ -22,7 +22,7 @@ const HeroSection = ({
       ? // hero_section styling
         "w-full md:w-[90%] xl:w-[70%] xl:pt-[290px] xl:pb-[350px] lg:pt-[100px] lg:pb-[150px] md:pt-0 md:pb-[100px]"
       : // hero_section_img styling
-        "w-full md:w-[90%] xl:w-[70%] xl:py-[200px] lg:py-[150px] md:pt-[120px] md:pb-[100px] pt-26 pb-20";
+        "w-full md:w-[90%] xl:w-[60%] xl:py-[200px] lg:py-[150px] md:pt-[120px] md:pb-[100px] pt-26 pb-20";
 
   return (
     <section
