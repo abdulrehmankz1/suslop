@@ -270,14 +270,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */
-    linear-gradient(to top,
+    /* Overlay dark fade from bottom */ linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%),
+      rgba(0, 0, 0, 0) 60%
+    ),
     /* Subtle side fade */
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */
-    url("../../public/assets/images/footer-banner.png");
+      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */ url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -294,12 +294,14 @@ h4 {
 .updates_card .image_wrapper {
   height: 200px !important;
 }
-.project_card{
+
+.project_card {
   background-color: $gray-light;
   border-radius: 30px;
-border: 1px solid rgba(0, 0, 0, 0.10);
-box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 }
+
 .project_card .image_wrapper {
   height: 360px !important;
 }
@@ -307,6 +309,15 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 // .team_card .image_wrapper {
 //   height: 300px !important;
 // }
+
+.detail_swipper .video_wrapper {
+  height: 550px !important;
+}
+
+.custom-nav-btn {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
 
 .ourTeamSlider {
   // height: 550px;
@@ -396,6 +407,13 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
   .our_team {
     margin-block: 50px;
   }
+  .detail_page .image_wrapper {
+    height: 400px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 300px !important;
+  }
 }
 
 /* Small (640px – 767px) */
@@ -441,6 +459,14 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 
   .our_team {
     margin-block: 50px;
+  }
+
+  .detail_page .image_wrapper {
+    height: 400px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 300px !important;
   }
 }
 
@@ -503,6 +529,14 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
   .our_team {
     margin-block: 60px;
   }
+
+  .detail_page .image_wrapper {
+    height: 400px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 300px !important;
+  }
 }
 
 /* Large (1024px – 1279px) */
@@ -563,6 +597,14 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 
   .our_team {
     margin-block: 80px;
+  }
+
+  .detail_page .image_wrapper {
+    height: 600px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 350px !important;
   }
 }
 
@@ -675,6 +717,14 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
   .our_team {
     margin-block: 80px;
   }
+
+  .detail_page .image_wrapper {
+    height: 600px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 400px !important;
+  }
 }
 
 /* 2XL (1536px and above) */
@@ -781,5 +831,13 @@ box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 
   .our_team {
     margin-block: 100px;
+  }
+
+  .detail_page .image_wrapper {
+    height: 600px;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 400px !important;
   }
 }

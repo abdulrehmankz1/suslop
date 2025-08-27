@@ -13,7 +13,6 @@ const OurProjects = () => {
 Our projects demonstrate how collaborative partnerships, rigorous research, and innovative solutions create meaningful, measurable change for communities, industries, and the environment."
         className="rounded-b-4xl"
       />
-
       <OurStory
         variant="left-text"
         heading="Our Approach to Projects"
