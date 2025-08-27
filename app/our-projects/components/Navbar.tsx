@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on outside click
@@ -46,14 +47,17 @@ const Navbar = () => {
         <nav className="hidden lg:flex items-center text-lg relative text-dark">
           <ul className="flex items-center">
             <li>
-              <Link href="/" className=" transition pe-8">
+              <Link
+                href="/"
+                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href="/about-us"
-                className=" transition pe-8"
+                className="transition pe-8 hover:text-primary active:text-primary font-medium"
               >
                 About Us
               </Link>
@@ -71,37 +75,36 @@ const Navbar = () => {
                     openDropdown === "services" ? null : "services"
                   )
                 }
-                className=" transition flex items-center gap-1"
+                className="cursor-pointer transition flex items-center gap-1 hover:text-primary active:text-primary font-medium"
               >
                 Services <ChevronDown size={18} />
               </button>
-              {openDropdown === "services" && (
-  <ul className="absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl">                  <li>
+              <div
+                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
+                  openDropdown === "services"
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 -translate-y-2 invisible"
+                }`}
+              >
+                <ul>
+                  <li>
                     <Link
-                      href="/services/web"
-                      className="block px-4 py-2 hover:bg-gray-200 hover:rounded-md transition"
+                      href="/our-services"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Web Development
+                      Our Services
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/services/consulting"
-                      className="block px-4 py-2 hover:bg-gray-200 transition"
+                      href="/our-projects"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/strategy"
-                      className="block px-4 py-2 hover:bg-gray-200 hover:rounded-md transition"
-                    >
-                      Strategy
+                      Our Projects
                     </Link>
                   </li>
                 </ul>
-              )}
+              </div>
             </li>
 
             {/* Insights Dropdown */}
@@ -116,38 +119,44 @@ const Navbar = () => {
                     openDropdown === "insights" ? null : "insights"
                   )
                 }
-                className=" transition flex items-center gap-1"
+                className="cursor-pointer transition flex items-center gap-1 hover:text-primary active:text-primary font-medium"
               >
                 Insights <ChevronDown size={18} />
               </button>
-              {openDropdown === "insights" && (
-                <ul className="absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl">
+              <div
+                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
+                  openDropdown === "insights"
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 -translate-y-2 invisible"
+                }`}
+              >
+                <ul>
                   <li>
                     <Link
-                      href="/insights/blog"
-                      className="block px-4 py-2 hover:bg-gray-200 hover:rounded-md transition"
+                      href="/our-insights"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Blog
+                      Insights
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blog-perspectives"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
+                    >
+                      Blogs
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/insights/case-studies"
-                      className="block px-4 py-2 hover:bg-gray-200 transition"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
                       Case Studies
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/insights/reports"
-                      className="block px-4 py-2 hover:bg-gray-200 hover:rounded-md transition"
-                    >
-                      Reports
-                    </Link>
-                  </li>
                 </ul>
-              )}
+              </div>
             </li>
           </ul>
         </nav>
@@ -168,12 +177,12 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden bg-black/95 backdrop-blur border-t border-white/10">
+        <nav className="lg:hidden bg-gray-100 shadow-2xl backdrop-blur border-t border-white/10">
           <ul className="flex flex-col text-lg p-4 space-y-2">
             <li>
               <Link
                 href="/"
-                className="block px-2 py-2  transition"
+                className="block px-2 py-2 transition text-dark active:text-black font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
@@ -182,84 +191,94 @@ const Navbar = () => {
             <li>
               <Link
                 href="/about-us"
-                className="block px-2 py-2  transition"
+                className="block px-2 py-2 transition text-dark active:text-black font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Us
               </Link>
             </li>
+
+            {/* Mobile Dropdown - Services */}
             <li>
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer px-2 py-2 ">
-                  Services <ChevronDown size={18} />
-                </summary>
-                <ul className="pl-4 mt-1 space-y-1">
+              <button
+                onClick={() =>
+                  setMobileDropdown(
+                    mobileDropdown === "services" ? null : "services"
+                  )
+                }
+                className="flex items-center justify-between w-full px-2 py-2 text-dark hover:text-primary active:text-primary font-medium"
+              >
+                Services <ChevronDown size={18} />
+              </button>
+              {mobileDropdown === "services" && (
+                <ul className="pl-4 mt-1 space-y-1 text-dark">
                   <li>
                     <Link
-                      href="/services/web"
-                      className="block py-1 "
+                      href="/our-services"
+                      className="block py-1 hover:text-primary active:text-black"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Web Development
+                      Our Services
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/services/consulting"
-                      className="block py-1 "
+                      href="/our-projects"
+                      className="block py-1 hover:text-primary active:text-primary"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/strategy"
-                      className="block py-1 "
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Strategy
+                      Our Projects
                     </Link>
                   </li>
                 </ul>
-              </details>
+              )}
             </li>
+
+            {/* Mobile Dropdown - Insights */}
             <li>
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer px-2 py-2 ">
-                  Insights <ChevronDown size={18} />
-                </summary>
-                <ul className="pl-4 mt-1 space-y-1">
+              <button
+                onClick={() =>
+                  setMobileDropdown(
+                    mobileDropdown === "insights" ? null : "insights"
+                  )
+                }
+                className="flex items-center justify-between w-full px-2 py-2 text-dark hover:text-primary active:text-primary font-medium"
+              >
+                Insights <ChevronDown size={18} />
+              </button>
+              {mobileDropdown === "insights" && (
+                <ul className="pl-4 mt-1 space-y-1 text-dark">
                   <li>
                     <Link
-                      href="/insights/blog"
-                      className="block py-1 "
+                      href="/our-insights"
+                      className="block py-1 hover:text-primary active:text-primary"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Blog
+                      Insights
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blog-perspectives"
+                      className="block py-1 hover:text-primary active:text-primary"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Blogs
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/insights/case-studies"
-                      className="block py-1 "
+                      className="block py-1 hover:text-primary active:text-primary"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Case Studies
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/insights/reports"
-                      className="block py-1 "
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Reports
-                    </Link>
-                  </li>
                 </ul>
-              </details>
+              )}
             </li>
+
             <li>
               <button
                 className="btn secondary_btn_outline w-full mt-2"

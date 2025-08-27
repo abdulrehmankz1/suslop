@@ -4,51 +4,59 @@ import React from "react";
 const blogData = [
   {
     title: "Bridging the Gap Between Policy and Practice",
+    slug: "bridging-the-gap-between-policy-and-practice",
     description:
       "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
   },
   {
     title: "Building Resilient Communities",
+    slug: "building-resilient-communities",
     description:
       "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
   },
   {
     title: "The Future of Renewable Energy",
+    slug: "the-future-of-renewable-energy",
     description:
       "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
   },
   {
-    title: "Sustainable Land Use Planning",
+    title: "Building Resilient Communities",
+    slug: "building-resilient-communities",
     description:
-      "How land-use strategies can align with indigenous knowledge to create long-term value.",
+      "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
   },
   {
-    title: "Climate-Smart Infrastructure",
+    title: "The Future of Renewable Energy",
+    slug: "the-future-of-renewable-energy",
     description:
-      "Practical insights into designing infrastructure that withstands extreme climate events.",
+      "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
   },
-    {
-    title: "Climate-Smart Infrastructure",
+  {
+    title: "Building Resilient Communities",
+    slug: "building-resilient-communities",
     description:
-      "Practical insights into designing infrastructure that withstands extreme climate events.",
+      "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
     image: "/assets/images/service-card.png",
     linkText: "Read Article",
-    linkHref: "#",
+  },
+  {
+    title: "The Future of Renewable Energy",
+    slug: "the-future-of-renewable-energy",
+    description:
+      "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
+    image: "/assets/images/service-card.png",
+    linkText: "Read Article",
   },
 ];
 
@@ -63,8 +71,8 @@ const Perspectives = () => {
           </div>
           <div className="xl:col-span-4">
             <p className="text-black">
-              Our experts share perspectives on the latest sustainability challenges,
-              project innovations, and community-driven solutions.
+              Our experts share perspectives on the latest sustainability
+              challenges, project innovations, and community-driven solutions.
             </p>
           </div>
         </div>
@@ -78,7 +86,7 @@ const Perspectives = () => {
               description={blog.description}
               image={blog.image}
               linkText={blog.linkText}
-              linkHref={blog.linkHref}
+              linkHref={`/blog-perspectives/${blog.slug}`}
             />
           ))}
         </div>

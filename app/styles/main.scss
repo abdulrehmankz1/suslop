@@ -407,11 +407,20 @@ h4 {
   .our_team {
     margin-block: 50px;
   }
+
   .detail_page .image_wrapper {
     height: 400px;
   }
 
   .detail_swipper .image_wrapper {
+    height: 300px !important;
+  }
+
+  .blog_detail_page .image_wrapper {
+    height: 200px;
+  }
+
+  .blog_post_image .image_wrapper {
     height: 300px !important;
   }
 }
@@ -466,6 +475,14 @@ h4 {
   }
 
   .detail_swipper .image_wrapper {
+    height: 300px !important;
+  }
+
+  .blog_detail_page .image_wrapper {
+    height: 200px;
+  }
+
+  .blog_post_image .image_wrapper {
     height: 300px !important;
   }
 }
@@ -537,6 +554,14 @@ h4 {
   .detail_swipper .image_wrapper {
     height: 300px !important;
   }
+
+  .blog_detail_page .image_wrapper {
+    height: 300px;
+  }
+
+  .blog_post_image .image_wrapper {
+    height: 400px !important;
+  }
 }
 
 /* Large (1024px – 1279px) */
@@ -605,6 +630,14 @@ h4 {
 
   .detail_swipper .image_wrapper {
     height: 350px !important;
+  }
+
+  .blog_detail_page .image_wrapper {
+    height: 500px;
+  }
+
+  .blog_post_image .image_wrapper {
+    height: 400px !important;
   }
 }
 
@@ -725,6 +758,14 @@ h4 {
   .detail_swipper .image_wrapper {
     height: 400px !important;
   }
+
+  .blog_detail_page .image_wrapper {
+    height: 700px;
+  }
+
+  .blog_post_image .image_wrapper {
+    height: 500px !important;
+  }
 }
 
 /* 2XL (1536px and above) */
@@ -839,5 +880,13 @@ h4 {
 
   .detail_swipper .image_wrapper {
     height: 400px !important;
+  }
+
+  .blog_detail_page .image_wrapper {
+    height: 700px;
+  }
+
+  .blog_post_image .image_wrapper {
+    height: 500px !important;
   }
 }

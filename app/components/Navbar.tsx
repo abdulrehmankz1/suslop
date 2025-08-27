@@ -71,38 +71,37 @@ const Navbar = () => {
                     openDropdown === "services" ? null : "services"
                   )
                 }
-                className="hover:text-white/70 transition flex items-center gap-1"
+                className="hover:text-white/70 transition flex items-center gap-1 cursor-pointer"
               >
                 Services <ChevronDown size={18} />
               </button>
-              {openDropdown === "services" && (
-                <ul className="absolute top-5 mt-2 w-48 text-base rounded-md bg-black/90 backdrop-blur border border-white/10 shadow-lg">
+
+              <div
+                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
+                  openDropdown === "services"
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 -translate-y-2 invisible"
+                }`}
+              >
+                <ul>
                   <li>
                     <Link
-                      href="/services/web"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
+                      href="/our-services"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Web Development
+                      Our Services
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/services/consulting"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
+                      href="/our-projects"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/strategy"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
-                    >
-                      Strategy
+                      Our Projects
                     </Link>
                   </li>
                 </ul>
-              )}
+              </div>
             </li>
 
             {/* Insights Dropdown */}
@@ -117,38 +116,45 @@ const Navbar = () => {
                     openDropdown === "insights" ? null : "insights"
                   )
                 }
-                className="hover:text-white/70 transition flex items-center gap-1"
+                className="hover:text-white/70 transition flex items-center gap-1 cursor-pointer"
               >
                 Insights <ChevronDown size={18} />
               </button>
-              {openDropdown === "insights" && (
-                <ul className="absolute top-5 mt-2 w-48 text-base rounded-md bg-black/90 backdrop-blur border border-white/10 shadow-lg">
+
+              <div
+                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
+                  openDropdown === "insights"
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 -translate-y-2 invisible"
+                }`}
+              >
+                <ul>
                   <li>
                     <Link
-                      href="/insights/blog"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
+                      href="/our-insights"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
-                      Blog
+                      Insights
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blog-perspectives"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
+                    >
+                      Blogs
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/insights/case-studies"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
+                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
                     >
                       Case Studies
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/insights/reports"
-                      className="block px-4 py-2 hover:bg-white/10 transition"
-                    >
-                      Reports
-                    </Link>
-                  </li>
                 </ul>
-              )}
+              </div>
             </li>
           </ul>
         </nav>
