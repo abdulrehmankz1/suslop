@@ -92,7 +92,7 @@ const Blog = () => {
 
   return (
     <section className="px-3 md:px-4 lg:px-5">
-      <div className="w-full py-12 -mt-1 bg_gray_light rounded-t-[100px]">
+      <div className="w-full py-12 -mt-1 bg_gray_light lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px]">
         <div className="container mx-auto relative">
           <div className="xl:w-[60%] lg:w-[75%] w-[80%] mx-auto text-center lg:mb-12 mb-10">
             <h2 className="mb-3 text-dark">Blog & Perspectives</h2>

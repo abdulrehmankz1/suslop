@@ -30,7 +30,7 @@ const BlogCard = ({
         />
       </div>
       <div>
-        <h4>{title}</h4>
+        <h4 className="text-dark">{title}</h4>
         <p className="text-dark opacity-[0.7] mt-2 mb-4">{description}</p>
         <Link href={linkHref}>
           <div className="flex gap-9 items-center">

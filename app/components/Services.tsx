@@ -86,15 +86,15 @@ const Services = () => {
 
   return (
     <section>
-      <div className="relative -mt-[200px]">
+      <div className="relative md:-mt-[200px] -mt-[120px]">
         {/* Yellow Shape */}
-        <div className="hero_shape w-[80%] h-28 mx-auto"></div>
+        <div className="hero_shape w-[80%] md:h-28 h-20 mx-auto"></div>
 
         {/* Red Shape */}
         <div className="hero_shape w-[90%] h-36 mx-auto -mt-1"></div>
 
         {/* Service Section */}
-        <div className="service_section w-full md:py-12 py-10 -mt-1">
+        <div className="service_section w-full md:py-12 py-10 -mt-1 px-3 md:px-4 lg:px-5">
           <div className="container mx-auto relative">
             <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
               <h2 className="mb-3 text-dark">

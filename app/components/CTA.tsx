@@ -1,24 +1,44 @@
 import React from "react";
 
-const CTA = () => {
+interface CTAProps {
+  heading: string;
+  description: string;
+  primaryBtnText: string;
+  primaryBtnLink: string;
+  secondaryBtnText?: string;
+  secondaryBtnLink?: string;
+}
+
+const CTA = ({
+  heading,
+  description,
+  primaryBtnText,
+  primaryBtnLink,
+  secondaryBtnText,
+  secondaryBtnLink,
+}: CTAProps) => {
   return (
-    <section className="relative z-10">
+    <section className="relative z-10 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <div className="footer_banner p-10">
-          <div className="flex flex-col xl:gap-28 lg:gap-20 gap-10">
-            <div className="xl:w-1/2 lg:w-2/3 w-full p-6">
-              <h2 className="text-fefe">Let’s Build Something That Lasts</h2>
+        <div className="footer_banner md:p-10 p-5">
+          <div className="flex flex-col xl:gap-28 lg:gap-20 gap-0">
+            {/* Heading */}
+            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-3">
+              <h2 className="text-fefe">{heading}</h2>
             </div>
-            <div className="xl:w-1/2 lg:w-2/3 w-full p-6 flex flex-col self-end mt-auto">
-              <p className="text-fefe">
-                Whether you’re at the planning stage or ready to deliver, our
-                team is here to help turn your goals into measurable outcomes.
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <button className="btn primary_btn">Contact Us</button>
-                <button className="btn primary_btn_outline">
-                  Schedule a Consultation
-                </button>
+
+            {/* Description + Buttons */}
+            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-3 flex flex-col self-end mt-auto">
+              <p className="text-fefe">{description}</p>
+              <div className="mt-6 flex items-center flex-wrap gap-3">
+                <a href={primaryBtnLink} className="btn primary_btn">
+                  {primaryBtnText}
+                </a>
+                {secondaryBtnText && secondaryBtnLink && (
+                  <a href={secondaryBtnLink} className="btn primary_btn_outline">
+                    {secondaryBtnText}
+                  </a>
+                )}
               </div>
             </div>
           </div>
