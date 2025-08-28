@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Suslop - Modern Business Website
 
-## Getting Started
+A comprehensive Next.js business website featuring multiple sections including About Us, Services, Projects, Insights, and Blog Perspectives.
 
-First, run the development server:
+## 🚀 Technology Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 15.4.6 (App Router)
+- **Language**: TypeScript
+- **Styling**: SCSS + Tailwind CSS 4
+- **Icons**: Lucide React
+- **Sliders**: Swiper
+- **Fonts**: Neue Montreal
+
+## 📁 Project Structure
+
+```
+suslop/
+├── app/                    # Next.js App Router pages
+│   ├── about-us/          # About Us section
+│   ├── blog-perspectives/ # Blog and perspectives section
+│   ├── our-insights/      # Insights and reports
+│   ├── our-projects/      # Projects and case studies
+│   ├── our-services/      # Services offered
+│   └── components/        # Reusable components
+├── fonts/                 # Custom fonts (Neue Montreal)
+├── public/               # Static assets
+│   └── assets/images/    # Images and icons
+└── styles/               # SCSS stylesheets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/abdulrehmankz1/suslop.git
+   cd suslop
+   ```
 
-## Learn More
+2. **Install dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the development server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## Deploy on Vercel
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📋 Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - Start development server
+- `npm run dev:turbopack` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🎨 Key Features
+
+### Pages & Sections
+
+- **Home Page** - Main landing page with hero section and overview
+- **About Us** - Company introduction, team, and vision
+- **Our Services** - Service offerings and details
+- **Our Projects** - Case studies and project portfolio
+- **Our Insights** - Industry insights and reports
+- **Blog Perspectives** - Blog posts and articles
+
+### Components
+
+- **Navigation** - Responsive navbar with navigation
+- **Hero Sections** - Engaging hero components for each page
+- **Cards** - Reusable card components for content display
+- **Sliders** - Interactive sliders using Swiper
+- **Footer** - Comprehensive footer with links and information
+
+### Styling
+
+- Custom SCSS styles with modular architecture
+- Tailwind CSS for utility classes
+- Responsive design for all screen sizes
+- Custom Neue Montreal font family
+
+## 🎯 Development
+
+This project uses the latest Next.js App Router with TypeScript for type safety. The styling is a combination of SCSS modules and Tailwind CSS utility classes.
+
+### Key Dependencies
+
+- `next` - React framework
+- `react` & `react-dom` - React library
+- `sass` - SCSS preprocessing
+- `tailwindcss` - Utility-first CSS framework
+- `lucide-react` - Icon library
+- `swiper` - Touch slider component
+
+## 📦 Build & Deploy
+
+To build the application for production:
+
+```bash
+npm run build
+npm run start
+```
+
+The application can be deployed to platforms like Vercel, Netlify, or any Node.js hosting service that supports Next.js.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is proprietary software. All rights reserved.
