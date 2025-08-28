@@ -40,11 +40,20 @@ const Reports = () => {
 
         {/* Swiper Slider */}
         <div className="mt-12 relative reports_swiper">
+          <div className="lg:hidden block">
+            <div className="flex gap-3 mb-5 justify-end">
+              <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowLeft size={35} className="text-[#AAAAAA]" />
+              </button>
+              <button className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowRight size={35} className="text-white" />
+              </button>
+            </div>
+          </div>
           <Swiper
             modules={[Navigation]}
-            spaceBetween={0}
             loop={true}
-            slidesPerView={"auto"}
+            spaceBetween={0}
             centeredSlides={false}
             navigation={{
               nextEl: ".reports-next",
@@ -52,6 +61,14 @@ const Reports = () => {
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="reports-swiper"
+            breakpoints={{
+              0: {
+                slidesPerView: 1, // Mobile: full width
+              },
+              768: {
+                slidesPerView: "auto", // Tablet & desktop
+              },
+            }}
           >
             {/* Slide 1 */}
             <SwiperSlide>
@@ -191,13 +208,15 @@ const Reports = () => {
           </Swiper>
 
           {/* Custom Nav Buttons */}
-          <div className="absolute bottom-22 right-4 flex gap-3 z-10">
-            <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
-              <ArrowLeft size={35} className="text-[#AAAAAA]" />
-            </button>
-            <button className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer">
-              <ArrowRight size={35} className="text-white" />
-            </button>
+          <div className="lg:block hidden">
+            <div className="absolute bottom-22 right-4 flex gap-3 z-10 ">
+              <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowLeft size={35} className="text-[#AAAAAA]" />
+              </button>
+              <button className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowRight size={35} className="text-white" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

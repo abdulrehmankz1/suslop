@@ -6,7 +6,6 @@ import "./styles/main.scss";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import CTA from "./components/CTA";
 
 // Google font: Albert Sans
 const albertSans = Albert_Sans({
@@ -81,7 +80,6 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <CTA />
         <Footer />
       </body>
     </html>
