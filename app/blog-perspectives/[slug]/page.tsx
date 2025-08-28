@@ -1,3 +1,4 @@
+import CTA from "@/app/components/CTA";
 import Navbar from "@/app/our-projects/components/Navbar";
 import Image from "next/image";
 
@@ -159,6 +160,14 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
+      <CTA
+        heading="Let’s Build Something That Lasts"
+        description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Schedule a Consultation"
+        secondaryBtnLink="/consultation"
+      />
     </section>
   );
 };
