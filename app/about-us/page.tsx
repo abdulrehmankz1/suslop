@@ -4,6 +4,7 @@ import Introduction from "./components/Introduction";
 import OurStory from "../components/OurStory";
 import OurVision from "./components/OurVision";
 import OurTeam from "./components/OurTeam";
+import CTA from "../components/CTA";
 
 const AboutUs = () => {
   return (
@@ -24,6 +25,14 @@ const AboutUs = () => {
       />
       <OurVision />
       <OurTeam />
+      <CTA
+        heading="Let’s Build Something That Lasts"
+        description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Schedule a Consultation"
+        secondaryBtnLink="/consultation"
+      />
     </>
   );
 };

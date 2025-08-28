@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import Imsights from "./components/Imsights";
 import InsightsReports from "./components/InsightsReports";
+import CTA from "../components/CTA";
 
 const OurInsights = () => {
   return (
@@ -14,6 +15,14 @@ Our Insights & Reports bring together research, industry trends, and real-world 
       />
       <Imsights />
       <InsightsReports />
+      <CTA
+        heading="Explore how we can bring your project vision to life."
+        description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Schedule a Consultation"
+        secondaryBtnLink="/consultation"
+      />
     </>
   );
 };

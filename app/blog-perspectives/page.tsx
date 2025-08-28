@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "./components/HeroSection";
 import FindHere from "./components/FindHere";
 import Perspectives from "./components/Perspectives";
+import CTA from "../components/CTA";
 
 const BlogPerspectives = () => {
   return (
@@ -14,6 +15,14 @@ Our Insights & Reports bring together research, industry trends, and real-world 
       />
       <FindHere />
       <Perspectives />
+      <CTA
+        heading="Let’s Build Something That Lasts"
+        description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Schedule a Consultation"
+        secondaryBtnLink="/consultation"
+      />
     </>
   );
 };
