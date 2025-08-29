@@ -27,26 +27,26 @@ const CaseStudyCard = ({
   };
 
   return (
-    <div className="p-5 flex flex-col md:flex-row items-start md:items-center project_card gap-6 mb-5">
+    <div className="p-5 flex flex-col lg:flex-row items-start project_card gap-6 mb-5">
       {/* Image block */}
-      <div className="w-full md:w-[30%]">
+      <div className="w-full lg:w-[30%]">
         <Image
           src={image}
           alt={title}
           width={500}
           height={360}
           draggable={false}
-          className="w-full h-auto object-contain rounded-lg"
+          className="w-full rounded-lg object-cover md:max-h-[250px] lg:max-h-none"
         />
       </div>
 
       {/* Content block */}
-      <div className="w-full md:w-[70%]">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
-          <h4 className="text-dark md:w-[50%]">{title}</h4>
+      <div className="w-full lg:w-[70%]">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-4">
+          <h4 className="text-dark lg:w-[50%]">{title}</h4>
 
           {/* Location */}
-          <div className="flex items-start gap-2 w-full md:w-[210px]">
+          <div className="flex items-start gap-2 w-full lg:w-[210px]">
             <Image
               src="/assets/images/location.svg"
               alt="Project Location"

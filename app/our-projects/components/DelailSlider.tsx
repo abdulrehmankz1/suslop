@@ -35,13 +35,18 @@ function DetailSlider() {
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={20}
-          slidesPerView={3}
+          slidesPerView={3} // default for desktop
+          breakpoints={{
+            0: { slidesPerView: 1 }, // Mobile
+            640: { slidesPerView: 3 }, // Tablet
+            1024: { slidesPerView: 3 }, // Laptop/Desktop
+          }}
           navigation={{
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
           autoplay={{
-            delay: 3000, // 3 sec delay
+            delay: 3000,
             disableOnInteraction: false,
           }}
           loop

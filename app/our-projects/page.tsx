@@ -15,6 +15,7 @@ Our projects demonstrate how collaborative partnerships, rigorous research, and 
         className="rounded-b-4xl"
       />
       <OurStory
+        styleVariant="our_story_none"
         variant="left-text"
         heading="Our Approach to Projects"
         paragraphs={[

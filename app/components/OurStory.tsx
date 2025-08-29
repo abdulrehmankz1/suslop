@@ -5,6 +5,7 @@ interface OurStoryProps {
   heading: string;
   paragraphs: string[];
   buttonText?: string;
+  styleVariant: "our_story" | "our_story_none";
 }
 
 const OurStory = ({
@@ -12,6 +13,7 @@ const OurStory = ({
   heading,
   paragraphs,
   buttonText = "Learn More",
+  styleVariant, // ✅ required class
 }: OurStoryProps) => {
   // Text block
   const textContent = (
@@ -43,41 +45,45 @@ const OurStory = ({
       }`}
     >
       {/* Big image (60%) */}
-      <div className="sm:w-[60%] w-full">
+      <div className="sm:w-[60%] w-full relative aspect-[460/535]">
         <Image
           src="/assets/images/right.png"
           alt="Main"
-          width={460}
-          height={535}
-          className="w-full h-auto rounded-lg"
-          draggable="false"
+          fill
+          sizes="(max-width: 768px) 100vw, 60vw"
+          className="object-cover rounded-lg"
+          draggable={false}
         />
       </div>
 
       {/* Stacked images (40%) */}
       <div className="sm:w-[40%] w-full flex flex-row sm:flex-col gap-3 mt-3 sm:mt-0">
-        <Image
-          src="/assets/images/left-top.png"
-          alt="Top"
-          width={320}
-          height={245}
-          className="w-full h-auto rounded-lg"
-          draggable="false"
-        />
-        <Image
-          src="/assets/images/left-bottom.png"
-          alt="Bottom"
-          width={320}
-          height={245}
-          className="w-full h-auto rounded-lg"
-          draggable="false"
-        />
+        <div className="relative w-full aspect-[320/245]">
+          <Image
+            src="/assets/images/left-top.png"
+            alt="Top"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="object-cover rounded-lg"
+            draggable={false}
+          />
+        </div>
+        <div className="relative w-full aspect-[320/245]">
+          <Image
+            src="/assets/images/left-bottom.png"
+            alt="Bottom"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="object-cover rounded-lg"
+            draggable={false}
+          />
+        </div>
       </div>
     </div>
   );
 
   return (
-    <section className="our_story py-12">
+    <section className={`${styleVariant} py-12 px-3 md:px-4 lg:px-5`}>
       <div className="container mx-auto px-4">
         <div
           className={`flex w-full gap-9 ${

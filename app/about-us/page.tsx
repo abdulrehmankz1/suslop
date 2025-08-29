@@ -18,6 +18,7 @@ const AboutUs = () => {
       <OurStory
         variant="left-images"
         heading="Our Story"
+        styleVariant="our_story"
         paragraphs={[
           "Founded with the vision of transforming complex challenges into opportunities for growth, Suslop has evolved into a trusted partner for sustainable development.",
           "Our multidisciplinary team brings together expertise in policy, engineering, community engagement, and environmental science — enabling us to deliver projects that are as resilient as they are impactful.",

@@ -47,7 +47,7 @@ const Page = async ({ params }: CaseStudyPageProps) => {
   if (!study) return notFound();
 
   return (
-    <section className="px-4 py-10">
+    <section className="py-10 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         <Navbar />
         <div className="detail_page">
@@ -146,7 +146,7 @@ const Page = async ({ params }: CaseStudyPageProps) => {
                   measurable on-the-ground impact.
                 </p>
               </div>
-              <div className="mt-10">
+              <div className="my-10">
                 <h4 className="text-dark">
                   Bridging the Gap Between Policy and Practice
                 </h4>

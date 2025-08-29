@@ -2,7 +2,7 @@ import CaseStudyCard from "./CaseStudyCard";
 
 const CaseStudies = () => {
   return (
-    <section>
+    <section className="px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         <CaseStudyCard
           image="/assets/images/project-image.png"

@@ -28,7 +28,7 @@ const OurProjectsApart = () => {
         <div className="container mx-auto px-4">
           {/* Values */}
           <div className="p-8 md:p-12 mt-6">
-            <h2 className="text-center w-[50%] text-dark mb-10 md:mb-12 mx-auto">
+            <h2 className="text-center xl:w-[50%] lg:w-[70%] w-full text-dark mb-10 md:mb-12 mx-auto">
               What Sets Our Projects Apart{" "}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
