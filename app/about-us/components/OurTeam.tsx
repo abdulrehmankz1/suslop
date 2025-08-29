@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -19,7 +19,7 @@ const teamData = [
     name: "Ariane Heisey",
     role: "Senior Consultant",
     description:
-      "Ariane Heisey is a recognized leader in environmental assessment in Ontario with more than 33 years of government, academic and professional experience. She holds a master’s degree in Environmental Studies (Environmental Assessment and Planning) from York University.   Her focus has been on environmental assessment and impact assessment processes in Ontario; policy development and implementation; Indigenous engagement and consultation; project management and delivery; Ontario and Canada’s environmental legislative frameworks; and government decision-making processes.",
+      "Ariane Heisey is a recognized leader in environmental assessment in Ontario with more than 33 years of government, academic and professional experience. She holds a master’s degree in Environmental Studies (Environmental Assessment and Planning) from York University. Her focus has been on environmental assessment and impact assessment processes in Ontario; policy development and implementation; Indigenous engagement and consultation; project management and delivery; Ontario and Canada’s environmental legislative frameworks; and government decision-making processes.",
   },
   {
     image: "/assets/images/team-3.png",
@@ -75,6 +75,20 @@ const OurTeam = () => {
     setSelectedMember(null);
     swiperRef.current?.autoplay?.start();
   };
+
+  // 🔒 Disable body scroll when modal is open
+  useEffect(() => {
+    if (selectedMember) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // cleanup (in case component unmounts)
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedMember]);
 
   return (
     <section className="our_team px-3 md:px-4 lg:px-5">
