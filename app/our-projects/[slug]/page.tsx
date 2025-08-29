@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Navbar from "../components/Navbar";
 import Image from "next/image";
 import DetailSlider from "../components/DelailSlider";
 import VideoWrapper from "../components/VideoWrapper";
@@ -49,7 +48,6 @@ const Page = async ({ params }: CaseStudyPageProps) => {
   return (
     <section className="py-10 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <Navbar />
         <div className="detail_page">
           <div className="image_wrapper overflow-hidden rounded-2xl">
             <Image

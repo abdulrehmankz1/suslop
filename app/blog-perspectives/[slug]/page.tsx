@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import CTA from "@/app/components/CTA";
-import Navbar from "@/app/our-projects/components/Navbar";
 import Image from "next/image";
 
 const sections = [
@@ -39,7 +38,6 @@ const BlogDetail = () => {
   return (
     <section>
       <div className="container mx-auto scroll-smooth px-4 sm:px-6 lg:px-8">
-        <Navbar />
         <div className="blog_detail_page mt-10">
           {/* Banner Image */}
           <div className="image_wrapper overflow-hidden rounded-2xl">
