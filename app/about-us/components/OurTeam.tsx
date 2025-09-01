@@ -24,7 +24,7 @@ const teamData = [
   {
     image: "/assets/images/team-3.png",
     name: "Kathleen Wood",
-    role: "Community Engagement Lead",
+    role: "Director",
     description:
       "Kathleen is a community and Indigenous engagement consultation professional with over 15 years of experience working with Indigenous communities, local communities, stakeholders, and industry, as part of interdisciplinary project teams requiring coordination of work effort and the influencing of stakeholders to arrive at consensus on controversial and complex issues. Kathleen has negotiated and implemented project partnership and equity partnership agreements with Indigenous communities and has led the development and implementation of engagement plans that require innovative approaches to inclusion.",
   },
@@ -143,43 +143,39 @@ const OurTeam = () => {
       {/* Modal */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full p-6 relative animate-fadeIn mx-3 
-                    max-h-[90vh] overflow-y-auto"
-          >
-            {/* Close button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition cursor-pointer"
-            >
-              <X size={24} className="text-gray-700" />
-            </button>
+          {/* Container wrap */}
+          <div className="container mx-auto px-4">
+            <div className="bg-white rounded-2xl shadow-2xl w-full p-8 relative animate-fadeIn mx-auto max-h-[90vh] overflow-y-auto">
+              {/* Close button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition cursor-pointer"
+              >
+                <X size={24} className="text-gray-700" />
+              </button>
 
-            {/* Modal Layout */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              {/* Left: Image */}
-              <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] flex-shrink-0">
-                <Image
-                  src={selectedMember.image}
-                  alt={selectedMember.name}
-                  fill
-                  sizes="(max-width:768px) 80vw, 280px"
-                  className="object-cover rounded-xl"
-                  draggable="false"
-                />
-              </div>
+              {/* Modal Layout */}
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                {/* Left: Image */}
+                <div className="relative w-[200px] h-[200px] md:w-[250px] md:h-[350px] flex-shrink-0">
+                  <Image
+                    src={selectedMember.image}
+                    alt={selectedMember.name}
+                    fill
+                    sizes="(max-width:768px) 80vw, 280px"
+                    className="object-cover rounded-xl"
+                    draggable="false"
+                  />
+                </div>
 
-              {/* Right: Details */}
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl font-semibold text-dark">
-                  {selectedMember.name}
-                </h3>
-                <p className="text-green-600 font-medium mb-3">
-                  {selectedMember.role}
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  {selectedMember.description}
-                </p>
+                {/* Right: Details */}
+                <div className="text-center md:text-left">
+                  <h3 className="text-dark">{selectedMember.name}</h3>
+                  <h4 className="text-black mb-7">{selectedMember.role}</h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    {selectedMember.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

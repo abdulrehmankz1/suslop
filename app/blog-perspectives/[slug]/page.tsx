@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import CTA from "@/app/components/CTA";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 const sections = [
   { id: "intro", label: "Bridging the Gap Between Policy and Practice" },
@@ -87,7 +88,7 @@ const BlogDetail = () => {
                 </div>
               </div>
 
-              <div className="mb-[100px]">
+              <div className="lg:mb-[100px] mb-12">
                 {sections.slice(1).map((section) => (
                   <div id={section.id} key={section.id} className="mt-10">
                     <h4 className="text-dark">{section.label}</h4>
@@ -113,28 +114,65 @@ const BlogDetail = () => {
             </div>
 
             {/* RIGHT TOC */}
-            <div className="w-full lg:w-2/5 border-s-0 lg:border-s-2 border-[#00000033] lg:ps-7 lg:sticky top-20 h-fit mb-5 pb-12">
-              <h4 className="text-dark">Table of Content</h4>
-              <ol className="mt-6 lg:mt-10 list-decimal list-outside pl-6">
-                {sections.map((section, index) => (
-                  <li
-                    key={section.id}
-                    className={`text-xl lg:text-3xl cursor-pointer transition-colors ${
-                      index === 0
-                        ? "pb-4 lg:pb-7"
-                        : "py-4 lg:py-7 border-t-1 border-[#00000033]"
-                    } ${
-                      activeId === section.id
-                        ? "text-dark hover:text-[#0E0E0E80]"
-                        : "text-[#0E0E0E80] hover:text-dark"
-                    }`}
-                  >
-                    <a href={`#${section.id}`} className="block">
-                      {section.label}
-                    </a>
-                  </li>
-                ))}
-              </ol>
+            <div className="w-full lg:w-2/5 border-s-0 lg:border-s-2 border-[#00000033] lg:ps-7 lg:sticky top-20 h-fit lg:mb-12">
+              {/* Mobile Dropdown */}
+
+              <div className="block lg:hidden fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
+                <div className="container mx-auto px-4 py-3">
+                  {/* <label htmlFor="toc-dropdown" className="sr-only hidden">Table of Content</label> */}
+                  <div className="relative">
+                    <select
+                      id="toc-dropdown"
+                      value={activeId}
+                      onChange={(e) => {
+                        const targetId = e.target.value;
+                        setActiveId(targetId);
+                        document
+                          .getElementById(targetId)
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="w-full border border-gray-300 rounded-md p-2 pr-10 text-dark appearance-none focus:outline-none focus:ring-0"
+                    >
+                      {sections.map((section) => (
+                        <option key={section.id} value={section.id}>
+                          {section.label}
+                        </option>
+                      ))}
+                    </select>
+
+                    {/* Lucide ChevronDown Icon */}
+                    <ChevronDown
+                      size={20}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Sidebar */}
+              <div className="hidden lg:block">
+                <h4 className="text-dark">Table of Content</h4>
+                <ol className="-mt-6 lg:mt-10 list-decimal list-outside pl-6">
+                  {sections.map((section, index) => (
+                    <li
+                      key={section.id}
+                      className={`text-xl xl:text-3xl lg:text-2xl cursor-pointer transition-colors ${
+                        index === 0
+                          ? "pb-4 lg:pb-7"
+                          : "py-4 lg:py-7 border-t-1 border-[#00000033]"
+                      } ${
+                        activeId === section.id
+                          ? "text-dark hover:text-[#0E0E0E80]"
+                          : "text-[#0E0E0E80] hover:text-dark"
+                      }`}
+                    >
+                      <a href={`#${section.id}`} className="block">
+                        {section.label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
         </div>

@@ -188,7 +188,6 @@ h2 {
 h3 {
   color: $color-dark;
   font-family: var(--font-neue-montreal), sans-serif;
-  font-family: "Neue Montreal";
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -197,7 +196,6 @@ h3 {
 
 h4 {
   font-family: var(--font-neue-montreal), sans-serif;
-  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -271,14 +269,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */
-    linear-gradient(to top,
+    /* Overlay dark fade from bottom */ linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%),
+      rgba(0, 0, 0, 0) 60%
+    ),
     /* Subtle side fade */
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */
-    url("../../public/assets/images/footer-banner.png");
+      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */ url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -391,6 +389,9 @@ h4 {
 
   h3 {
     font-size: 40px;
+  }
+  h4 {
+    font-size: 22px;
   }
 
   .logo_wrapper {
@@ -508,6 +509,9 @@ h4 {
   h2 {
     font-size: 60px;
   }
+  h4 {
+    font-size: 22px;
+  }
 
   .logo_wrapper {
     height: 25px;
@@ -622,7 +626,7 @@ h4 {
   }
 
   h4 {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .logo_wrapper {
@@ -733,7 +737,7 @@ h4 {
   }
 
   h4 {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .logo_wrapper {
