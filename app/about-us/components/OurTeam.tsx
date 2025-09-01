@@ -171,7 +171,7 @@ const OurTeam = () => {
                 {/* Right: Details */}
                 <div className="text-center md:text-left">
                   <h3 className="text-dark">{selectedMember.name}</h3>
-                  <h4 className="text-black mb-7">{selectedMember.role}</h4>
+                  <h4 className="text-black md:mb-7 mb-3">{selectedMember.role}</h4>
                   <p className="text-gray-600 leading-relaxed">
                     {selectedMember.description}
                   </p>

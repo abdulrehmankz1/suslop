@@ -7,14 +7,15 @@ import LightNavbar from "./LinghtNavbar";
 export default function ConditionalNavbar() {
   const pathname = usePathname();
 
-  // sirf details pages ke liye
-  const isDetailPage =
+  // detail pages + contact page
+  const isLightNavbar =
     pathname.startsWith("/blog-perspectives/") ||
-    pathname.startsWith("/our-projects/");
+    pathname.startsWith("/our-projects/") ||
+    pathname === "/contact-us";
 
   return (
     <>
-      {isDetailPage ? <LightNavbar /> : <Navbar />}
+      {isLightNavbar ? <LightNavbar /> : <Navbar />}
     </>
   );
 }
