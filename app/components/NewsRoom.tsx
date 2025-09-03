@@ -24,7 +24,7 @@ const updatesData = [
   },
 ];
 
-const LatestUpdates = () => {
+const NewsRoom = () => {
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
@@ -58,4 +58,4 @@ const LatestUpdates = () => {
   );
 };
 
-export default LatestUpdates;
+export default NewsRoom;

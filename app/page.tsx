@@ -1,7 +1,7 @@
 import Blog from "./components/Blog";
 import CTA from "./components/CTA";
 import HeroSection from "./components/HeroSection";
-import LatestUpdates from "./components/LatestUpdates";
+import NewsRoom from "./components/NewsRoom";
 import OurEdge from "./components/OurEdge";
 import OurImpact from "./components/OurImpact";
 import Reports from "./components/Reports";
@@ -20,7 +20,7 @@ export default function Home() {
       <OurImpact />
       <Reports />
       <Blog />
-      <LatestUpdates />
+      <NewsRoom />
       <CTA
         heading="Let’s Build Something That Lasts"
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
