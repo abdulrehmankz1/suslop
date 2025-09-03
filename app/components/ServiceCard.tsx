@@ -33,12 +33,17 @@ const ServiceCard = ({
           className="object-cover w-full! h-full!"
         />
       </div>
+
       <div>
         <h4 className="text-dark">{title}</h4>
         <p className="text-dark opacity-[0.7] md:mt-2 mt-0">{description}</p>
-        <button className="btn secondary_btn w-full xl:mt-6 lg:mt-5 md:mt-4 mt-3">
-          Learn More
-        </button>
+
+        {/* Learn More Button */}
+        <Link href="/our-services" passHref>
+          <button className="btn secondary_btn w-full xl:mt-6 lg:mt-5 md:mt-4 mt-3">
+            Learn More
+          </button>
+        </Link>
       </div>
     </div>
   );

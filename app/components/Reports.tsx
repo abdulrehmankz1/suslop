@@ -72,138 +72,138 @@ const Reports = () => {
           >
             {/* Slide 1 */}
             <SwiperSlide>
-              <div className="report-card">
-                <div className="aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src="/assets/images/report-1.png"
-                    alt="Report 1"
-                    width={500}
-                    height={300}
-                    draggable="false"
-                    className="object-cover w-full! h-full!"
-                  />
-                </div>
-                <div>
-                  <div className="text-green-deep mt-5">Report</div>
-                  <Link href="#" className="hover:underline">
+              <Link href="/our-insights" className="block">
+                <div className="report-card cursor-pointer">
+                  {/* Image Section */}
+                  <div className="aspect-video overflow-hidden rounded-lg">
+                    <Image
+                      src="/assets/images/report-1.png"
+                      alt="Report 1"
+                      width={500}
+                      height={300}
+                      draggable="false"
+                      className="object-cover w-full! h-full!"
+                    />
+                  </div>
+
+                  {/* Text Section */}
+                  <div>
+                    <div className="text-green-deep mt-5">Report</div>
                     <h4 className="text-dark my-2.5">
                       2025 Sustainability Trends Report
                     </h4>
-                  </Link>
 
-                  {/* Always rendered, only opacity/translate toggles */}
-                  <div
-                    className={`transition-all duration-500 ease-in-out transform ${
-                      activeIndex === 0
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                    }`}
-                  >
-                    <p className="text-dark mb-7">
-                      Explore the emerging environmental, social, and regulatory
-                      shifts shaping the future of infrastructure and community
-                      projects.
-                    </p>
-                    <Link href="#">
+                    {/* Animated content */}
+                    <div
+                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 0
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
+                        }`}
+                    >
+                      <p className="text-dark mb-7">
+                        Explore the emerging environmental, social, and
+                        regulatory shifts shaping the future of infrastructure
+                        and community projects.
+                      </p>
                       <div className="flex gap-9 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
                         <ArrowUpRight size={40} color="#0E0E0E" />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
 
             {/* Slide 2 */}
             <SwiperSlide>
-              <div className="report-card">
-                <div className="aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src="/assets/images/report-2.png"
-                    alt="Report 2"
-                    width={500}
-                    height={300}
-                    className="object-cover w-full! h-full!"
-                    draggable="false"
-                  />
-                </div>
-                <div>
-                  <div className="text-green-deep mt-5">Report</div>
-                  <Link href="#" className="hover:underline">
+              <Link href="/our-insights" className="block">
+                <div className="report-card cursor-pointer">
+                  {/* Image */}
+                  <div className="aspect-video overflow-hidden rounded-lg">
+                    <Image
+                      src="/assets/images/report-2.png"
+                      alt="Report 2"
+                      width={500}
+                      height={300}
+                      className="object-cover w-full! h-full!"
+                      draggable="false"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="text-green-deep mt-5">Report</div>
                     <h4 className="text-dark my-2.5">
                       Indigenous Partnership Best Practices
                     </h4>
-                  </Link>
 
-                  <div
-                    className={`transition-all duration-500 ease-in-out transform ${
-                      activeIndex === 1
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                    }`}
-                  >
-                    <p className="text-dark mb-7">
-                      Explore the emerging environmental, social, and regulatory
-                      shifts shaping the future of infrastructure and community
-                      projects.
-                    </p>
-                    <Link href="#">
+                    <div
+                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 1
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
+                        }`}
+                    >
+                      <p className="text-dark mb-7">
+                        Explore the emerging environmental, social, and
+                        regulatory shifts shaping the future of infrastructure
+                        and community projects.
+                      </p>
                       <div className="flex gap-9 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
                         <ArrowUpRight size={40} color="#0E0E0E" />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
 
             {/* Slide 3 */}
             <SwiperSlide>
-              <div className="report-card">
-                <div className="aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src="/assets/images/report-1.png"
-                    alt="Report 3"
-                    width={500}
-                    height={300}
-                    className="object-cover w-full! h-full!"
-                    draggable="false"
-                  />
-                </div>
-                <div>
-                  <div className="text-green-deep mt-5">Report</div>
-                  <Link href="#" className="hover:underline">
+              <Link href="/our-insights" className="block">
+                <div className="report-card cursor-pointer">
+                  {/* Image */}
+                  <div className="aspect-video overflow-hidden rounded-lg">
+                    <Image
+                      src="/assets/images/report-1.png"
+                      alt="Report 3"
+                      width={500}
+                      height={300}
+                      className="object-cover w-full! h-full!"
+                      draggable="false"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="text-green-deep mt-5">Report</div>
                     <h4 className="text-dark my-2.5">
                       Climate Impact Analysis
                     </h4>
-                  </Link>
 
-                  <div
-                    className={`transition-all duration-500 ease-in-out transform ${
-                      activeIndex === 2
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                    }`}
-                  >
-                    <p className="text-dark mb-7">
-                      Explore the emerging environmental, social, and regulatory
-                      shifts shaping the future of infrastructure and community
-                      projects.
-                    </p>
-                    <Link href="#">
+                    <div
+                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 2
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
+                        }`}
+                    >
+                      <p className="text-dark mb-7">
+                        Explore the emerging environmental, social, and
+                        regulatory shifts shaping the future of infrastructure
+                        and community projects.
+                      </p>
                       <div className="flex gap-9 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
                         <ArrowUpRight size={40} color="#0E0E0E" />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           </Swiper>
 
