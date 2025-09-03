@@ -31,7 +31,7 @@ const ChooseUs = () => {
             <h2 className="text-white text-center mb-10 md:mb-12">
               Why Suslop?
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 gap-x-6 gap-y-12">
               {valuesData.map((value, index) => (
                 <div key={index} className="text-center sm:text-left">
                   <div className="p-4 w-fit mx-auto sm:mx-0 rounded-full bg-white">
@@ -46,7 +46,7 @@ const ChooseUs = () => {
                   <h4 className="text-white mt-6 text-lg font-semibold">
                     {value.title}
                   </h4>
-                  <p className="text-white mt-2 opacity-70 text-sm md:text-base leading-relaxed">
+                  <p className="text-white mt-2 opacity-70 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
