@@ -20,15 +20,15 @@ const CTA = ({
   return (
     <section className="relative z-10 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <div className="footer_banner md:p-10 p-5">
+        <div className="footer_banner md:p-10 px-5 py-7">
           <div className="flex flex-col xl:gap-28 lg:gap-20 gap-0">
             {/* Heading */}
-            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-3">
+            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-0 md:mb-0 mb-3">
               <h2 className="text-fefe">{heading}</h2>
             </div>
 
             {/* Description + Buttons */}
-            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-3 flex flex-col self-end mt-auto">
+            <div className="xl:w-1/2 lg:w-2/3 w-full md:p-6 p-0 flex flex-col self-end mt-auto">
               <p className="text-fefe">{description}</p>
               <div className="mt-6 flex items-center flex-wrap gap-3">
                 <a href={primaryBtnLink} className="btn primary_btn">

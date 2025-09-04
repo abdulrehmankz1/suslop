@@ -98,6 +98,18 @@ const OurImpact = () => {
               width: 110px !important;
               opacity: 1 !important;
             }
+
+            @media (max-width: 767px) {
+              .swiper-pagination {
+                gap: 0px !important;
+              }
+              .swiper-pagination-bullet {
+                width: 20px !important;
+              }
+              .swiper-pagination-bullet-active {
+                width: 70px !important;
+              }
+            }
           `}</style>
         </div>
       </div>

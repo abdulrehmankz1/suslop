@@ -39,14 +39,14 @@ const Reports = () => {
         </div>
 
         {/* Swiper Slider */}
-        <div className="mt-12 relative reports_swiper">
+        <div className="md:mt-12 mt-5 relative reports_swiper">
           <div className="lg:hidden block">
             <div className="flex gap-3 mb-5 justify-end">
-              <button className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
-                <ArrowLeft size={35} className="text-[#AAAAAA]" />
+              <button className="reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowLeft size={35} className="text-[#AAAAAA] size-6" />
               </button>
-              <button className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer">
-                <ArrowRight size={35} className="text-white" />
+              <button className="reports-next md:p-4 p-3 bg-dark rounded-full flex items-center justify-center cursor-pointer">
+                <ArrowRight size={35} className="text-white size-6" />
               </button>
             </div>
           </div>
@@ -95,19 +95,24 @@ const Reports = () => {
 
                     {/* Animated content */}
                     <div
-                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 0
+                      className={`transition-all duration-500 ease-in-out transform ${
+                        activeIndex === 0
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                        }`}
+                      }`}
                     >
                       <p className="text-dark mb-7">
                         Explore the emerging environmental, social, and
                         regulatory shifts shaping the future of infrastructure
                         and community projects.
                       </p>
-                      <div className="flex gap-9 items-center">
+                      <div className="flex md:gap-9 gap-2 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight size={40} color="#0E0E0E" />
+                        <ArrowUpRight
+                          size={25}
+                          color="#0E0E0E"
+                          className="size-7 md:size-10"
+                        />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
                     </div>
@@ -140,19 +145,24 @@ const Reports = () => {
                     </h4>
 
                     <div
-                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 1
+                      className={`transition-all duration-500 ease-in-out transform ${
+                        activeIndex === 1
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                        }`}
+                      }`}
                     >
                       <p className="text-dark mb-7">
                         Explore the emerging environmental, social, and
-                        regulatory shifts shaping the future of infrastructure
+                        regulatory shifts shaping the future of infrastructure  
                         and community projects.
                       </p>
-                      <div className="flex gap-9 items-center">
+                      <div className="flex md:gap-9 gap-1 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight size={40} color="#0E0E0E" />
+                        <ArrowUpRight
+                          size={25}
+                          color="#0E0E0E"
+                          className="size-7 md:size-10"
+                        />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
                     </div>
@@ -185,19 +195,24 @@ const Reports = () => {
                     </h4>
 
                     <div
-                      className={`transition-all duration-500 ease-in-out transform ${activeIndex === 2
+                      className={`transition-all duration-500 ease-in-out transform ${
+                        activeIndex === 2
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                        }`}
+                      }`}
                     >
                       <p className="text-dark mb-7">
                         Explore the emerging environmental, social, and
                         regulatory shifts shaping the future of infrastructure
                         and community projects.
                       </p>
-                      <div className="flex gap-9 items-center">
+                      <div className="flex md:gap-9 gap-1 items-center">
                         <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight size={40} color="#0E0E0E" />
+                        <ArrowUpRight
+                          size={25}
+                          color="#0E0E0E"
+                          className="size-7 md:size-10"
+                        />
                       </div>
                       <div className="h-1 w-[100px] bg-black mt-1"></div>
                     </div>

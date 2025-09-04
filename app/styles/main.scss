@@ -372,8 +372,132 @@ h4 {
 
 // Media Queries
 
+@media (max-width: 575px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 50px;
+    line-height: 100%;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 35px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  .logo_wrapper {
+    height: 20px;
+  }
+
+  .hero_section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .service_section {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+.swiper-pagination-bullet {
+              width: 30px !important;
+            }
+            .swiper-pagination-bullet-active {
+              width: 80px !important;
+            }
+  .our_edge {
+    padding-block: 50px;
+  }
+
+  .hero_shape {
+    height: 35px;
+  }
+
+  .reports_section {
+    margin-block: 50px;
+  }
+
+  .latest_updates {
+    margin: 50px 0 60px;
+  }
+
+  .service_card .image_wrapper {
+    height: 250px !important;
+  }
+
+  .btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  .text-50 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .py-100 {
+    padding-block: 50px;
+  }
+
+  .ourTeamSlider {
+    height: 450px;
+  }
+
+  .our_team {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  .detail_page .image_wrapper {
+    height: 400px !important;
+  }
+
+  .detail_swipper .image_wrapper {
+    height: 300px !important;
+  }
+
+  .blog_detail_page .image_wrapper {
+    height: 200px;
+  }
+
+  .blog_post_image .image_wrapper {
+    height: 300px !important;
+  }
+
+  .slider_container .image_wrapper {
+    height: 200px !important;
+  }
+
+  .reports-swiper .swiper-slide {
+    width: 100% !important;
+  }
+
+  .reports-swiper .swiper-wrapper {
+    gap: 0;
+  }
+
+  .team_card {
+    .image_wrapper {
+      width: 250px;
+      height: 300px;
+    }
+  }
+
+  .get_in_touch {
+    padding-block: 50px;
+  }
+}
+
 /* Extra Small (Mobile < 640px) */
-@media (max-width: 639px) {
+@media (min-width: 576px) and (max-width: 639px) {
   body {
     font-size: 16px;
   }
@@ -656,11 +780,9 @@ h4 {
   .our_edge {
     padding-block: 60px;
   }
-
-  .reports_section {
-    margin-block: 60px;
-  }
-
+    .reports_section {
+        margin-block: 80px;
+    }
   .slider_container .image_wrapper {
     height: 400px !important;
   }

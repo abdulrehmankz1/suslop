@@ -107,7 +107,7 @@ const Services = () => {
             </div>
 
             {/* Swiper Slider */}
-            <div className="px-4">
+            <div className="md:px-4">
               <Swiper
                 modules={[Autoplay]}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -138,10 +138,10 @@ const Services = () => {
                 {Array.from({ length: totalBullets }).map((_, i) => (
                   <button
                     key={i}
-                    className={`h-3 rounded-full transition-all duration-300 ${
+                    className={`md:h-3 h-2 rounded-full transition-all duration-300 ${
                       i === activeBullet
-                        ? "bg-[#0E0E0E] w-[120px]"
-                        : "bg-gray-300 w-[50px] hover:bg-gray-400"
+                        ? "bg-[#0E0E0E] md:w-[120px] w-[80px]"
+                        : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
                     }`}
                     onClick={() => goToBullet(i)}
                     aria-label={`Go to slide group ${i + 1}`}

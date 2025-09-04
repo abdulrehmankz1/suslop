@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Logo + About */}
           <div className="w-full md:w-2/3 lg:w-[35%]">
             {/* Logo */}
-            <Link href="/" className="gap-2 mb-4 logo_wrapper">
+            <Link href="/" className="gap-2 mb-4 logo_wrapper inline-block">
               <Image
                 src="/assets/images/logo.svg"
                 alt="Logo"
@@ -21,6 +21,7 @@ const Footer = () => {
                 height={30}
                 draggable="false"
                 priority
+                className="w-full h-auto"
               />
             </Link>
             <p className="mt-5 opacity-70 text-white">

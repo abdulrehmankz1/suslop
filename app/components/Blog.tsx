@@ -132,14 +132,14 @@ const Blog = () => {
             </Swiper>
 
             {/* Custom Pagination */}
-            <div className="flex justify-center mt-12 gap-2">
+            <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
               {Array.from({ length: totalBullets }).map((_, i) => (
                 <button
                   key={i}
-                  className={`h-3 rounded-full transition-all duration-300 ${
+                  className={`md:h-3 h-2 rounded-full transition-all duration-300 ${
                     i === activeBullet
-                      ? "bg-[#0E0E0E] w-[120px]"
-                      : "bg-gray-300 w-[50px] hover:bg-gray-400"
+                      ? "bg-[#0E0E0E] md:w-[120px] w-20"
+                      : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
                   }`}
                   onClick={() => goToBullet(i)}
                   aria-label={`Go to slide group ${i + 1}`}

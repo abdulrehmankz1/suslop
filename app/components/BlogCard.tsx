@@ -37,9 +37,13 @@ const BlogCard = ({
           <h4 className="text-dark">{title}</h4>
           <p className="text-dark opacity-[0.7] mt-2 mb-4">{description}</p>
 
-          <div className="flex gap-9 items-center">
-            <div className="text-dark mr-2 text-2xl">{linkText}</div>
-            <ArrowUpRight size={35} color="#0E0E0E" />
+          <div className="flex md:gap-9 gap-1 items-center">
+            <h4 className="text-dark mr-2">{linkText}</h4>
+            <ArrowUpRight
+              size={25}
+              color="#0E0E0E"
+              className="size-7 md:size-10"
+            />
           </div>
           <div className="h-1 w-[100px] bg-black mt-1"></div>
         </div>
