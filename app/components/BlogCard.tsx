@@ -18,7 +18,7 @@ const BlogCard = ({
   linkHref,
 }: BlogCardProps) => {
   return (
-    <Link href="blog-perspectives" className="block">
+    <Link href={linkHref} className="block">
       <div className="blog_card cursor-pointer">
         {/* Image */}
         <div className="image_wrapper mb-4 overflow-hidden rounded-lg">
@@ -30,12 +30,21 @@ const BlogCard = ({
             draggable="false"
             className="object-cover w-full! h-full!"
           />
+          <Image
+            src={image ?? ""}
+            alt={title}
+            width={800}
+            height={500}
+            unoptimized
+          />
         </div>
 
         {/* Content */}
         <div>
           <h4 className="text-dark">{title}</h4>
-          <p className="text-dark opacity-[0.7] mt-2 mb-4">{description}</p>
+          <p className="text-dark opacity-[0.7] mt-2 mb-4 line-clamp-2">
+            {description}
+          </p>
 
           <div className="flex md:gap-9 gap-1 items-center">
             <h4 className="text-dark mr-2">{linkText}</h4>

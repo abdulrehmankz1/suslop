@@ -1,66 +1,20 @@
 import BlogCard from "@/app/components/BlogCard";
 import React from "react";
+import {
+  fetchAllPosts,
+  extractPostData,
+  PostData,
+} from "@/services/blog.service";
 
-const blogData = [
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    slug: "bridging-the-gap-between-policy-and-practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "Building Resilient Communities",
-    slug: "building-resilient-communities",
-    description:
-      "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "The Future of Renewable Energy",
-    slug: "the-future-of-renewable-energy",
-    description:
-      "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "Building Resilient Communities",
-    slug: "building-resilient-communities",
-    description:
-      "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "The Future of Renewable Energy",
-    slug: "the-future-of-renewable-energy",
-    description:
-      "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "Building Resilient Communities",
-    slug: "building-resilient-communities",
-    description:
-      "Exploring innovative ways communities can adapt to climate change while preserving culture and heritage.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-  {
-    title: "The Future of Renewable Energy",
-    slug: "the-future-of-renewable-energy",
-    description:
-      "Why solar, wind, and hybrid projects are critical for achieving carbon neutrality goals.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-  },
-];
+const Perspectives = async () => {
+  // Fetch posts from API
+  const posts = await fetchAllPosts();
 
-const Perspectives = () => {
+  // Explicitly tell TypeScript the result will be an array of non-null PostData objects
+  const formattedPosts: PostData[] = posts
+    .map((post) => extractPostData(post))
+    .filter((post): post is PostData => post !== null);
+
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
@@ -79,13 +33,13 @@ const Perspectives = () => {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogData.map((blog, index) => (
+          {formattedPosts.map((blog) => (
             <BlogCard
-              key={index}
+              key={blog.id}
               title={blog.title}
-              description={blog.description}
-              image={blog.image}
-              linkText={blog.linkText}
+              description={blog.excerpt}
+              image={blog.featuredImage ?? ""}
+              linkText="Read Article"
               linkHref={`/blog-perspectives/${blog.slug}`}
             />
           ))}
