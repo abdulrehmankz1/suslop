@@ -370,6 +370,20 @@ h4 {
   box-shadow: none;
 }
 
+.toc_container {
+
+    ul,
+    ol {
+        li {
+            padding-block: 30px;
+
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+    }
+  }
+
 // Media Queries
 
 @media (max-width: 575px) {
