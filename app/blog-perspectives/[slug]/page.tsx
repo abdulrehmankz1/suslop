@@ -74,10 +74,10 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
             </div>
           )}
 
-          <div className="flex flex-col lg:flex-row items-start mt-12 justify-between gap-12 blog_detail_section">
-            <div className="w-full lg:w-3/5">
+          <div className="flex flex-col lg:flex-row items-start mt-12 justify-between gap-12">
+            <div className="w-full lg:w-[70%] blog_detail_section">
               <div id="intro">
-                <h2 className="text-dark w-full">{blogData.title}</h2>
+                <h1 className="text-dark text_h2">{blogData.title}</h1>
               </div>
 
               <div
@@ -86,7 +86,7 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
               />
             </div>
 
-            <div className="w-full lg:w-2/5 border-s-0 lg:border-s-2 border-[#00000033] lg:ps-7 lg:sticky top-20 h-fit lg:mb-12">
+            <div className="w-full lg:w-[30%] border-s-0 lg:border-s-2 border-[#00000033] lg:ps-7 lg:sticky top-20 h-fit lg:mb-12">
               <div className="block lg:hidden fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
                 <div className="container mx-auto px-4 py-3">
                   <div className="relative">

@@ -269,14 +269,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */ linear-gradient(
-      to top,
+    /* Overlay dark fade from bottom */
+    linear-gradient(to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%
-    ),
+      rgba(0, 0, 0, 0) 60%),
     /* Subtle side fade */
-      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */ url("../../public/assets/images/footer-banner.png");
+    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */
+    url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -372,17 +372,24 @@ h4 {
 
 .toc_container {
 
-    ul,
-    ol {
-        li {
-            padding-block: 30px;
+  ul,
+  ol {
+    li {
+      padding-block: 30px;
 
-            &:first-child {
-                padding-top: 0;
-            }
-        }
+      &:first-child {
+        padding-top: 0;
+      }
     }
   }
+}
+
+.text_h2 {
+  font-family: var(--font-neue-montreal), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
 
 // Media Queries
 
@@ -397,6 +404,10 @@ h4 {
   }
 
   h2 {
+    font-size: 40px;
+  }
+
+  .text_h2 {
     font-size: 40px;
   }
 
@@ -421,12 +432,15 @@ h4 {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
   }
-.swiper-pagination-bullet {
-              width: 30px !important;
-            }
-            .swiper-pagination-bullet-active {
-              width: 80px !important;
-            }
+
+  .swiper-pagination-bullet {
+    width: 30px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 80px !important;
+  }
+
   .our_edge {
     padding-block: 50px;
   }
@@ -522,6 +536,10 @@ h4 {
   }
 
   h2 {
+    font-size: 48px;
+  }
+
+  .text_h2 {
     font-size: 48px;
   }
 
@@ -653,6 +671,10 @@ h4 {
     font-size: 60px;
   }
 
+  .text_h2 {
+    font-size: 60px;
+  }
+
   h4 {
     font-size: 22px;
   }
@@ -773,6 +795,10 @@ h4 {
     font-size: 65px;
   }
 
+  .text_h2 {
+    font-size: 65px;
+  }
+
   h4 {
     font-size: 24px;
   }
@@ -794,9 +820,11 @@ h4 {
   .our_edge {
     padding-block: 60px;
   }
-    .reports_section {
-        margin-block: 80px;
-    }
+
+  .reports_section {
+    margin-block: 80px;
+  }
+
   .slider_container .image_wrapper {
     height: 400px !important;
   }
@@ -884,6 +912,10 @@ h4 {
   }
 
   h2 {
+    font-size: 75px;
+  }
+
+  .text_h2 {
     font-size: 75px;
   }
 
@@ -1003,6 +1035,10 @@ h4 {
   }
 
   h2 {
+    font-size: 75px;
+  }
+
+  .text_h2 {
     font-size: 75px;
   }
 
@@ -1156,6 +1192,10 @@ h4 {
   }
 
   h2 {
+    font-size: 75px;
+  }
+
+  .text_h2 {
     font-size: 75px;
   }
 
