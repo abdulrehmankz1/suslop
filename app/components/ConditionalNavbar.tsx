@@ -11,6 +11,7 @@ export default function ConditionalNavbar() {
   const isLightNavbar =
     pathname.startsWith("/blog-perspectives/") ||
     pathname.startsWith("/our-projects/") ||
+    pathname.startsWith("/our-insights/") ||
     pathname === "/contact-us";
 
   return (

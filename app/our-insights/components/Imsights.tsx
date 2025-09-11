@@ -1,50 +1,11 @@
 import UpdatesCard from "@/app/components/UpdatesCard";
 import React from "react";
+import { fetchAllInsights, extractInsightData } from "@/services/insight.service";
 
-const updatesData = [
-  {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/1",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Designing Infrastructure for Climate Resilience",
-    link: "/updates/2",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "The Future of Community-Led Developments",
-    link: "/updates/3",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/4",
-  },
-    {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/1",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Designing Infrastructure for Climate Resilience",
-    link: "/updates/2",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "The Future of Community-Led Developments",
-    link: "/updates/3",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/4",
-  },
-];
+const Imsights = async () => {
+  const insights = await fetchAllInsights();
+  const insightsData = insights.map(insight => extractInsightData(insight)).filter(Boolean);
 
-const Imsights = () => {
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
@@ -64,12 +25,12 @@ const Imsights = () => {
 
         {/* 4 Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-12">
-          {updatesData.map((update, index) => (
+          {insightsData.map((insight, index) => (
             <UpdatesCard
               key={index}
-              image={update.image}
-              title={update.title}
-              link={update.link}
+              image={insight?.featuredImage || "/assets/images/left-top.png"}
+              title={insight?.title || "Untitled"}
+              link={`/our-insights/${insight?.slug}`}
             />
           ))}
         </div>

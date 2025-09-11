@@ -1,58 +1,16 @@
 import React from "react";
 import InsightsReportCard from "./InsightsReportCard";
+import { fetchAllInsights, extractInsightData } from "@/services/insight.service";
 
-const reportsData = [
-  {
-    image: "/assets/images/project-image.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/1",
-    date: "Jun, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Designing Infrastructure for Climate Resilience",
-    link: "/updates/2",
-    date: "May, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "The Future of Community-Led Developments",
-    link: "/updates/3",
-    date: "Apr, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/4",
-    date: "Mar, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/5",
-    date: "Feb, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Designing Infrastructure for Climate Resilience",
-    link: "/updates/6",
-    date: "Jan, 2025",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "The Future of Community-Led Developments",
-    link: "/updates/7",
-    date: "Dec, 2024",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/8",
-    date: "Nov, 2024",
-  },
-];
+const InsightsReports = async () => {
+  const insights = await fetchAllInsights();
+  const insightsData = insights.map(insight => extractInsightData(insight)).filter(Boolean);
 
-const InsightsReports = () => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+  };
+
   return (
     <section className="px-3 md:px-4 lg:px-5 lg:mb-[100px] md:mb-20 mb-12">
       <div className="container mx-auto">
@@ -72,13 +30,13 @@ const InsightsReports = () => {
 
         {/* 4 Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-12">
-          {reportsData.map((report, index) => (
+          {insightsData.map((insight, index) => (
             <InsightsReportCard
               key={index}
-              image={report.image}
-              title={report.title}
-              link={report.link}
-              date={report.date}
+              image={insight?.featuredImage || "/assets/images/project-image.png"}
+              title={insight?.title || "Untitled"}
+              link={`/our-insights/${insight?.slug}`}
+              date={formatDate(insight?.date || "")}
             />
           ))}
         </div>
