@@ -3,6 +3,12 @@ import Image from "next/image";
 import DetailSlider from "../components/DelailSlider";
 import VideoWrapper from "../components/VideoWrapper";
 import CTA from "@/app/components/CTA";
+import {
+  fetchReportBySlug,
+  fetchAllReports,
+  extractReportData,
+} from "@/services/report.service";
+import * as cheerio from "cheerio";
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -10,40 +16,49 @@ interface CaseStudyPageProps {
   }>;
 }
 
-// Dummy data
-const caseStudies = [
-  {
-    slug: "renewable-energy-partnership-for-regional-growth",
-    title: "Renewable Energy Partnership for Regional Growth",
-    description:
-      "This case study highlights how Suslop collaborated with local governments and Indigenous leadership to deliver a 50MW solar farm...",
-    location: "XYZ Region, Lorem Ipsum",
-  },
-  {
-    title: "Indigenous Community Land-Use Planning Initiative",
-    location: "Location",
-    region: "XYZ Region, Lorem Ipsum",
-    description:
-      "Suslop worked with local government and Indigenous leadership to plan and deliver a 50MW solar farm. The project created over 200 jobs, reduced regional emissions, and established a long-term revenue stream for community programs.",
-    slug: "indigenous-community-land-use-planning-initiative",
-  },
-  {
-    image: "/assets/images/project-image.png",
-    title: "Coastal Infrastructure Climate Resilience Project",
-    location: "Location",
-    region: "XYZ Region, Lorem Ipsum",
-    description:
-      "Suslop worked with local government and Indigenous leadership to plan and deliver a 50MW solar farm. The project created over 200 jobs, reduced regional emissions, and established a long-term revenue stream for community programs.",
-    slug: "coastal-infrastructure-climate-resilience-project",
-  },
-];
+// Helper function to generate Table of Contents (TOC) and modify content
+const generateTOCAndContent = (htmlContent: string) => {
+  if (!htmlContent) {
+    return { toc: [], content: "" };
+  }
+  const $ = cheerio.load(htmlContent);
+  const toc: { id: string; label: string; tag: string }[] = [];
+  const usedIds = new Set<string>();
+
+  $("h2, h3").each((_, element) => {
+    const title = $(element).text();
+    let id = title
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "");
+    let uniqueId = id;
+    let counter = 1;
+    while (usedIds.has(uniqueId)) {
+      uniqueId = `${id}-${counter}`;
+      counter++;
+    }
+    usedIds.add(uniqueId);
+    $(element).attr("id", uniqueId);
+    toc.push({
+      id: `#${uniqueId}`,
+      label: title,
+      tag: element.tagName,
+    });
+  });
+
+  return { toc, content: $.html() };
+};
 
 const Page = async ({ params }: CaseStudyPageProps) => {
   const { slug } = await params;
 
-  const study = caseStudies.find((cs) => cs.slug === slug);
+  const report = await fetchReportBySlug(slug);
+  if (!report) return notFound();
 
-  if (!study) return notFound();
+  const reportData = extractReportData(report);
+  if (!reportData) return notFound();
+
+  const { toc, content } = generateTOCAndContent(reportData.content);
 
   return (
     <section className="py-10 px-3 md:px-4 lg:px-5">
@@ -51,8 +66,8 @@ const Page = async ({ params }: CaseStudyPageProps) => {
         <div className="detail_page">
           <div className="image_wrapper overflow-hidden rounded-2xl">
             <Image
-              src="/assets/images/detail-image.png"
-              alt={study.title}
+              src={reportData?.featuredImage || "/assets/images/detail-image.png"}
+              alt={reportData?.title || "Report"}
               width={600}
               height={400}
               className="rounded-lg mt-20 w-full! h-full! object-cover"
@@ -62,21 +77,10 @@ const Page = async ({ params }: CaseStudyPageProps) => {
 
           <div className="mt-12">
             <h2 className="text-dark lg:w-[60%] md:w-[80%] w-full">
-              Bridging the Gap Between Policy and Practice
+              {reportData?.title || "Report Title"}
             </h2>
             <p className="mt-3 text-dark opacity-[0.7]">
-              How strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact. How
-              strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact.How
-              strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact.How
-              strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact.How
-              strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact.How
-              strategic planning and local engagement can transform
-              sustainability policies into measurable on-the-ground impact.
+              {reportData?.excerpt || "Report excerpt"}
             </p>
           </div>
           <div>

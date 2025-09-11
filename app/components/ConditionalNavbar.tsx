@@ -12,6 +12,7 @@ export default function ConditionalNavbar() {
     pathname.startsWith("/blog-perspectives/") ||
     pathname.startsWith("/our-projects/") ||
     pathname.startsWith("/our-insights/") ||
+    pathname.startsWith("/our-reports/") ||
     pathname === "/contact-us";
 
   return (

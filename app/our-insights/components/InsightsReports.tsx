@@ -1,10 +1,10 @@
 import React from "react";
 import InsightsReportCard from "./InsightsReportCard";
-import { fetchAllInsights, extractInsightData } from "@/services/insight.service";
+import { fetchAllReports, extractReportData } from "@/services/report.service";
 
 const InsightsReports = async () => {
-  const insights = await fetchAllInsights();
-  const insightsData = insights.map(insight => extractInsightData(insight)).filter(Boolean);
+  const reports = await fetchAllReports();
+  const reportsData = reports.map(report => extractReportData(report)).filter(Boolean);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -30,13 +30,13 @@ const InsightsReports = async () => {
 
         {/* 4 Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-12">
-          {insightsData.map((insight, index) => (
+          {reportsData.map((report, index) => (
             <InsightsReportCard
               key={index}
-              image={insight?.featuredImage || "/assets/images/project-image.png"}
-              title={insight?.title || "Untitled"}
-              link={`/our-insights/${insight?.slug}`}
-              date={formatDate(insight?.date || "")}
+              image={report?.featuredImage || "/assets/images/project-image.png"}
+              title={report?.title || "Untitled"}
+              link={`/our-reports/${report?.slug}`}
+              date={formatDate(report?.date || "")}
             />
           ))}
         </div>
