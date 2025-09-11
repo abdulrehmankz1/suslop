@@ -6,7 +6,7 @@ interface ServiceOfferCardProps {
   number: number;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   listItems: string[];
 }
 
@@ -17,6 +17,9 @@ const ServiceOfferCard = ({
   image,
   listItems,
 }: ServiceOfferCardProps) => {
+  // WordPress image.
+  const imageSrc = image || "https://placehold.co/500x300.png";
+
   return (
     <div className="service_card">
       {/* Top Row */}
@@ -29,7 +32,7 @@ const ServiceOfferCard = ({
       {/* Image */}
       <div className="image_wrapper my-4 overflow-hidden rounded-lg">
         <Image
-          src={image}
+          src={imageSrc}
           alt={title}
           width={500}
           height={300}

@@ -3,10 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface ServiceCardProps {
-  number: string;
+  // Correcting the type of the number prop
+  number: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
 const ServiceCard = ({
@@ -23,16 +24,19 @@ const ServiceCard = ({
         <ArrowUpRight size={40} color="#0E0E0E" className="relative top-3" />
       </div>
 
-      <div className="image_wrapper my-4 overflow-hidden rounded-lg">
-        <Image
-          src={image}
-          alt={title}
-          width={500}
-          height={300}
-          draggable="false"
-          className="object-cover w-full! h-full!"
-        />
-      </div>
+      {/* Conditionally render the image wrapper */}
+      {image && (
+        <div className="image_wrapper my-4 overflow-hidden rounded-lg">
+          <Image
+            src={image}
+            alt={title}
+            width={500}
+            height={300}
+            draggable="false"
+            className="object-cover w-full h-full"
+          />
+        </div>
+      )}
 
       <div>
         <h4 className="text-dark">{title}</h4>

@@ -9,38 +9,43 @@ import "swiper/css";
 
 const servicesData = [
   {
-    number: "01.",
+    number: 1,
     title: "Sustainability Strategy",
     description:
       "Setting clear, measurable goals and turning vision into action.",
     image: "/assets/images/service-card.png",
+    listItems: [],
   },
   {
-    number: "02.",
+    number: 2,
     title: "Climate Action",
     description:
       "Helping organizations reduce their carbon footprint effectively.",
     image: "/assets/images/service-card.png",
+    listItems: [],
   },
   {
-    number: "03.",
+    number: 3,
     title: "Innovation & Technology",
     description:
       "Driving solutions with advanced technology and smart systems.",
     image: "/assets/images/service-card.png",
+    listItems: [],
   },
   {
-    number: "04.",
+    number: 4,
     title: "Circular Economy",
     description: "Turning waste into resources through sustainable models.",
     image: "/assets/images/service-card.png",
+    listItems: [],
   },
   {
-    number: "05.",
+    number: 5,
     title: "Green Financing",
     description:
       "Funding sustainable projects with eco-friendly investment solutions.",
     image: "/assets/images/service-card.png",
+    listItems: [],
   },
 ];
 

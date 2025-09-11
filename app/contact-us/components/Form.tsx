@@ -1,79 +1,130 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { submitContact } from "@/app/server/action";
 
 const Form = () => {
-  return (
-    <section>
-      <div className="container mx-auto my-20 px-4">
-        {/* Heading Row */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
-          <div className="xl:col-span-7">
-            <h2 className="text-dark text-3xl font-bold">Let’s Connect</h2>
-          </div>
-          <div className="xl:col-span-5">
-            <p className="text-black">
-              At Suslop, we help governments, communities, and industries design
-              and deliver solutions that balance environmental responsibility,
-              economic growth, and social well-being.
-            </p>
-          </div>
-        </div>
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
-        {/* Form Section */}
-        <form className="mt-10 space-y-5">
-          {/* First + Last Name */}
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [responseMessage, setResponseMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setResponseMessage("");
+
+    const formData = new FormData();
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("your-email", email); // ✅ visitor email
+    formData.append("phone", phone);
+    formData.append("subject", subject);
+    formData.append("message", message);
+
+    const data = await submitContact(formData);
+
+    if (data.status === "mail_sent") {
+      setStatus("success");
+      setResponseMessage("✅ Your message was sent successfully!");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setSubject("");
+      setMessage("");
+    } else {
+      setStatus("error");
+      setResponseMessage(data.message || "❌ Something went wrong!");
+    }
+  };
+
+  return (
+    <section className="my-20 px-4">
+      <div className="container mx-auto">
+        <h2 className="text-dark text-3xl font-bold mb-6">Let’s Connect</h2>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <input
               type="text"
               placeholder="First name *"
-              className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] px-4 py-3 focus:border-black focus:outline-none"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               required
+              className="w-full rounded-md border border-gray-300 px-4 py-3"
             />
             <input
               type="text"
               placeholder="Last Name *"
-              className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] px-4 py-3 focus:border-black focus:outline-none"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               required
+              className="w-full rounded-md border border-gray-300 px-4 py-3"
             />
           </div>
 
-          {/* Email */}
           <input
             type="email"
             placeholder="Enter your email *"
-            className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] px-4 py-3 focus:border-black focus:outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
+            className="w-full rounded-md border border-gray-300 px-4 py-3"
           />
 
-          {/* Phone */}
           <input
             type="tel"
             placeholder="Enter your Phone Number *"
-            className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] px-4 py-3 focus:border-black focus:outline-none"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             required
+            className="w-full rounded-md border border-gray-300 px-4 py-3"
           />
 
-          {/* Subject */}
           <input
             type="text"
             placeholder="Subject *"
-            className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] px-4 py-3 focus:border-black focus:outline-none"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
             required
+            className="w-full rounded-md border border-gray-300 px-4 py-3"
           />
 
-          {/* Message */}
           <textarea
             rows={6}
             placeholder="Your message here *"
-            className="w-full rounded-md border border-gray-300 bg-[#9F9F9F1A] placeholder:text-[#292929] min-h-16 px-4 py-3 focus:border-black focus:outline-none"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
-          ></textarea>
+            className="w-full rounded-md border border-gray-300 px-4 py-3"
+          />
 
-          {/* Submit Button */}
           <div className="flex justify-end">
-            <button type="submit" className="btn secondary_btn">
-              Submit Now
+            <button
+              type="submit"
+              className="btn secondary_btn"
+              disabled={status === "submitting"}
+            >
+              {status === "submitting" ? "Submitting..." : "Submit Now"}
             </button>
           </div>
+
+          {responseMessage && (
+            <div
+              className={`mt-4 p-3 rounded-md text-center ${
+                status === "success"
+                  ? "bg-green-100 text-green-700"
+                  : "bg-red-100 text-red-700"
+              }`}
+            >
+              {responseMessage}
+            </div>
+          )}
         </form>
       </div>
     </section>

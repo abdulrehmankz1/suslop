@@ -56,8 +56,9 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
   const { toc, content } = generateTOCAndContent(blogData.content);
 
   return (
-    <section>
-      <div className="container mx-auto scroll-smooth px-4 sm:px-6 lg:px-8 pb-10">
+ <div>
+     <section className="px-4 sm:px-6 lg:px-8 pb-10 mt-32">
+      <div className="container mx-auto scroll-smooth">
         <div className="blog_detail_page mt-10">
           {blogData.featuredImage && (
             <div className="blog_detail_page">
@@ -67,7 +68,7 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
                   alt={blogData.title}
                   width={600}
                   height={400}
-                  className="rounded-lg mt-20 w-full h-full object-cover"
+                  className="w-full h-full object-cover"
                   draggable="false"
                 />
               </div>
@@ -131,8 +132,8 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
           </div>
         </div>
       </div>
-
-      <CTA
+    </section>
+    <CTA
         heading="Let’s Build Something That Lasts"
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
         primaryBtnText="Contact Us"
@@ -140,7 +141,7 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />
-    </section>
+ </div>
   );
 };
 
