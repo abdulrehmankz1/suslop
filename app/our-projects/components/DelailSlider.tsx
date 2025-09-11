@@ -8,7 +8,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const images = [
+interface DetailSliderProps {
+  images?: string[];
+}
+
+const defaultImages = [
   "/assets/images/detail-image.png",
   "/assets/images/detail-image.png",
   "/assets/images/detail-image.png",
@@ -16,7 +20,7 @@ const images = [
   "/assets/images/detail-image.png",
 ];
 
-function DetailSlider() {
+function DetailSlider({ images = defaultImages }: DetailSliderProps) {
   return (
     <section className="detail_page my-10 relative">
       <div className="container mx-auto relative">

@@ -4,10 +4,10 @@ import DetailSlider from "../components/DelailSlider";
 import VideoWrapper from "../components/VideoWrapper";
 import CTA from "@/app/components/CTA";
 import {
-  fetchReportBySlug,
-  fetchAllReports,
-  extractReportData,
-} from "@/services/report.service";
+  fetchProjectBySlug,
+  fetchAllProjects,
+  extractProjectData,
+} from "@/services/project.service";
 import * as cheerio from "cheerio";
 
 interface CaseStudyPageProps {
@@ -52,13 +52,13 @@ const generateTOCAndContent = (htmlContent: string) => {
 const Page = async ({ params }: CaseStudyPageProps) => {
   const { slug } = await params;
 
-  const report = await fetchReportBySlug(slug);
-  if (!report) return notFound();
+  const project = await fetchProjectBySlug(slug);
+  if (!project) return notFound();
 
-  const reportData = extractReportData(report);
-  if (!reportData) return notFound();
+  const projectData = extractProjectData(project);
+  if (!projectData) return notFound();
 
-  const { toc, content } = generateTOCAndContent(reportData.content);
+  const { toc, content } = generateTOCAndContent(projectData.content);
 
   return (
     <section className="py-10 px-3 md:px-4 lg:px-5">
@@ -66,8 +66,8 @@ const Page = async ({ params }: CaseStudyPageProps) => {
         <div className="detail_page">
           <div className="image_wrapper overflow-hidden rounded-2xl">
             <Image
-              src={reportData?.featuredImage || "/assets/images/detail-image.png"}
-              alt={reportData?.title || "Report"}
+              src={projectData?.featuredImage || "/assets/images/detail-image.png"}
+              alt={projectData?.title || "Project"}
               width={600}
               height={400}
               className="rounded-lg mt-20 w-full! h-full! object-cover"
@@ -77,98 +77,16 @@ const Page = async ({ params }: CaseStudyPageProps) => {
 
           <div className="mt-12">
             <h2 className="text-dark lg:w-[60%] md:w-[80%] w-full">
-              {reportData?.title || "Report Title"}
+              {projectData?.title || "Project Title"}
             </h2>
-            <p className="mt-3 text-dark opacity-[0.7]">
-              {reportData?.excerpt || "Report excerpt"}
-            </p>
+            <p className="mt-3 text-dark opacity-[0.7]" dangerouslySetInnerHTML={{ __html: projectData.excerpt }} />
           </div>
           <div>
-            <DetailSlider />
-            <div>
-              <h4 className="text-dark">
-                Bridging the Gap Between Policy and Practice
-              </h4>
-              <p className="mt-3 text-dark opacity-[0.7]">
-                How strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.
-                How strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.
-              </p>
-            </div>
-            <div className="mt-10">
-              <h4 className="text-dark">
-                Bridging the Gap Between Policy and Practice
-              </h4>
-              <p className="mt-3 text-dark opacity-[0.7]">
-                How strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.
-                How strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.How
-                strategic planning and local engagement can transform
-                sustainability policies into measurable on-the-ground impact.
-              </p>
-            </div>
-            <div>
-              {/* Video wrapper */}
-              <div className="my-10">
-                <VideoWrapper />
-              </div>
-              <div>
-                <h4 className="text-dark">
-                  Bridging the Gap Between Policy and Practice
-                </h4>
-                <p className="mt-3 text-dark opacity-[0.7]">
-                  How strategic planning and local engagement can transform
-                  sustainability policies into measurable on-the-ground impact.
-                  How strategic planning and local engagement can transform
-                  sustainability policies into measurable on-the-ground
-                  impact.How strategic planning and local engagement can
-                  transform sustainability policies into measurable
-                  on-the-ground impact.How strategic planning and local
-                  engagement can transform sustainability policies into
-                  measurable on-the-ground impact.How strategic planning and
-                  local engagement can transform sustainability policies into
-                  measurable on-the-ground impact.How strategic planning and
-                  local engagement can transform sustainability policies into
-                  measurable on-the-ground impact.
-                </p>
-              </div>
-              <div className="my-10">
-                <h4 className="text-dark">
-                  Bridging the Gap Between Policy and Practice
-                </h4>
-                <p className="mt-3 text-dark opacity-[0.7]">
-                  How strategic planning and local engagement can transform
-                  sustainability policies into measurable on-the-ground impact.
-                  How strategic planning and local engagement can transform
-                  sustainability policies into measurable on-the-ground
-                  impact.How strategic planning and local engagement can
-                  transform sustainability policies into measurable
-                  on-the-ground impact.How strategic planning and local
-                  engagement can transform sustainability policies into
-                  measurable on-the-ground impact.How strategic planning and
-                  local engagement can transform sustainability policies into
-                  measurable on-the-ground impact.How strategic planning and
-                  local engagement can transform sustainability policies into
-                  measurable on-the-ground impact.
-                </p>
-              </div>
-            </div>
+            <DetailSlider images={projectData.project_images} />
+            <div
+              className="mt-10 content_block"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
           </div>
         </div>
       </div>
@@ -185,3 +103,10 @@ const Page = async ({ params }: CaseStudyPageProps) => {
 };
 
 export default Page;
+
+export async function generateStaticParams() {
+  const projects = await fetchAllProjects();
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import OurStory from "../components/OurStory";
-import CaseStudies from "./components/CaseStudies";
+import CaseStudies from "./components/Projects";
 import OurProjectsApart from "./components/OurProjectsApart";
 import CTA from "../components/CTA";
 
