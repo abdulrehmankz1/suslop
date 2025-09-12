@@ -1,35 +1,28 @@
+import {
+  extractProjectData,
+  fetchAllProjects,
+} from "@/services/project.service";
 import ProjectCard from "./ProjectCard";
 
-const Projects = () => {
+const Projects = async () => {
+  const projects = await fetchAllProjects();
+  const projectData = projects.map(extractProjectData).filter(Boolean);
+
   return (
     <section className="px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <ProjectCard
-          image="/assets/images/project-image.png"
-          title="Renewable Energy Partnership for Regional Growth"
-          location="Location"
-          region="XYZ Region, Lorem Ipsum"
-          description="Suslop worked with local government and Indigenous leadership to plan and deliver a 50MW solar farm. The project created over 200 jobs, reduced regional emissions, and established a long-term revenue stream for community programs."
-          slug="renewable-energy-partnership-for-regional-growth"
-        />
-
-        <ProjectCard
-          image="/assets/images/project-image.png"
-          title="Indigenous Community Land-Use Planning Initiative"
-          location="Location"
-          region="XYZ Region, Lorem Ipsum"
-          description="Suslop worked with local government and Indigenous leadership to plan and deliver a 50MW solar farm. The project created over 200 jobs, reduced regional emissions, and established a long-term revenue stream for community programs."
-          slug="indigenous-community-land-use-planning-initiative"
-        />
-
-        <ProjectCard
-          image="/assets/images/project-image.png"
-          title="Coastal Infrastructure Climate Resilience Project"
-          location="Location"
-          region="XYZ Region, Lorem Ipsum"
-          description="Suslop worked with local government and Indigenous leadership to plan and deliver a 50MW solar farm. The project created over 200 jobs, reduced regional emissions, and established a long-term revenue stream for community programs."
-          slug="coastal-infrastructure-climate-resilience-project"
-        />
+        {projectData.map((project) => (
+          <ProjectCard
+            key={project!.id}
+            image={project!.featuredImage || "/assets/images/project-image.png"}
+            title={project!.title}
+            location={project!.locationLabel}
+            region={project!.locationValue}
+            descriptionLabel={project!.descriptionLabel}
+            descriptionValue={project!.descriptionValue}
+            slug={project!.slug}
+          />
+        ))}
       </div>
     </section>
   );

@@ -8,7 +8,8 @@ interface ProjectCardProps {
   title: string;
   location: string;
   region: string;
-  description: string;
+  descriptionLabel: string;
+  descriptionValue: string;
   slug: string;
 }
 
@@ -17,7 +18,8 @@ const ProjectCard = ({
   title,
   location,
   region,
-  description,
+  descriptionLabel,
+  descriptionValue,
   slug,
 }: ProjectCardProps) => {
   const router = useRouter();
@@ -65,8 +67,8 @@ const ProjectCard = ({
 
         {/* Description */}
         <div className="mt-4">
-          <div className="text-black font-medium">About the Project:</div>
-          <p className="text-dark opacity-[0.7]">{description}</p>
+          <div className="text-black font-medium">{descriptionLabel}</div>
+          <p className="text-dark opacity-[0.7]">{descriptionValue}</p>
         </div>
 
         {/* Button */}
