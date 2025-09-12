@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-interface CaseStudyCardProps {
+interface ProjectCardProps {
   image: string;
   title: string;
   location: string;
@@ -12,14 +12,14 @@ interface CaseStudyCardProps {
   slug: string;
 }
 
-const CaseStudyCard = ({
+const ProjectCard = ({
   image,
   title,
   location,
   region,
   description,
   slug,
-}: CaseStudyCardProps) => {
+}: ProjectCardProps) => {
   const router = useRouter();
 
   const handleNavigate = () => {
@@ -81,4 +81,4 @@ const CaseStudyCard = ({
   );
 };
 
-export default CaseStudyCard;
+export default ProjectCard;

@@ -1,10 +1,10 @@
-import CaseStudyCard from "./CaseStudyCard";
+import ProjectCard from "./ProjectCard";
 
-const CaseStudies = () => {
+const Projects = () => {
   return (
     <section className="px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <CaseStudyCard
+        <ProjectCard
           image="/assets/images/project-image.png"
           title="Renewable Energy Partnership for Regional Growth"
           location="Location"
@@ -13,7 +13,7 @@ const CaseStudies = () => {
           slug="renewable-energy-partnership-for-regional-growth"
         />
 
-        <CaseStudyCard
+        <ProjectCard
           image="/assets/images/project-image.png"
           title="Indigenous Community Land-Use Planning Initiative"
           location="Location"
@@ -22,7 +22,7 @@ const CaseStudies = () => {
           slug="indigenous-community-land-use-planning-initiative"
         />
 
-        <CaseStudyCard
+        <ProjectCard
           image="/assets/images/project-image.png"
           title="Coastal Infrastructure Climate Resilience Project"
           location="Location"
@@ -35,4 +35,4 @@ const CaseStudies = () => {
   );
 };
 
-export default CaseStudies;
+export default Projects;
