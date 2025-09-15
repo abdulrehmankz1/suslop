@@ -8,6 +8,11 @@ export interface WPService {
   title: { rendered: string };
   excerpt: { rendered: string }; // Excerpt field holds the service description.
   content: { rendered: string }; // Content field holds the list items.
+  acf?: {
+    featured_image?: {
+      url: string;
+    };
+  };
   _embedded?: {
     ["wp:featuredmedia"]?: {
       source_url: string;
@@ -109,6 +114,8 @@ export const extractServiceData = (
     description: stripHtml(descriptionHtml),
     listItems: parseListItems(listItemsHtml),
     featuredImage:
-      service._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
+      service.acf?.featured_image?.url ||
+      service._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+      null,
   };
 };

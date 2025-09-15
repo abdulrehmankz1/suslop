@@ -13,11 +13,8 @@ export default function ConditionalNavbar() {
     pathname.startsWith("/our-projects/") ||
     pathname.startsWith("/our-insights/") ||
     pathname.startsWith("/our-reports/") ||
+    pathname.startsWith("/news-room/") ||
     pathname === "/contact-us";
 
-  return (
-    <>
-      {isLightNavbar ? <LightNavbar /> : <Navbar />}
-    </>
-  );
+  return <>{isLightNavbar ? <LightNavbar /> : <Navbar />}</>;
 }

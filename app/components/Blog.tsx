@@ -6,54 +6,25 @@ import { Autoplay } from "swiper/modules";
 import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
 import BlogCard from "./BlogCard";
-
-const blogData = [
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-    linkHref: "#",
-  },
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-    linkHref: "#",
-  },
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-    linkHref: "#",
-  },
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-    linkHref: "#",
-  },
-  {
-    title: "Bridging the Gap Between Policy and Practice",
-    description:
-      "How strategic planning and local engagement can transform sustainability policies into measurable on-the-ground impact.",
-    image: "/assets/images/service-card.png",
-    linkText: "Read Article",
-    linkHref: "#",
-  },
-];
+import { fetchAllPosts, extractPostData, WPPost, PostData } from "../../services/blog.service";
 
 const Blog = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const totalBullets = 3;
   const [activeBullet, setActiveBullet] = useState<number>(0);
+  const [blogData, setBlogData] = useState<PostData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadBlogs = async () => {
+      setLoading(true);
+      const posts: WPPost[] = await fetchAllPosts();
+      const extractedData = posts.map((post) => extractPostData(post)).filter((data): data is PostData => data !== null);
+      setBlogData(extractedData);
+      setLoading(false);
+    };
+    loadBlogs();
+  }, []);
 
   // Update active bullet on slide change
   useEffect(() => {
@@ -76,7 +47,7 @@ const Blog = () => {
       swiper.off("slideChange", updateBullet);
       swiper.off("init", updateBullet);
     };
-  }, []);
+  }, [blogData]);
 
   const goToBullet = (index: number) => {
     const swiper = swiperRef.current;
@@ -124,11 +95,23 @@ const Blog = () => {
               }}
               className="blogs-swiper"
             >
-              {blogData.map((service, i) => (
-                <SwiperSlide key={i} className="mb-10">
-                  <BlogCard {...service} />
+              {loading ? (
+                <SwiperSlide>
+                  <p>Loading blogs...</p>
                 </SwiperSlide>
-              ))}
+              ) : (
+                blogData.map((blog) => (
+                  <SwiperSlide key={blog.id} className="mb-10">
+                    <BlogCard
+                      title={blog.title}
+                      description={blog.excerpt}
+                      image={blog.featuredImage || "/assets/images/service-card.png"}
+                      linkText="Read Article"
+                      linkHref={`/blog-perspectives/${blog.slug}`}
+                    />
+                  </SwiperSlide>
+                ))
+              )}
             </Swiper>
 
             {/* Custom Pagination */}

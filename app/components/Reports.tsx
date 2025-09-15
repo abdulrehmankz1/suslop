@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -16,9 +16,23 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { fetchAllReports, extractReportData, WPReport, ReportData } from "../../services/report.service";
 
 const Reports = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [reportsData, setReportsData] = useState<ReportData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadReports = async () => {
+      setLoading(true);
+      const reports: WPReport[] = await fetchAllReports();
+      const extractedData = reports.map((report) => extractReportData(report)).filter((data): data is ReportData => data !== null);
+      setReportsData(extractedData);
+      setLoading(false);
+    };
+    loadReports();
+  }, []);
 
   return (
     <section className="reports_section px-3 md:px-4 lg:px-5">
@@ -70,156 +84,59 @@ const Reports = () => {
               },
             }}
           >
-            {/* Slide 1 */}
-            <SwiperSlide>
-              <Link href="/our-insights" className="block">
-                <div className="report-card cursor-pointer">
-                  {/* Image Section */}
-                  <div className="aspect-video overflow-hidden rounded-lg">
-                    <Image
-                      src="/assets/images/report-1.png"
-                      alt="Report 1"
-                      width={500}
-                      height={300}
-                      draggable="false"
-                      className="object-cover w-full! h-full!"
-                    />
-                  </div>
-
-                  {/* Text Section */}
-                  <div>
-                    <div className="text-green-deep mt-5">Report</div>
-                    <h4 className="text-dark my-2.5">
-                      2025 Sustainability Trends Report
-                    </h4>
-
-                    {/* Animated content */}
-                    <div
-                      className={`transition-all duration-500 ease-in-out transform ${
-                        activeIndex === 0
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                      }`}
-                    >
-                      <p className="text-dark mb-7">
-                        Explore the emerging environmental, social, and
-                        regulatory shifts shaping the future of infrastructure
-                        and community projects.
-                      </p>
-                      <div className="flex md:gap-9 gap-2 items-center">
-                        <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight
-                          size={25}
-                          color="#0E0E0E"
-                          className="size-7 md:size-10"
+            {loading ? (
+              <SwiperSlide>
+                <div className="report-card">
+                  <p>Loading reports...</p>
+                </div>
+              </SwiperSlide>
+            ) : (
+              reportsData.map((report, index) => (
+                <SwiperSlide key={report.id}>
+                  <Link href={`/our-reports/${report.slug}`} className="block">
+                    <div className="report-card cursor-pointer">
+                      {/* Image Section */}
+                      <div className="aspect-video overflow-hidden rounded-lg">
+                        <Image
+                          src={report.featuredImage || "/assets/images/report-1.png"}
+                          alt={report.title}
+                          width={500}
+                          height={300}
+                          draggable="false"
+                          className="object-cover w-full! h-full!"
                         />
                       </div>
-                      <div className="h-1 w-[100px] bg-black mt-1"></div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
 
-            {/* Slide 2 */}
-            <SwiperSlide>
-              <Link href="/our-insights" className="block">
-                <div className="report-card cursor-pointer">
-                  {/* Image */}
-                  <div className="aspect-video overflow-hidden rounded-lg">
-                    <Image
-                      src="/assets/images/report-2.png"
-                      alt="Report 2"
-                      width={500}
-                      height={300}
-                      className="object-cover w-full! h-full!"
-                      draggable="false"
-                    />
-                  </div>
+                      {/* Text Section */}
+                      <div>
+                        <div className="text-green-deep mt-5">Report</div>
+                        <h4 className="text-dark my-2.5">{report.title}</h4>
 
-                  {/* Content */}
-                  <div>
-                    <div className="text-green-deep mt-5">Report</div>
-                    <h4 className="text-dark my-2.5">
-                      Indigenous Partnership Best Practices
-                    </h4>
-
-                    <div
-                      className={`transition-all duration-500 ease-in-out transform ${
-                        activeIndex === 1
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                      }`}
-                    >
-                      <p className="text-dark mb-7">
-                        Explore the emerging environmental, social, and
-                        regulatory shifts shaping the future of infrastructure  
-                        and community projects.
-                      </p>
-                      <div className="flex md:gap-9 gap-1 items-center">
-                        <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight
-                          size={25}
-                          color="#0E0E0E"
-                          className="size-7 md:size-10"
-                        />
+                        {/* Animated content */}
+                        <div
+                          className={`transition-all duration-500 ease-in-out transform min-h-[120px] ${
+                            activeIndex === index
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 -translate-y-4 pointer-events-none absolute"
+                          }`}
+                        >
+                          <p className="text-dark mb-7 line-clamp-2">{report.excerpt}</p>
+                          <div className="flex md:gap-9 gap-2 items-center">
+                            <h4 className="text-dark mr-2">Read Report</h4>
+                            <ArrowUpRight
+                              size={25}
+                              color="#0E0E0E"
+                              className="size-7 md:size-10"
+                            />
+                          </div>
+                          <div className="h-1 w-[100px] bg-black mt-1"></div>
+                        </div>
                       </div>
-                      <div className="h-1 w-[100px] bg-black mt-1"></div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
-
-            {/* Slide 3 */}
-            <SwiperSlide>
-              <Link href="/our-insights" className="block">
-                <div className="report-card cursor-pointer">
-                  {/* Image */}
-                  <div className="aspect-video overflow-hidden rounded-lg">
-                    <Image
-                      src="/assets/images/report-1.png"
-                      alt="Report 3"
-                      width={500}
-                      height={300}
-                      className="object-cover w-full! h-full!"
-                      draggable="false"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <div className="text-green-deep mt-5">Report</div>
-                    <h4 className="text-dark my-2.5">
-                      Climate Impact Analysis
-                    </h4>
-
-                    <div
-                      className={`transition-all duration-500 ease-in-out transform ${
-                        activeIndex === 2
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 -translate-y-4 pointer-events-none absolute"
-                      }`}
-                    >
-                      <p className="text-dark mb-7">
-                        Explore the emerging environmental, social, and
-                        regulatory shifts shaping the future of infrastructure
-                        and community projects.
-                      </p>
-                      <div className="flex md:gap-9 gap-1 items-center">
-                        <h4 className="text-dark mr-2">Read Report</h4>
-                        <ArrowUpRight
-                          size={25}
-                          color="#0E0E0E"
-                          className="size-7 md:size-10"
-                        />
-                      </div>
-                      <div className="h-1 w-[100px] bg-black mt-1"></div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
+                  </Link>
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
 
           {/* Custom Nav Buttons */}

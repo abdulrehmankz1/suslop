@@ -1,30 +1,24 @@
-import React from "react";
-import UpdatesCard from "./UpdatesCard";
+"use client";
 
-const updatesData = [
-  {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/1",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Designing Infrastructure for Climate Resilience",
-    link: "/updates/2",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "The Future of Community-Led Developments",
-    link: "/updates/3",
-  },
-  {
-    image: "/assets/images/left-top.png",
-    title: "Bridging Policy and Practice in Sustainable Development",
-    link: "/updates/4",
-  },
-];
+import React, { useEffect, useState } from "react";
+import UpdatesCard from "./UpdatesCard";
+import { fetchAllNewsRooms, extractNewsRoomData, WPNewsRoom, NewsRoomData } from "../../services/newsRoom.service";
 
 const NewsRoom = () => {
+  const [newsData, setNewsData] = useState<NewsRoomData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadNews = async () => {
+      setLoading(true);
+      const newsRooms: WPNewsRoom[] = await fetchAllNewsRooms();
+      const extractedData = newsRooms.map((newsRoom) => extractNewsRoomData(newsRoom)).filter((data): data is NewsRoomData => data !== null);
+      setNewsData(extractedData);
+      setLoading(false);
+    };
+    loadNews();
+  }, []);
+
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
@@ -44,14 +38,18 @@ const NewsRoom = () => {
 
         {/* 4 Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {updatesData.map((update, index) => (
-            <UpdatesCard
-              key={index}
-              image={update.image}
-              title={update.title}
-              link={update.link}
-            />
-          ))}
+          {loading ? (
+            <p>Loading news...</p>
+          ) : (
+            newsData.slice(0, 4).map((update) => (
+              <UpdatesCard
+                key={update.id}
+                image={update.featuredImage || "/assets/images/left-top.png"}
+                title={update.title}
+                link={`/news-room/${update.slug}`}
+              />
+            ))
+          )}
         </div>
       </div>
     </section>

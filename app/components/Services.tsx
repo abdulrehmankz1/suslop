@@ -6,53 +6,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
-
-const servicesData = [
-  {
-    number: 1,
-    title: "Sustainability Strategy",
-    description:
-      "Setting clear, measurable goals and turning vision into action.",
-    image: "/assets/images/service-card.png",
-    listItems: [],
-  },
-  {
-    number: 2,
-    title: "Climate Action",
-    description:
-      "Helping organizations reduce their carbon footprint effectively.",
-    image: "/assets/images/service-card.png",
-    listItems: [],
-  },
-  {
-    number: 3,
-    title: "Innovation & Technology",
-    description:
-      "Driving solutions with advanced technology and smart systems.",
-    image: "/assets/images/service-card.png",
-    listItems: [],
-  },
-  {
-    number: 4,
-    title: "Circular Economy",
-    description: "Turning waste into resources through sustainable models.",
-    image: "/assets/images/service-card.png",
-    listItems: [],
-  },
-  {
-    number: 5,
-    title: "Green Financing",
-    description:
-      "Funding sustainable projects with eco-friendly investment solutions.",
-    image: "/assets/images/service-card.png",
-    listItems: [],
-  },
-];
+import { fetchAllServices, extractServiceData, WPService, ServiceData } from "../../services/service.service";
 
 const Services = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const totalBullets = 3;
   const [activeBullet, setActiveBullet] = useState<number>(0);
+  const [servicesData, setServicesData] = useState<ServiceData[]>([]);
 
   // Update active bullet on slide change
   useEffect(() => {
@@ -75,6 +35,15 @@ const Services = () => {
       swiper.off("slideChange", updateBullet);
       swiper.off("init", updateBullet);
     };
+  }, [servicesData]);
+
+  useEffect(() => {
+    const loadServices = async () => {
+      const wpServices: WPService[] = await fetchAllServices();
+      const extractedServices = wpServices.map((service) => extractServiceData(service)).filter((data): data is ServiceData => data !== null);
+      setServicesData(extractedServices);
+    };
+    loadServices();
   }, []);
 
   const goToBullet = (index: number) => {
@@ -132,8 +101,13 @@ const Services = () => {
                 className="services-swiper"
               >
                 {servicesData.map((service, i) => (
-                  <SwiperSlide key={i} className="lg:mb-10 mb-4">
-                    <ServiceCard {...service} />
+                  <SwiperSlide key={service.id}>
+                    <ServiceCard
+                      number={i + 1}
+                      title={service.title}
+                      description={service.description}
+                      image={service.featuredImage || undefined}
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>

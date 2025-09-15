@@ -44,9 +44,9 @@ const ServiceCard = ({
 
         {/* Learn More Button */}
         <Link href="/our-services" passHref>
-          <button className="btn secondary_btn w-full xl:mt-6 lg:mt-5 md:mt-4 mt-3">
+          {/* <button className="btn secondary_btn w-full xl:mt-6 lg:mt-5 md:mt-4 mt-3">
             Learn More
-          </button>
+          </button> */}
         </Link>
       </div>
     </div>

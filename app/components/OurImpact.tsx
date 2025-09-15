@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -8,8 +8,23 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
+import { fetchAllProjects, extractProjectData, WPProject, ProjectData } from "../../services/project.service";
 
 const OurImpact = () => {
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      setLoading(true);
+      const wpProjects: WPProject[] = await fetchAllProjects();
+      const extractedProjects = wpProjects.map((project) => extractProjectData(project)).filter((data): data is ProjectData => data !== null);
+      setProjects(extractedProjects);
+      setLoading(false);
+    };
+    loadProjects();
+  }, []);
+
   return (
     <section className="px-3 md:px-4 lg:px-5">
       <div className="container mx-auto md:p-10 px-5 py-10 bg-black rounded-4xl">
@@ -38,42 +53,28 @@ const OurImpact = () => {
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             className="rounded-xl overflow-hidden"
           >
-            <SwiperSlide>
-              <div className="image_wrapper">
-                <Image
-                  src="/assets/images/image-2.png"
-                  alt="Project 1"
-                  className="w-full! h-full! object-cover"
-                  width={1920}
-                  height={1080}
-                  priority
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="image_wrapper">
-                <Image
-                  src="/assets/images/image-2.png"
-                  alt="Project 2"
-                  className="w-full! h-full! object-cover"
-                  width={1920}
-                  height={1080}
-                  priority
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="image_wrapper">
-                <Image
-                  src="/assets/images/image-2.png"
-                  alt="Project 3"
-                  className="w-full! h-full! object-cover"
-                  width={1920}
-                  height={1080}
-                  priority
-                />
-              </div>
-            </SwiperSlide>
+            {loading ? (
+              <SwiperSlide>
+                <div className="image_wrapper">
+                  <p className="text-white">Loading projects...</p>
+                </div>
+              </SwiperSlide>
+            ) : (
+              projects.slice(0, 3).map((project) => (
+                <SwiperSlide key={project.id}>
+                  <div className="image_wrapper">
+                    <Image
+                      src={project.featuredImage || "/assets/images/image-2.png"}
+                      alt={project.title}
+                      className="w-full! h-full! object-cover"
+                      width={1920}
+                      height={1080}
+                      priority
+                    />
+                  </div>
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
 
           {/* Custom pagination positioning */}
