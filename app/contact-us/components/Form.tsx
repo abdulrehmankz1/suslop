@@ -25,6 +25,7 @@ const Form = () => {
     formData.append("phone", phone);
     formData.append("subject", subject);
     formData.append("message", message);
+    formData.append("_wpcf7_unit_tag", "59e9c1f");
 
     const data = await submitContact(formData);
 
@@ -39,7 +40,7 @@ const Form = () => {
       setMessage("");
     } else {
       setStatus("error");
-      setResponseMessage(data.message || "❌ Something went wrong!");
+      setResponseMessage(data.message || "Something went wrong!");
     }
   };
 
@@ -116,11 +117,10 @@ const Form = () => {
 
           {responseMessage && (
             <div
-              className={`mt-4 p-3 rounded-md text-center ${
-                status === "success"
-                  ? "bg-green-100 text-green-700"
-                  : "bg-red-100 text-red-700"
-              }`}
+              className={`mt-4 p-3 rounded-md text-center ${status == "success"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+                }`}
             >
               {responseMessage}
             </div>
