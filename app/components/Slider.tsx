@@ -1,7 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 // --- Types ---
 export interface WPReport {
@@ -29,7 +32,7 @@ export interface ReportData {
   images: string[];
 }
 
-// --- API Functions and Helpers ---
+// --- Helpers ---
 function stripHtml(html: string): string {
   return html
     .replace(/<[^>]*>/g, "")
@@ -60,14 +63,13 @@ const extractReportData = (report: WPReport): ReportData => {
   }
 
   const images = allImages.filter((src) => src !== featuredImage);
-  const cleanedContent = contentHtml;
 
   return {
     id: report.id,
     slug: report.slug,
     title: report.title?.rendered || "Untitled Report",
     excerpt: stripHtml(report.excerpt?.rendered || ""),
-    content: cleanedContent,
+    content: contentHtml,
     date: report.date,
     featuredImage,
     images,
@@ -90,8 +92,8 @@ const fetchAllReports = async (): Promise<WPReport[]> => {
   }
 };
 
-// --- Slider Component ---
-const Slider: React.FC = () => {
+// --- Slider ---
+const Slider = () => {
   const [reports, setReports] = useState<ReportData[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -112,7 +114,9 @@ const Slider: React.FC = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + reports.length) % reports.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + reports.length) % reports.length
+    );
   };
 
   if (loading) {
@@ -120,81 +124,133 @@ const Slider: React.FC = () => {
   }
 
   if (reports.length < 2) {
-    return <div className="text-center p-10">Not enough reports to display a slider.</div>;
+    return (
+      <div className="text-center p-10">
+        Not enough reports to display a slider.
+      </div>
+    );
   }
 
   const activeSlide = reports[currentIndex];
   const inactiveSlide = reports[(currentIndex + 1) % reports.length];
 
   return (
-    <div className="relative w-full overflow-hidden p-6">
-      <div className="flex w-full transition-transform duration-500 ease-in-out">
-        {/* Active Slide (60% width) */}
-        <div className="w-[60%] flex-shrink-0 p-4">
-          <div className="bg-white rounded-lg shadow-lg">
-            <div className="relative h-96">
-              {activeSlide.featuredImage && (
-                <Image
-                  src={activeSlide.featuredImage}
-                  alt={activeSlide.title}
-                  fill
-                  className="rounded-t-lg object-cover"
-                />
-              )}
-            </div>
-            <div className="p-6">
-              <h3 className="mt-2 text-2xl font-bold">{activeSlide.title}</h3>
-              <p className="mt-2 text-gray-600">{activeSlide.excerpt}</p>
-              <a href={`/reports/${activeSlide.slug}`} className="mt-4 inline-flex items-center text-blue-500 hover:text-blue-700 font-semibold">
-                Read Report
-                <span className="ml-2">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Inactive Slide (40% width) */}
-        <div className="w-[40%] flex-shrink-0 p-4">
-          <div className="bg-white rounded-lg shadow-lg">
-            <div className="relative h-96">
-              {inactiveSlide.featuredImage && (
-                <Image
-                  src={inactiveSlide.featuredImage}
-                  alt={inactiveSlide.title}
-                  fill
-                  className="rounded-t-lg object-cover"
-                />
-              )}
-            </div>
-            <div className="p-6">
-              <h3 className="mt-2 text-xl font-semibold">{inactiveSlide.title}</h3>
-            </div>
-          </div>
+    <div className="relative w-full overflow-hidden">
+      {/* Mobile Nav */}
+      <div className="lg:hidden block">
+        <div className="flex gap-3 mb-5 justify-end">
+          <button
+            onClick={prevSlide}
+            className="reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <ArrowLeft size={35} className="text-[#AAAAAA] size-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="reports-next md:p-4 p-3 bg-dark rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <ArrowRight size={35} className="text-white size-6" />
+          </button>
         </div>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute right-6 bottom-6 flex space-x-4">
-        <button
-          onClick={prevSlide}
-          className="p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-colors"
-        >
-          <svg className="w-6 h-6 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-colors"
-        >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
+      {/* Main Slides */}
+      <div className="flex w-full gap-6">
+        {/* Active Slide */}
+        {/* Active Slide */}
+        <div className="w-full lg:w-[60%]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSlide.id}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <Link href={`/our-reports/${activeSlide.slug}`}>
+                {/* Image Wrapper */}
+                <div className="relative h-96 rounded-lg overflow-hidden">
+                  {activeSlide.featuredImage && (
+                    <Image
+                      src={activeSlide.featuredImage}
+                      alt={activeSlide.title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+
+                <div>
+                  <div className="text-green-deep mt-5">Report</div>
+                  <h4 className="text-dark my-2.5">{activeSlide.title}</h4>
+                  <p className="text-dark mb-7 line-clamp-3">
+                    {activeSlide.excerpt}
+                  </p>
+                  <div className="flex md:gap-9 gap-2 items-center">
+                    <h4 className="text-dark mr-2">Read Report</h4>
+                    <ArrowUpRight
+                      size={25}
+                      color="#0E0E0E"
+                      className="size-7 md:size-10"
+                    />
+                  </div>
+                  <div className="h-1 w-[100px] bg-black mt-1"></div>
+                </div>
+              </Link>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Inactive Slide → Only show on desktop */}
+        {/* Inactive Slide */}
+        <div className="hidden lg:block w-[40%]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={inactiveSlide.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div>
+                {/* Image Wrapper */}
+                <div className="relative h-96 rounded-lg overflow-hidden">
+                  {inactiveSlide.featuredImage && (
+                    <Image
+                      src={inactiveSlide.featuredImage}
+                      alt={inactiveSlide.title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+
+                <div>
+                  <div className="text-green-deep mt-5">Report</div>
+                  <h4 className="text-dark my-2.5">{inactiveSlide.title}</h4>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Desktop Nav */}
+      <div className="lg:block hidden">
+        <div className="absolute bottom-22 right-4 flex gap-3 z-10 ">
+          <button
+            onClick={prevSlide}
+            className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <ArrowLeft size={35} className="text-[#AAAAAA]" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer"
+          >
+            <ArrowRight size={35} className="text-white" />
+          </button>
+        </div>
       </div>
     </div>
   );
