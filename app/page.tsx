@@ -6,7 +6,6 @@ import OurEdge from "./components/OurEdge";
 import OurImpact from "./components/OurImpact";
 import Reports from "./components/Reports";
 import Services from "./components/Services";
-import Slider from "./components/Slider";
 
 export default function Home() {
   return (
@@ -22,9 +21,6 @@ export default function Home() {
       <Reports />
       <Blog />
       <NewsRoom />
-      <div className="container mx-auto py-10">
-        <Slider />
-      </div>
       <CTA
         heading="Let’s Build Something That Lasts"
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
