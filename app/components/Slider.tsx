@@ -34,10 +34,7 @@ export interface ReportData {
 
 // --- Helpers ---
 function stripHtml(html: string): string {
-  return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/\[&hellip;\]/g, "")
-    .trim();
+  return html.replace(/<[^>]*>/g, "").replace(/\[&hellip;\]/g, "").trim();
 }
 
 function extractImageSrcs(html: string): string[] {
@@ -92,6 +89,21 @@ const fetchAllReports = async (): Promise<WPReport[]> => {
   }
 };
 
+// --- Skeleton Component ---
+const SkeletonSlide = () => {
+  return (
+    <div className="w-full lg:w-[60%] animate-pulse">
+      <div className="relative h-96 rounded-lg overflow-hidden bg-gray-200"></div>
+      <div className="mt-5 space-y-3">
+        <div className="h-4 w-20 bg-gray-200 rounded"></div>
+        <div className="h-6 w-3/4 bg-gray-200 rounded"></div>
+        <div className="h-4 w-full bg-gray-200 rounded"></div>
+        <div className="h-4 w-2/3 bg-gray-200 rounded"></div>
+      </div>
+    </div>
+  );
+};
+
 // --- Slider ---
 const Slider = () => {
   const [reports, setReports] = useState<ReportData[]>([]);
@@ -120,7 +132,17 @@ const Slider = () => {
   };
 
   if (loading) {
-    return <div className="text-center p-10">Loading reports...</div>;
+    return (
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-full gap-6">
+          <SkeletonSlide />
+          <div className="hidden lg:block w-[40%] animate-pulse">
+            <div className="relative h-96 rounded-lg overflow-hidden bg-gray-200"></div>
+            <div className="mt-5 h-6 w-1/2 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (reports.length < 2) {
@@ -156,7 +178,6 @@ const Slider = () => {
 
       {/* Main Slides */}
       <div className="flex w-full gap-6">
-        {/* Active Slide */}
         {/* Active Slide */}
         <div className="w-full lg:w-[60%]">
           <AnimatePresence mode="wait">
@@ -202,7 +223,6 @@ const Slider = () => {
         </div>
 
         {/* Inactive Slide → Only show on desktop */}
-        {/* Inactive Slide */}
         <div className="hidden lg:block w-[40%]">
           <AnimatePresence mode="wait">
             <motion.div
