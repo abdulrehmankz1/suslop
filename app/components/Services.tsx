@@ -117,7 +117,7 @@ const Services = () => {
                 {Array.from({ length: totalBullets }).map((_, i) => (
                   <button
                     key={i}
-                    className={`md:h-3 h-2 rounded-full transition-all duration-300 ${
+                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       i === activeBullet
                         ? "bg-[#0E0E0E] md:w-[120px] w-[80px]"
                         : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"

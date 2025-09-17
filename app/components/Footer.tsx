@@ -6,24 +6,24 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-12 rounded-t-[60px] pt-[320px] -mt-64 px-3 md:px-4 lg:px-5">
+    <footer className="bg-black py-12 pb-7 rounded-t-[60px] pt-[320px] -mt-64 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Top Section */}
         <div className="flex flex-wrap gap-12 justify-between">
           {/* Logo + About */}
           <div className="w-full md:w-2/3 lg:w-[35%]">
             {/* Logo */}
-            <Link href="/" className="gap-2 mb-4 logo_wrapper inline-block">
+            <Link href="/" className="gap-2 md:mb-5 footer_logo">
               <Image
                 src="/assets/images/logo.svg"
                 alt="Logo"
                 width={220}
-                height={30}
+                height={28}
                 draggable="false"
                 priority
-                className="w-full h-auto"
               />
             </Link>
+
             <p className="mt-5 opacity-70 text-white">
               At Suslop, we help governments, communities, and industries design
               and deliver solutions that balance environmental responsibility,
@@ -124,16 +124,16 @@ const Footer = () => {
         </div>
 
         {/* Divider + Email Section */}
-        <div className="border-t border-white/30 my-12"></div>
+        <div className="border-t border-white/30 lg:my-12 md:my-7 my-5"></div>
         <div className="flex items-center justify-between">
           <div className="text-xl sm:text-3xl md:text-5xl lg:text-[65px] text-fefe">
             hello@company.com
           </div>
-          <button className="bg-white text-black p-4 rounded-full hover:bg-gray-200 cursor-pointer">
+          <button className="bg-white text-black md:p-4 p-2 rounded-full hover:bg-gray-200 cursor-pointer">
             <ArrowUpRight size={24} />
           </button>
         </div>
-        <div className="border-t border-white/30 mt-12 mb-5"></div>
+        <div className="border-t border-white/30 lg:mt-12 md:mt-7 mt-5 mb-5"></div>
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-fefe opacity-[0.8]">

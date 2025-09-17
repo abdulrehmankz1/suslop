@@ -269,14 +269,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */
-    linear-gradient(to top,
+    /* Overlay dark fade from bottom */ linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%),
+      rgba(0, 0, 0, 0) 60%
+    ),
     /* Subtle side fade */
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */
-    url("../../public/assets/images/footer-banner.png");
+      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */ url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -371,7 +371,6 @@ h4 {
 }
 
 .toc_container {
-
   ul,
   ol {
     li {
@@ -389,6 +388,17 @@ h4 {
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+}
+
+.footer_logo {
+  height: 30px;
+  display: inline-block;
+}
+
+.footer_logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 // Media Queries

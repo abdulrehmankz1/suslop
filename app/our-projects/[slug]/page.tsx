@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import DetailSlider from "../components/DelailSlider";
-import VideoWrapper from "../components/VideoWrapper";
 import CTA from "@/app/components/CTA";
 import {
   fetchProjectBySlug,
@@ -9,6 +8,8 @@ import {
   extractProjectData,
 } from "@/services/project.service";
 import * as cheerio from "cheerio";
+
+import "../../styles/detail.scss";
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -63,10 +64,12 @@ const Page = async ({ params }: CaseStudyPageProps) => {
   return (
     <section className="py-10 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
-        <div className="detail_page">
+        <div className="blog_detail_section">
           <div className="image_wrapper overflow-hidden rounded-2xl">
             <Image
-              src={projectData?.featuredImage || "/assets/images/detail-image.png"}
+              src={
+                projectData?.featuredImage || "/assets/images/detail-image.png"
+              }
               alt={projectData?.title || "Project"}
               width={600}
               height={400}
@@ -79,18 +82,21 @@ const Page = async ({ params }: CaseStudyPageProps) => {
             <h2 className="text-dark lg:w-[60%] md:w-[80%] w-full">
               {projectData?.title || "Project Title"}
             </h2>
-            <p className="mt-3 text-dark opacity-[0.7]" dangerouslySetInnerHTML={{ __html: projectData.excerpt }} />
+            <p
+              className="mt-3 text-dark opacity-[0.7]"
+              dangerouslySetInnerHTML={{ __html: projectData.excerpt }}
+            />
           </div>
-          <div>
+          <div className="blog_detail_section">
             <DetailSlider images={projectData.project_images} />
             <div
-              className="mt-10 content_block"
+              className="mt-10 blog_detail_section"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
         </div>
       </div>
-        <CTA
+      <CTA
         heading="Let’s Build Something That Lasts."
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
         primaryBtnText="Contact Us"

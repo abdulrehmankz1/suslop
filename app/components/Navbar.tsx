@@ -58,50 +58,21 @@ const Navbar = () => {
                 About Us
               </Link>
             </li>
-
-            {/* Services Dropdown */}
-            <li
-              className="relative pe-8"
-              onMouseEnter={() => setOpenDropdown("services")}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button
-                onClick={() =>
-                  setOpenDropdown(
-                    openDropdown === "services" ? null : "services"
-                  )
-                }
-                className="hover:text-white/70 transition flex items-center gap-1 cursor-pointer"
+            <li>
+              <Link
+                href="/our-services"
+                className="hover:text-white/70 transition pe-8"
               >
-                Services <ChevronDown size={18} />
-              </button>
-
-              <div
-                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
-                  openDropdown === "services"
-                    ? "opacity-100 translate-y-0 visible"
-                    : "opacity-0 -translate-y-2 invisible"
-                }`}
+                Our Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/our-projects"
+                className="hover:text-white/70 transition pe-8"
               >
-                <ul>
-                  <li>
-                    <Link
-                      href="/our-services"
-                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
-                    >
-                      Our Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/our-projects"
-                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
-                    >
-                      Our Projects
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                Our Projects
+              </Link>
             </li>
 
             {/* Insights Dropdown */}
@@ -145,14 +116,6 @@ const Navbar = () => {
                       Blogs
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/insights/case-studies"
-                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
-                    >
-                      Case Studies
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </li>
@@ -160,9 +123,12 @@ const Navbar = () => {
         </nav>
 
         {/* CTA Desktop */}
-        <button className="btn primary_btn_outline hidden lg:inline-flex">
+        <Link
+          href="/contact-us"
+          className="btn primary_btn_outline hidden lg:inline-flex"
+        >
           Contact Us
-        </button>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -196,40 +162,21 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer px-2 py-2 hover:text-white/70">
-                  Services <ChevronDown size={18} />
-                </summary>
-                <ul className="pl-4 mt-1 space-y-1">
-                  <li>
-                    <Link
-                      href="/services/web"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Web Development
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/consulting"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/strategy"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Strategy
-                    </Link>
-                  </li>
-                </ul>
-              </details>
+              <Link
+                href="/our-services"
+                className="block px-2 py-2 hover:text-white/70 transition"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Our Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/our-projects"
+                className="block px-2 py-2 hover:text-white/70 transition"
+              >
+                Our Projects
+              </Link>
             </li>
             <li>
               <details className="group">
@@ -248,15 +195,6 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="/insights/case-studies"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Case Studies
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/insights/reports"
                       className="block py-1 hover:text-white/70"
                       onClick={() => setMobileMenuOpen(false)}
@@ -268,12 +206,13 @@ const Navbar = () => {
               </details>
             </li>
             <li>
-              <button
+              <Link
+                href="/contact-us"
                 className="btn primary_btn_outline w-full mt-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact Us
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>

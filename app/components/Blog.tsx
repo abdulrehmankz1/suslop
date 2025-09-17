@@ -63,7 +63,7 @@ const Blog = () => {
 
   return (
     <section className="px-3 md:px-4 lg:px-5">
-      <div className="w-full py-12 -mt-1 bg_gray_light lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px]">
+      <div className="w-full py-12 -mt-1 bg_gray_light lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px] lg:px-0 md:px-3 px-0">
         <div className="container mx-auto relative">
           <div className="xl:w-[60%] lg:w-[75%] w-[80%] mx-auto text-center lg:mb-12 mb-10">
             <h2 className="mb-3 text-dark">Blog & Perspectives</h2>
@@ -77,7 +77,7 @@ const Blog = () => {
           </div>
 
           {/* Swiper Slider */}
-          <div className="px-4">
+          <div>
             <Swiper
               modules={[Autoplay]}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -119,7 +119,7 @@ const Blog = () => {
               {Array.from({ length: totalBullets }).map((_, i) => (
                 <button
                   key={i}
-                  className={`md:h-3 h-2 rounded-full transition-all duration-300 ${
+                  className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     i === activeBullet
                       ? "bg-[#0E0E0E] md:w-[120px] w-20"
                       : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
