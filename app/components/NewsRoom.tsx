@@ -2,7 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import UpdatesCard from "./UpdatesCard";
-import { fetchAllNewsRooms, extractNewsRoomData, WPNewsRoom, NewsRoomData } from "../../services/newsRoom.service";
+import {
+  fetchAllNewsRooms,
+  extractNewsRoomData,
+  WPNewsRoom,
+  NewsRoomData,
+} from "../../services/newsRoom.service";
 
 const NewsRoom = () => {
   const [newsData, setNewsData] = useState<NewsRoomData[]>([]);
@@ -12,12 +17,27 @@ const NewsRoom = () => {
     const loadNews = async () => {
       setLoading(true);
       const newsRooms: WPNewsRoom[] = await fetchAllNewsRooms();
-      const extractedData = newsRooms.map((newsRoom) => extractNewsRoomData(newsRoom)).filter((data): data is NewsRoomData => data !== null);
+      const extractedData = newsRooms
+        .map((newsRoom) => extractNewsRoomData(newsRoom))
+        .filter((data): data is NewsRoomData => data !== null);
       setNewsData(extractedData);
       setLoading(false);
     };
     loadNews();
   }, []);
+
+  // 🔹 Skeleton Card Component
+  const SkeletonCard = () => (
+    <div className="animate-pulse rounded-xl overflow-hidden bg-white shadow-md">
+      {/* Image Placeholder */}
+      <div className="w-full h-[200px] md:h-[250px] lg:h-[280px] bg-gray-300"></div>
+      {/* Text Placeholder */}
+      <div className="p-4 space-y-3">
+        <div className="h-5 bg-gray-300 rounded w-3/4"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
@@ -38,18 +58,20 @@ const NewsRoom = () => {
 
         {/* 4 Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {loading ? (
-            <p>Loading news...</p>
-          ) : (
-            newsData.slice(0, 4).map((update) => (
-              <UpdatesCard
-                key={update.id}
-                image={update.featuredImage || "/assets/images/left-top.png"}
-                title={update.title}
-                link={`/news-room/${update.slug}`}
-              />
-            ))
-          )}
+          {loading
+            ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
+            : newsData
+                .slice(0, 4)
+                .map((update) => (
+                  <UpdatesCard
+                    key={update.id}
+                    image={
+                      update.featuredImage || "/assets/images/left-top.png"
+                    }
+                    title={update.title}
+                    link={`/news-room/${update.slug}`}
+                  />
+                ))}
         </div>
       </div>
     </section>
