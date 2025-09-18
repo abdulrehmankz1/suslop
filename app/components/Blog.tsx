@@ -36,11 +36,24 @@ const Blog = () => {
   // Update active bullet on slide change
   useEffect(() => {
     const swiper = swiperRef.current;
-    if (!swiper) return;
+    if (!swiper || blogData.length === 0) return;
 
     const updateBullet = () => {
-      const slidesPerBullet = Math.ceil(blogData.length / totalBullets);
-      const bulletIndex = Math.floor(swiper.realIndex / slidesPerBullet);
+      const currentSlidesPerView = swiper.params.slidesPerView as number;
+      const maxRealIndex = Math.max(0, blogData.length - currentSlidesPerView);
+      const step = totalBullets > 1 ? maxRealIndex / (totalBullets - 1) : 0;
+
+      let bulletIndex;
+      if (maxRealIndex === 0) {
+        bulletIndex = 0;
+      } else {
+        bulletIndex = Math.round(swiper.realIndex / step);
+      }
+
+      if (bulletIndex >= totalBullets) {
+        bulletIndex = totalBullets - 1;
+      }
+
       setActiveBullet(bulletIndex);
     };
 
@@ -57,14 +70,20 @@ const Blog = () => {
 
   const goToBullet = (index: number) => {
     const swiper = swiperRef.current;
-    if (!swiper) return;
+    if (!swiper || blogData.length === 0) return;
 
-    const slidesPerBullet = Math.ceil(blogData.length / totalBullets);
-    const targetSlide = index * slidesPerBullet;
+    const currentSlidesPerView = swiper.params.slidesPerView as number;
+    const maxRealIndex = Math.max(0, blogData.length - currentSlidesPerView);
+    const step = totalBullets > 1 ? maxRealIndex / (totalBullets - 1) : 0;
 
-    if (targetSlide < blogData.length) {
-      swiper.slideToLoop(targetSlide);
+    let targetSlide;
+    if (maxRealIndex === 0) {
+      targetSlide = 0;
+    } else {
+      targetSlide = Math.round(index * step);
     }
+
+    swiper.slideTo(targetSlide);
   };
 
   // Skeleton Loader Slide
@@ -76,6 +95,18 @@ const Blog = () => {
         <div className="h-4 bg-gray-200 rounded w-full"></div>
         <div className="h-4 bg-gray-200 rounded w-5/6"></div>
       </div>
+    </div>
+  );
+
+  // Skeleton Loader for Pagination
+  const SkeletonPagination = () => (
+    <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
+      {Array.from({ length: totalBullets }).map((_, i) => (
+        <div
+          key={i}
+          className="animate-pulse md:h-3 h-2 rounded-full bg-gray-300 md:w-[50px] w-[30px]"
+        ></div>
+      ))}
     </div>
   );
 
@@ -136,20 +167,24 @@ const Blog = () => {
             </Swiper>
 
             {/* Custom Pagination */}
-            <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
-              {Array.from({ length: totalBullets }).map((_, i) => (
-                <button
-                  key={i}
-                  className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    i === activeBullet
-                      ? "bg-[#0E0E0E] md:w-[120px] w-20"
-                      : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
-                  }`}
-                  onClick={() => goToBullet(i)}
-                  aria-label={`Go to slide group ${i + 1}`}
-                />
-              ))}
-            </div>
+            {loading ? (
+              <SkeletonPagination />
+            ) : (
+              <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
+                {Array.from({ length: totalBullets }).map((_, i) => (
+                  <button
+                    key={i}
+                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      i === activeBullet
+                        ? "bg-[#0E0E0E] md:w-[120px] w-20"
+                        : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
+                    }`}
+                    onClick={() => goToBullet(i)}
+                    aria-label={`Go to slide group ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
