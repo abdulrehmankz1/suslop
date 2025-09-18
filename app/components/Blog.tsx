@@ -6,7 +6,12 @@ import { Autoplay } from "swiper/modules";
 import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
 import BlogCard from "./BlogCard";
-import { fetchAllPosts, extractPostData, WPPost, PostData } from "../../services/blog.service";
+import {
+  fetchAllPosts,
+  extractPostData,
+  WPPost,
+  PostData,
+} from "../../services/blog.service";
 
 const Blog = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
@@ -19,7 +24,9 @@ const Blog = () => {
     const loadBlogs = async () => {
       setLoading(true);
       const posts: WPPost[] = await fetchAllPosts();
-      const extractedData = posts.map((post) => extractPostData(post)).filter((data): data is PostData => data !== null);
+      const extractedData = posts
+        .map((post) => extractPostData(post))
+        .filter((data): data is PostData => data !== null);
       setBlogData(extractedData);
       setLoading(false);
     };
@@ -40,7 +47,6 @@ const Blog = () => {
     swiper.on("slideChange", updateBullet);
     swiper.on("init", updateBullet);
 
-    // Initialize immediately
     updateBullet();
 
     return () => {
@@ -60,6 +66,18 @@ const Blog = () => {
       swiper.slideToLoop(targetSlide);
     }
   };
+
+  // Skeleton Loader Slide
+  const SkeletonSlide = () => (
+    <div className="animate-pulse rounded-xl overflow-hidden">
+      <div className="w-full h-[200px] bg-gray-300"></div>
+      <div className="mt-4 space-y-3">
+        <div className="h-6 bg-gray-300 rounded w-3/4"></div>
+        <div className="h-4 bg-gray-200 rounded w-full"></div>
+        <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="px-3 md:px-4 lg:px-5">
@@ -95,23 +113,26 @@ const Blog = () => {
               }}
               className="blogs-swiper"
             >
-              {loading ? (
-                <SwiperSlide>
-                  <p>Loading blogs...</p>
-                </SwiperSlide>
-              ) : (
-                blogData.map((blog) => (
-                  <SwiperSlide key={blog.id} className="mb-10">
-                    <BlogCard
-                      title={blog.title}
-                      description={blog.excerpt}
-                      image={blog.featuredImage || "/assets/images/service-card.png"}
-                      linkText="Read Article"
-                      linkHref={`/blog-perspectives/${blog.slug}`}
-                    />
-                  </SwiperSlide>
-                ))
-              )}
+              {loading
+                ? Array.from({ length: 3 }).map((_, i) => (
+                    <SwiperSlide key={i}>
+                      <SkeletonSlide />
+                    </SwiperSlide>
+                  ))
+                : blogData.map((blog) => (
+                    <SwiperSlide key={blog.id} className="mb-10">
+                      <BlogCard
+                        title={blog.title}
+                        description={blog.excerpt}
+                        image={
+                          blog.featuredImage ||
+                          "/assets/images/service-card.png"
+                        }
+                        linkText="Read Article"
+                        linkHref={`/blog-perspectives/${blog.slug}`}
+                      />
+                    </SwiperSlide>
+                  ))}
             </Swiper>
 
             {/* Custom Pagination */}

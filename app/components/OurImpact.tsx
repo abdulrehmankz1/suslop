@@ -8,7 +8,12 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import { fetchAllProjects, extractProjectData, WPProject, ProjectData } from "../../services/project.service";
+import {
+  fetchAllProjects,
+  extractProjectData,
+  WPProject,
+  ProjectData,
+} from "../../services/project.service";
 
 const OurImpact = () => {
   const [projects, setProjects] = useState<ProjectData[]>([]);
@@ -16,14 +21,28 @@ const OurImpact = () => {
 
   useEffect(() => {
     const loadProjects = async () => {
-      setLoading(true);
-      const wpProjects: WPProject[] = await fetchAllProjects();
-      const extractedProjects = wpProjects.map((project) => extractProjectData(project)).filter((data): data is ProjectData => data !== null);
-      setProjects(extractedProjects);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const wpProjects: WPProject[] = await fetchAllProjects();
+        const extractedProjects = wpProjects
+          .map((project) => extractProjectData(project))
+          .filter((data): data is ProjectData => data !== null);
+        setProjects(extractedProjects);
+      } catch (error) {
+        console.error("Error loading projects:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     loadProjects();
   }, []);
+
+  //  Inline Skeleton Slide
+  const SkeletonSlide = () => (
+    <div className="image_wrapper animate-pulse">
+      <div className="w-full h-[200px] md:h-[400px] lg:h-[590px] bg-gray-700 rounded-xl"></div>
+    </div>
+  );
 
   return (
     <section className="px-3 md:px-4 lg:px-5">
@@ -53,28 +72,28 @@ const OurImpact = () => {
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             className="rounded-xl overflow-hidden"
           >
-            {loading ? (
-              <SwiperSlide>
-                <div className="image_wrapper">
-                  <p className="text-white">Loading projects...</p>
-                </div>
-              </SwiperSlide>
-            ) : (
-              projects.slice(0, 3).map((project) => (
-                <SwiperSlide key={project.id}>
-                  <div className="image_wrapper">
-                    <Image
-                      src={project.featuredImage || "/assets/images/image-2.png"}
-                      alt={project.title}
-                      className="w-full! h-full! object-cover"
-                      width={1920}
-                      height={1080}
-                      priority
-                    />
-                  </div>
-                </SwiperSlide>
-              ))
-            )}
+            {loading
+              ? Array.from({ length: 3 }).map((_, i) => (
+                  <SwiperSlide key={`skeleton-${i}`}>
+                    <SkeletonSlide />
+                  </SwiperSlide>
+                ))
+              : projects.slice(0, 3).map((project) => (
+                  <SwiperSlide key={project.id}>
+                    <div className="image_wrapper">
+                      <Image
+                        src={
+                          project.featuredImage || "/assets/images/image-2.png"
+                        }
+                        alt={project.title}
+                        className="w-full! h-full! object-cover"
+                        width={1920}
+                        height={1080}
+                        priority
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
           </Swiper>
 
           {/* Custom pagination positioning */}

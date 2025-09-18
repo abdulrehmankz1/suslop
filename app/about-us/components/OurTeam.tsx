@@ -84,7 +84,6 @@ const OurTeam = () => {
       document.body.style.overflow = "auto";
     }
 
-    // cleanup (in case component unmounts)
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -121,16 +120,7 @@ const OurTeam = () => {
                     !selectedMember && swiperRef.current?.autoplay?.start()
                   }
                 >
-                  <div className="image_wrapper mb-4 mx-auto relative w-[250px] h-[250px]">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width:768px) 80vw, 250px"
-                      className="object-cover rounded-[10px] transition-all duration-500 ease-in-out"
-                      draggable="false"
-                    />
-                  </div>
+                  <TeamImageCard member={member} />
                   <h4 className="text-dark opacity-[0.7]">{member.name}</h4>
                   <div className="text-[#0E0E0E80]">{member.role}</div>
                 </div>
@@ -143,10 +133,8 @@ const OurTeam = () => {
       {/* Modal */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-          {/* Container wrap */}
           <div className="container mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-2xl w-full p-8 relative animate-fadeIn mx-auto max-h-[90vh] overflow-y-auto">
-              {/* Close button */}
               <button
                 onClick={closeModal}
                 className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition cursor-pointer"
@@ -154,9 +142,7 @@ const OurTeam = () => {
                 <X size={24} className="text-gray-700" />
               </button>
 
-              {/* Modal Layout */}
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                {/* Left: Image */}
                 <div className="relative w-[200px] h-[200px] md:w-[250px] md:h-[350px] flex-shrink-0">
                   <Image
                     src={selectedMember.image}
@@ -168,10 +154,11 @@ const OurTeam = () => {
                   />
                 </div>
 
-                {/* Right: Details */}
                 <div className="text-center md:text-left">
                   <h3 className="text-dark">{selectedMember.name}</h3>
-                  <h4 className="text-black md:mb-7 mb-3">{selectedMember.role}</h4>
+                  <h4 className="text-black md:mb-7 mb-3">
+                    {selectedMember.role}
+                  </h4>
                   <p className="text-gray-600 leading-relaxed">
                     {selectedMember.description}
                   </p>
@@ -182,6 +169,30 @@ const OurTeam = () => {
         </div>
       )}
     </section>
+  );
+};
+
+// Reusable Image Card with Loader
+const TeamImageCard = ({ member }: { member: (typeof teamData)[0] }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="image_wrapper mb-4 mx-auto relative w-[250px] h-[250px]">
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-300 animate-pulse rounded-[10px] mr-5" />
+      )}
+      <Image
+        src={member.image}
+        alt={member.name}
+        fill
+        sizes="(max-width:768px) 80vw, 250px"
+        className={`object-cover rounded-[10px] transition-opacity duration-500 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoadingComplete={() => setLoaded(true)}
+        draggable="false"
+      />
+    </div>
   );
 };
 

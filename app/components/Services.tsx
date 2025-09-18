@@ -6,13 +6,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Swiper as SwiperCore } from "swiper";
 import "swiper/css";
-import { fetchAllServices, extractServiceData, WPService, ServiceData } from "../../services/service.service";
+import {
+  fetchAllServices,
+  extractServiceData,
+  WPService,
+  ServiceData,
+} from "../../services/service.service";
 
 const Services = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const totalBullets = 3;
   const [activeBullet, setActiveBullet] = useState<number>(0);
   const [servicesData, setServicesData] = useState<ServiceData[]>([]);
+  const [loading, setLoading] = useState(true);
 
   // Update active bullet on slide change
   useEffect(() => {
@@ -28,7 +34,6 @@ const Services = () => {
     swiper.on("slideChange", updateBullet);
     swiper.on("init", updateBullet);
 
-    // Initialize immediately
     updateBullet();
 
     return () => {
@@ -39,10 +44,20 @@ const Services = () => {
 
   useEffect(() => {
     const loadServices = async () => {
-      const wpServices: WPService[] = await fetchAllServices();
-      const extractedServices = wpServices.map((service) => extractServiceData(service)).filter((data): data is ServiceData => data !== null);
-      setServicesData(extractedServices);
+      try {
+        const wpServices: WPService[] = await fetchAllServices();
+        const extractedServices = wpServices
+          .map((service) => extractServiceData(service))
+          .filter((data): data is ServiceData => data !== null);
+
+        setServicesData(extractedServices);
+      } catch (error) {
+        console.error("Error loading services:", error);
+      } finally {
+        setLoading(false);
+      }
     };
+
     loadServices();
   }, []);
 
@@ -58,13 +73,30 @@ const Services = () => {
     }
   };
 
+  //  Inline Skeleton UI (same layout as ServiceCard)
+  const SkeletonCard = () => (
+    <div className="service_card animate-pulse">
+      <div className="flex items-baseline mb-2">
+        <div className="h-6 w-10 bg-gray-300 rounded"></div>
+        <hr className="border-1 border-y-gray-200 w-full mx-2" />
+        <div className="h-6 w-6 bg-gray-300 rounded-full"></div>
+      </div>
+      <div className="h-40 w-full bg-gray-300 rounded-lg my-4"></div>
+      <div>
+        <div className="h-6 w-2/3 bg-gray-300 rounded mb-3"></div>
+        <div className="h-4 w-full bg-gray-200 rounded mb-2"></div>
+        <div className="h-4 w-5/6 bg-gray-200 rounded"></div>
+      </div>
+    </div>
+  );
+
   return (
     <section>
       <div className="relative md:-mt-[200px] -mt-[120px]">
-        {/* Yellow Shape */}
+        {/* Shape */}
         <div className="hero_shape w-[80%] md:h-28 h-20 mx-auto"></div>
 
-        {/* Red Shape */}
+        {/* Shape */}
         <div className="hero_shape w-[90%] h-36 mx-auto -mt-1"></div>
 
         {/* Service Section */}
@@ -100,16 +132,22 @@ const Services = () => {
                 }}
                 className="services-swiper"
               >
-                {servicesData.map((service, i) => (
-                  <SwiperSlide key={service.id}>
-                    <ServiceCard
-                      number={i + 1}
-                      title={service.title}
-                      description={service.description}
-                      image={service.featuredImage || undefined}
-                    />
-                  </SwiperSlide>
-                ))}
+                {loading
+                  ? Array.from({ length: 3 }).map((_, i) => (
+                      <SwiperSlide key={`skeleton-${i}`}>
+                        <SkeletonCard />
+                      </SwiperSlide>
+                    ))
+                  : servicesData.map((service, i) => (
+                      <SwiperSlide key={service.id}>
+                        <ServiceCard
+                          number={i + 1}
+                          title={service.title}
+                          description={service.description}
+                          image={service.featuredImage || undefined}
+                        />
+                      </SwiperSlide>
+                    ))}
               </Swiper>
 
               {/* Custom Pagination */}
@@ -131,17 +169,6 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .services-swiper {
-          padding: 10px 5px 30px;
-        }
-
-        @media (min-width: 768px) {
-          .services-swiper {
-            padding: 15px 10px 40px;
-          }
-        }
-      `}</style>
     </section>
   );
 };
