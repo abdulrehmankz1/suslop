@@ -22,7 +22,7 @@ const defaultImages = [
 
 function DetailSlider({ images = defaultImages }: DetailSliderProps) {
   return (
-    <section className="detail_page my-10 relative">
+    <div className="detail_page relative">
       <div className="container mx-auto relative">
         {/* Gradient overlays */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#FEFEFE] to-transparent" />
@@ -49,10 +49,10 @@ function DetailSlider({ images = defaultImages }: DetailSliderProps) {
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false,
+          // }}
           loop
           className="detail_swipper"
         >
@@ -72,7 +72,7 @@ function DetailSlider({ images = defaultImages }: DetailSliderProps) {
           ))}
         </Swiper>
       </div>
-    </section>
+    </div>
   );
 }
 

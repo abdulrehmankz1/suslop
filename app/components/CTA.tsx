@@ -18,7 +18,7 @@ const CTA = ({
   secondaryBtnLink,
 }: CTAProps) => {
   return (
-    <section className="relative z-10 px-3 md:px-4 lg:px-5">
+    <section className="relative z-10 px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto">
         <div className="footer_banner md:p-10 px-5 py-7">
           <div className="flex flex-col xl:gap-28 lg:gap-20 gap-0">
@@ -35,7 +35,10 @@ const CTA = ({
                   {primaryBtnText}
                 </a>
                 {secondaryBtnText && secondaryBtnLink && (
-                  <a href={secondaryBtnLink} className="btn primary_btn_outline">
+                  <a
+                    href={secondaryBtnLink}
+                    className="btn primary_btn_outline"
+                  >
                     {secondaryBtnText}
                   </a>
                 )}

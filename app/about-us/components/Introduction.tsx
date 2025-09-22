@@ -2,8 +2,8 @@ import React from "react";
 
 const Introduction = () => {
   return (
-    <section className="px-3 md:px-4 lg:px-5">
-      <div className="container mx-auto py-100">
+    <section className="px-3 md:px-4 lg:px-5 pt_100">
+      <div className="container mx-auto">
         <h2 className="text-dark">Introduction</h2>
         <p className="text-dark-50 text-50 lg:mt-12 md:mt-8 mt-5">
           <span className="text-dark me-2">

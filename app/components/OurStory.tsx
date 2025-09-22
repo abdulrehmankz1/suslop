@@ -13,20 +13,18 @@ const OurStory = ({
   heading,
   paragraphs,
   buttonText = "Learn More",
-  styleVariant, // ✅ required class
+  styleVariant,
 }: OurStoryProps) => {
   // Text block
   const textContent = (
     <div className="lg:w-2/5 w-full">
-      <h2 className="text-start text-dark text-2xl md:text-3xl font-bold">
-        {heading}
-      </h2>
+      <h2 className="text-start text-dark">{heading}</h2>
       {paragraphs.map((para, idx) => (
         <p
           key={idx}
           className={`text-black ${
             idx === 0 ? "mt-5" : "mt-4"
-          } text-sm md:text-base leading-relaxed`}
+          } leading-relaxed`}
         >
           {para}
         </p>
@@ -83,8 +81,8 @@ const OurStory = ({
   );
 
   return (
-    <section className={`${styleVariant} py-12 px-3 md:px-4 lg:px-5`}>
-      <div className="container mx-auto px-4">
+    <section className={`${styleVariant} pt_100 px-3 md:px-4 lg:px-5`}>
+      <div className="container mx-auto">
         <div
           className={`flex w-full gap-9 ${
             variant === "left-text"

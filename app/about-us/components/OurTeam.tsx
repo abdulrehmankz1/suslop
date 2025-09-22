@@ -90,7 +90,7 @@ const OurTeam = () => {
   }, [selectedMember]);
 
   return (
-    <section className="our_team px-3 md:px-4 lg:px-5">
+    <section className="pt_100 px-3 md:px-4 lg:px-5">
       <div>
         <h2 className="text-center text-dark">Meet Our Team</h2>
 
@@ -133,7 +133,7 @@ const OurTeam = () => {
       {/* Modal */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl w-full p-8 relative animate-fadeIn mx-auto max-h-[90vh] overflow-y-auto">
               <button
                 onClick={closeModal}
