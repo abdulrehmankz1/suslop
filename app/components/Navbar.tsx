@@ -74,50 +74,13 @@ const Navbar = () => {
                 Our Projects
               </Link>
             </li>
-
-            {/* Insights Dropdown */}
-            <li
-              className="relative pe-8"
-              onMouseEnter={() => setOpenDropdown("insights")}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button
-                onClick={() =>
-                  setOpenDropdown(
-                    openDropdown === "insights" ? null : "insights"
-                  )
-                }
-                className="hover:text-white/70 transition flex items-center gap-1 cursor-pointer"
+            <li>
+              <Link
+                href="/our-insights"
+                className="block px-2 py-2 hover:text-white/70 transition"
               >
-                Insights <ChevronDown size={18} />
-              </button>
-
-              <div
-                className={`absolute top-5 mt-2 w-48 text-base rounded-md text-dark bg-gray-100 shadow-xl transform transition-all duration-300 ${
-                  openDropdown === "insights"
-                    ? "opacity-100 translate-y-0 visible"
-                    : "opacity-0 -translate-y-2 invisible"
-                }`}
-              >
-                <ul>
-                  <li>
-                    <Link
-                      href="/our-insights"
-                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
-                    >
-                      Insights
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/blog-perspectives"
-                      className="block px-4 py-2 hover:bg-gray-200 rounded-md transition"
-                    >
-                      Blogs
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                Insights
+              </Link>
             </li>
           </ul>
         </nav>
@@ -179,31 +142,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer px-2 py-2 hover:text-white/70">
-                  Insights <ChevronDown size={18} />
-                </summary>
-                <ul className="pl-4 mt-1 space-y-1">
-                  <li>
-                    <Link
-                      href="/insights/blog"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/insights/reports"
-                      className="block py-1 hover:text-white/70"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Reports
-                    </Link>
-                  </li>
-                </ul>
-              </details>
+              <Link
+                href="/our-insights"
+                className="block px-2 py-2 hover:text-white/70 transition"
+              >
+                Insights
+              </Link>
             </li>
             <li>
               <Link
