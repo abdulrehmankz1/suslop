@@ -31,6 +31,9 @@ const Projects = () => {
   return (
     <section className="px-3 md:px-4 lg:px-5 pt_100">
       <div className="container mx-auto">
+        <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
+          <h2 className="mb-3 text-dark">Featured Case Studies</h2>
+        </div>
         {loading
           ? // Skeleton loader (show 3 cards while loading)
             Array.from({ length: 3 }).map((_, index) => (

@@ -36,7 +36,7 @@ const InsightsReports = () => {
   }, []);
 
   return (
-    <section className="px-3 md:px-4 lg:px-5 lg:mb-[100px] md:mb-20 mb-12">
+    <section className="px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto">
         {/* Heading Row */}
         <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">

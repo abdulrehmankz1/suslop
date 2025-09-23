@@ -3,7 +3,7 @@ import React from "react";
 
 const OurEdge = () => {
   return (
-    <section className="our_edge px-3 md:px-4 lg:px-5">
+    <section className="mt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         <div className="flex lg:flex-nowrap flex-wrap w-full xl:gap-9 lg:gap-7 gap-9">
           {/* First child: 40% */}
@@ -37,7 +37,7 @@ const OurEdge = () => {
           </div>
 
           {/* Second child: 60% */}
-          <div className="w-full xl:w-3/5 lg:w-3/6 flex justify-between gap-3">
+         <div className="w-full xl:w-3/5 lg:w-3/6 flex justify-between gap-3">
             <div className="w-[40%] flex flex-col gap-3">
               <Image
                 src="/assets/images/left-top.png"

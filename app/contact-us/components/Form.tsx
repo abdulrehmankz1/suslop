@@ -10,7 +10,9 @@ const Form = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const [responseMessage, setResponseMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,10 +47,20 @@ const Form = () => {
   };
 
   return (
-    <section className="my-20 px-4">
+    <section className="px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto">
-        <h2 className="text-dark text-3xl font-bold mb-6">Let’s Connect</h2>
-
+        <div className="grid grid-cols-1 xl:grid-cols-12 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
+          <div className="xl:col-span-8">
+            <h2 className="text-dark">Let’s Connect</h2>
+          </div>
+          <div className="xl:col-span-4">
+            <p className="text-black">
+              At Suslop, we help governments, communities, and industries design
+              and deliver solutions that balance environmental responsibility,
+              economic growth, and social well-being.
+            </p>
+          </div>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <input
@@ -117,10 +129,11 @@ const Form = () => {
 
           {responseMessage && (
             <div
-              className={`mt-4 p-3 rounded-md text-center ${status == "success"
-                ? "bg-green-100 text-green-700"
-                : "bg-red-100 text-red-700"
-                }`}
+              className={`mt-4 p-3 rounded-md text-center ${
+                status == "success"
+                  ? "bg-green-100 text-green-700"
+                  : "bg-red-100 text-red-700"
+              }`}
             >
               {responseMessage}
             </div>

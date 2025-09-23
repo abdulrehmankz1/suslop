@@ -3,7 +3,7 @@ import React from "react";
 
 const FindHere = () => {
   return (
-    <section className="our_edge px-3 md:px-4 lg:px-5">
+    <section className="mt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         <div className="flex lg:flex-nowrap flex-wrap w-full xl:gap-9 lg:gap-7 gap-9">
           {/* First child: 40% */}
