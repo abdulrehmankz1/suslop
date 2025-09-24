@@ -7,6 +7,17 @@ import {
   extractNewsRoomData,
   NewsRoomData,
 } from "../../services/newsRoom.service";
+import CTA from "../components/CTA";
+
+const SkeletonCard = () => (
+  <div className="animate-pulse rounded-lg overflow-hidden shadow bg-gray-200">
+    <div className="h-[200px] w-full bg-gray-300"></div>
+    <div className="p-4 space-y-3">
+      <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+      <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+    </div>
+  </div>
+);
 
 const Page = () => {
   const [newsRooms, setNewsRooms] = useState<NewsRoomData[]>([]);
@@ -32,26 +43,6 @@ const Page = () => {
     loadNewsRooms();
   }, []);
 
-  if (loading) {
-    return (
-      <section className="latest_updates px-3 md:px-4 lg:px-5">
-        <div className="container mx-auto">
-          <p>Loading news rooms...</p>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="latest_updates px-3 md:px-4 lg:px-5">
-        <div className="container mx-auto">
-          <p>Error: {error}</p>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="latest_updates px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
@@ -71,16 +62,32 @@ const Page = () => {
 
         {/* Cards Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {newsRooms.map((newsRoom) => (
-            <UpdatesCard
-              key={newsRoom.id}
-              image={newsRoom.featuredImage || "/assets/images/left-top.png"}
-              title={newsRoom.title}
-              link={`/news-room/${newsRoom.slug}`}
-            />
-          ))}
+          {loading ? (
+            // show skeletons while loading
+            Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
+          ) : error ? (
+            <p className="col-span-full text-red-500">Error: {error}</p>
+          ) : (
+            newsRooms.map((newsRoom) => (
+              <UpdatesCard
+                key={newsRoom.id}
+                image={newsRoom.featuredImage || "/assets/images/left-top.png"}
+                title={newsRoom.title}
+                link={`/news-room/${newsRoom.slug}`}
+              />
+            ))
+          )}
         </div>
       </div>
+
+      <CTA
+        heading="Let’s Build Something That Lasts"
+        description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
+        primaryBtnText="Contact Us"
+        primaryBtnLink="/contact"
+        secondaryBtnText="Schedule a Consultation"
+        secondaryBtnLink="/consultation"
+      />
     </section>
   );
 };
