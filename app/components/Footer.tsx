@@ -82,19 +82,19 @@ const Footer = () => {
               <h4 className="mb-6 md:mb-10 text-fefe">Our links</h4>
               <ul className="space-y-3 md:space-y-4 opacity-70">
                 <li className="hover:underline">
-                  <Link href="#">Lorem Ipsum</Link>
+                  <Link href="/">Home</Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href="#">Lorem our Ipsum</Link>
+                  <Link href="/about-us">About Us</Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href="#">Our Lorem</Link>
+                  <Link href="/our-services">Our Services</Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href="#">Loremdjs</Link>
+                  <Link href="our-projects">Our Projects</Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href="#">Lorem Ipsum</Link>
+                  <Link href="/our-insights">Insights</Link>
                 </li>
               </ul>
             </div>
@@ -104,10 +104,10 @@ const Footer = () => {
               <h4 className="mb-6 md:mb-10 text-fefe">Our links</h4>
               <ul className="space-y-3 md:space-y-4 opacity-70">
                 <li className="hover:underline">
-                  <Link href="#">Lorem Ipsum</Link>
+                  <Link href="/blog-perspectives">Our Blogs</Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href="#">Lorem our Ipsum</Link>
+                  <Link href="/news-room">News Room</Link>
                 </li>
                 <li className="hover:underline">
                   <Link href="#">Our Lorem</Link>
