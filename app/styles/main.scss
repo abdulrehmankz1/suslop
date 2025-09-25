@@ -501,6 +501,14 @@ h4 {
     margin-top: 70px;
   }
 }
+.project_img_wrapper{
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.project_subtitle{
+  font-size: 20px;
+}
 
 /* Extra Small (Mobile < 640px) */
 @media (min-width: 576px) and (max-width: 639px) {

@@ -19,8 +19,10 @@ const ServiceCard = ({
   return (
     <div className="service_card">
       <div className="flex items-baseline">
-        <h3>{number}</h3>
-        <hr className="border-1 border-y-amber-950 w-full" />
+        <h3 className="text-2xl font-bold text-dark">
+          {number.toString().padStart(2, "0")}.
+        </h3>
+        <hr className="border border-y-amber-950 w-full mx-3" />
         <ArrowUpRight size={40} color="#0E0E0E" className="relative top-3" />
       </div>
 

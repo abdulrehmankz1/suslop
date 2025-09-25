@@ -23,14 +23,14 @@ const OurStory = ({
         <p
           key={idx}
           className={`text-black ${
-            idx === 0 ? "mt-5" : "mt-4"
+            idx === 0 ? "mt-8" : "mt-5"
           } leading-relaxed`}
         >
           {para}
         </p>
       ))}
       {buttonText && (
-        <button className="btn secondary_btn mt-7">{buttonText}</button>
+        <button className="btn secondary_btn mt-8">{buttonText}</button>
       )}
     </div>
   );
@@ -81,7 +81,7 @@ const OurStory = ({
   );
 
   return (
-    <section className={`${styleVariant} pt_100 px-3 md:px-4 lg:px-5`}>
+    <section className={`${styleVariant} mt_100 pt_100 px-3 md:px-4 lg:px-5`}>
       <div className="container mx-auto">
         <div
           className={`flex w-full gap-9 ${

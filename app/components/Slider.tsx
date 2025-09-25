@@ -34,7 +34,10 @@ export interface ReportData {
 
 // --- Helpers ---
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").replace(/\[&hellip;\]/g, "").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\[&hellip;\]/g, "")
+    .trim();
 }
 
 function extractImageSrcs(html: string): string[] {
@@ -160,16 +163,22 @@ const Slider = () => {
     <div className="relative w-full overflow-hidden">
       {/* Mobile Nav */}
       <div className="lg:hidden block">
-        <div className="flex gap-3 mb-5 justify-end">
+        <div className="flex gap-3 mb-5 mt-4 pe-3 justify-end">
           <button
             onClick={prevSlide}
-            className="reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer"
+            className="reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+                 transition-all duration-300 hover:bg-[#E0E0E0] hover:scale-110 hover:shadow-lg"
           >
-            <ArrowLeft size={35} className="text-[#AAAAAA] size-6" />
+            <ArrowLeft
+              size={35}
+              className="text-[#AAAAAA] size-6 group-hover:text-dark"
+            />
           </button>
+
           <button
             onClick={nextSlide}
-            className="reports-next md:p-4 p-3 bg-dark rounded-full flex items-center justify-center cursor-pointer"
+            className="reports-next md:p-4 p-3 bg-dark rounded-full flex items-center justify-center cursor-pointer 
+                 transition-all duration-300 hover:bg-black hover:scale-110 hover:shadow-lg"
           >
             <ArrowRight size={35} className="text-white size-6" />
           </button>
@@ -257,16 +266,22 @@ const Slider = () => {
 
       {/* Desktop Nav */}
       <div className="lg:block hidden">
-        <div className="absolute bottom-22 right-4 flex gap-3 z-10 ">
+        <div className="absolute bottom-22 right-4 flex gap-3 z-10">
           <button
             onClick={prevSlide}
-            className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer"
+            className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+                 transition-all duration-300 hover:bg-[#E0E0E0] hover:scale-110 hover:shadow-lg"
           >
-            <ArrowLeft size={35} className="text-[#AAAAAA]" />
+            <ArrowLeft
+              size={35}
+              className="text-[#AAAAAA] group-hover:text-dark"
+            />
           </button>
+
           <button
             onClick={nextSlide}
-            className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer"
+            className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer 
+                 transition-all duration-300 hover:bg-black hover:scale-110 hover:shadow-lg"
           >
             <ArrowRight size={35} className="text-white" />
           </button>

@@ -46,7 +46,7 @@ const OurProjectsApart = () => {
                   <h4 className="text-black mt-4 text-lg font-semibold">
                     {value.title}
                   </h4>
-                  <p className="text-black mt-2 opacity-70 text-sm md:text-base leading-relaxed">
+                  <p className="text-black mt-2 opacity-70 leading-relaxed">
                     {value.description}
                   </p>
                 </div>

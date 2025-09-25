@@ -1,5 +1,3 @@
-// src/app/blog/[slug]/page.tsx
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,33 +54,47 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
   const { toc, content } = generateTOCAndContent(blogData.content);
 
   return (
- <div>
-     <section className="px-4 sm:px-6 lg:px-8 pb-10 mt-32">
-      <div className="container mx-auto scroll-smooth">
-        <div className="blog_detail_page mt-10">
-          {blogData.featuredImage && (
-            <div className="blog_detail_page">
-              <div className="image_wrapper overflow-hidden rounded-2xl">
+ <>
+  <section className="mt_100 pt-8">
+        <div className="container mx-auto">
+    {blogData.featuredImage && (
+              <div className="featured_image_wrapper">
                 <Image
                   src={blogData.featuredImage}
                   alt={blogData.title}
                   width={600}
                   height={400}
-                  className="w-full h-full object-cover"
+                      className="w-full! h-full! object-cover"
                   draggable="false"
                 />
               </div>
-            </div>
           )}
+        </div>
+ </section>
+      {/* <section className="mt-12">
+        <div className="container mx-auto">
+   <h2 className="text-dark lg:w-[60%] md:w-[80%] w-full">
+            {blogData?.title || "Project Title"}
+          </h2>
+          <p
+            className="mt-3 text-dark opacity-[0.7]"
+            dangerouslySetInnerHTML={{ __html: blogData.excerpt }}
+          />
+  </div>
+ </section> */}
+     <section className="px-4 sm:px-6 lg:px-8 pb-10">
+      <div className="container mx-auto scroll-smooth">
+        <div className="blog_detail_page">
+      
 
           <div className="flex flex-col lg:flex-row items-start mt-12 justify-between gap-12">
-            <div className="w-full lg:w-[70%] blog_detail_section">
+            <div className="w-full lg:w-[70%]">
               <div id="intro">
                 <h1 className="text-dark text_h2">{blogData.title}</h1>
               </div>
 
               <div
-                className="mt-10 content_block"
+                className="blog_detail_section"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             </div>
@@ -141,7 +153,7 @@ const BlogDetailPage = async (props: { params: Promise<{ slug: string }> }) => {
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />
- </div>
+ </>
   );
 };
 

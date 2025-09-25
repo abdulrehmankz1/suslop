@@ -32,14 +32,16 @@ const ProjectCard = ({
     <div className="p-5 flex flex-col lg:flex-row items-start project_card gap-6 mb-5">
       {/* Image block */}
       <div className="w-full lg:w-[30%]">
-        <Image
-          src={image}
-          alt={title}
-          width={500}
-          height={360}
-          draggable={false}
-          className="w-full rounded-lg object-cover md:max-h-[250px] lg:max-h-none"
-        />
+        <div className="project_img_wrapper">
+          <Image
+            src={image}
+            alt={title}
+            width={500}
+            height={360}
+            draggable={false}
+            className="object-cover w-full h-full"
+          />
+        </div>
       </div>
 
       {/* Content block */}
@@ -57,7 +59,7 @@ const ProjectCard = ({
               draggable={false}
             />
             <div>
-              <div className="text-black">{location}</div>
+              <span className="text-black">{location}</span>
               <div className="text-[#00000080] text-lg leading-[100%]">
                 {region}
               </div>
@@ -67,14 +69,18 @@ const ProjectCard = ({
 
         {/* Description */}
         <div className="mt-4">
-          <div className="text-black font-medium">{descriptionLabel}</div>
-          <p className="text-dark opacity-[0.7]">{descriptionValue}</p>
+          <h6 className="text-black font-medium project_subtitle">
+            {descriptionLabel}
+          </h6>
+          <p className="text-dark opacity-[0.7] line-clamp-3">
+            {descriptionValue}
+          </p>
         </div>
 
         {/* Button */}
         <button
           onClick={handleNavigate}
-          className="btn secondary_btn lg:mt-6 md:mt-5 mt-4"
+          className="btn secondary_btn lg:mt-9 md:mt-7 mt-5"
         >
           Read Case Study
         </button>

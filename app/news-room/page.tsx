@@ -8,6 +8,7 @@ import {
   NewsRoomData,
 } from "../../services/newsRoom.service";
 import CTA from "../components/CTA";
+import HeroSection from "../components/HeroSection";
 
 const SkeletonCard = () => (
   <div className="animate-pulse rounded-lg overflow-hidden shadow bg-gray-200">
@@ -44,42 +45,50 @@ const Page = () => {
   }, []);
 
   return (
-    <section className="latest_updates px-3 md:px-4 lg:px-5">
-      <div className="container mx-auto">
-        {/* Heading Row */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
-          <div className="xl:w-2/3 w-[90%]">
-            <h2 className="text-dark">Latest Updates from Suslop</h2>
+    <>
+      <HeroSection
+        title="Creating Sustainable Impact That Lasts Generations"
+        description="At Suslop, we help governments, communities, and industries design and deliver solutions that balance environmental responsibility, economic growth, and social well-being."
+        className="rounded-b-4xl"
+      />
+      <section className="latest_updates px-3 md:px-4 lg:px-5">
+        <div className="container mx-auto">
+          {/* Heading Row */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
+            <div className="xl:w-2/3 w-[90%]">
+              <h2 className="text-dark">Latest Updates from Suslop</h2>
+            </div>
+            <div>
+              <p className="text-black">
+                Stay informed on our projects, partnerships, and initiatives
+                shaping sustainable development across regions.
+              </p>
+              <button className="btn secondary_btn mt-5">View Page</button>
+            </div>
           </div>
-          <div>
-            <p className="text-black">
-              Stay informed on our projects, partnerships, and initiatives
-              shaping sustainable development across regions.
-            </p>
-            <button className="btn secondary_btn mt-5">View Page</button>
+
+          {/* Cards Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {loading ? (
+              // show skeletons while loading
+              Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
+            ) : error ? (
+              <p className="col-span-full text-red-500">Error: {error}</p>
+            ) : (
+              newsRooms.map((newsRoom) => (
+                <UpdatesCard
+                  key={newsRoom.id}
+                  image={
+                    newsRoom.featuredImage || "/assets/images/left-top.png"
+                  }
+                  title={newsRoom.title}
+                  link={`/news-room/${newsRoom.slug}`}
+                />
+              ))
+            )}
           </div>
         </div>
-
-        {/* Cards Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {loading ? (
-            // show skeletons while loading
-            Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
-          ) : error ? (
-            <p className="col-span-full text-red-500">Error: {error}</p>
-          ) : (
-            newsRooms.map((newsRoom) => (
-              <UpdatesCard
-                key={newsRoom.id}
-                image={newsRoom.featuredImage || "/assets/images/left-top.png"}
-                title={newsRoom.title}
-                link={`/news-room/${newsRoom.slug}`}
-              />
-            ))
-          )}
-        </div>
-      </div>
-
+      </section>
       <CTA
         heading="Let’s Build Something That Lasts"
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
@@ -88,7 +97,7 @@ const Page = () => {
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />
-    </section>
+    </>
   );
 };
 
