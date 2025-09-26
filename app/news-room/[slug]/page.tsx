@@ -65,26 +65,27 @@ const NewsRoomDetailPage = async (props: {
   const { toc, content } = generateTOCAndContent(newsRoomData.content);
 
   return (
-    <div>
-      <section className="px-4 sm:px-6 lg:px-8 mt-32 pb-10">
+    <>
+      <section className="px-4 sm:px-6 lg:px-8 mt-32">
         <div className="container mx-auto scroll-smooth">
-          <div className="blog_detail_page mt-10">
-            {newsRoomData.featuredImage && (
-              <div className="blog_detail_page">
-                <div className="image_wrapper overflow-hidden rounded-2xl">
-                  <Image
-                    src={newsRoomData.featuredImage}
-                    alt={newsRoomData.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover"
-                    draggable="false"
-                  />
-                </div>
-              </div>
-            )}
-
-            <div className="flex flex-col lg:flex-row items-start mt-12 justify-between gap-12">
+          {newsRoomData.featuredImage && (
+            <div className="featured_image_wrapper">
+              <Image
+                src={newsRoomData.featuredImage}
+                alt={newsRoomData.title}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+                draggable="false"
+              />
+            </div>
+          )}
+        </div>
+      </section>
+      <section className="px-4 sm:px-6 lg:px-8 mt_100 pb-10">
+        <div className="container mx-auto scroll-smooth">
+          <div className="blog_detail_page">
+            <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
               <div className="w-full lg:w-[70%] blog_detail_section">
                 <div id="intro">
                   <h1 className="text-dark text_h2">{newsRoomData.title}</h1>
@@ -150,7 +151,7 @@ const NewsRoomDetailPage = async (props: {
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />
-    </div>
+    </>
   );
 };
 
