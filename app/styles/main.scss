@@ -500,14 +500,17 @@ h4 {
   .mt_100 {
     margin-top: 70px;
   }
-}
-.project_img_wrapper{
-  height: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.project_subtitle{
-  font-size: 20px;
+  .report_active_slider {
+    height: 300px;
+  }
+  .project_img_wrapper {
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .project_subtitle {
+    font-size: 20px;
+  }
 }
 
 /* Extra Small (Mobile < 640px) */
@@ -641,6 +644,9 @@ h4 {
   .mt_100 {
     margin-top: 70px;
   }
+  .report_active_slider {
+    height: 300px;
+  }
 }
 
 /* Small (640px – 767px) */
@@ -748,14 +754,6 @@ h4 {
       width: 250px;
       height: 300px;
     }
-
-    /* Hover effect only */
-    // &:hover {
-    //   .image_wrapper {
-    //     width: 300px !important;
-    //     height: 350px !important;
-    //   }
-    // }
   }
 
   .get_in_touch {
@@ -766,6 +764,9 @@ h4 {
   }
   .mt_100 {
     margin-top: 100px;
+  }
+  .report_active_slider {
+    height: 300px;
   }
 }
 
@@ -887,6 +888,9 @@ h4 {
   }
   .mt_100 {
     margin-top: 100px;
+  }
+  .report_active_slider {
+    height: 500px;
   }
 }
 
@@ -1011,6 +1015,9 @@ h4 {
   }
   .mt_100 {
     margin-top: 100px;
+  }
+  .report_active_slider {
+    height: 500px;
   }
 }
 
@@ -1170,6 +1177,9 @@ h4 {
   .mt_100 {
     margin-top: 100px;
   }
+  .report_active_slider {
+    height: 500px;
+  }
 }
 
 /* 2XL (1536px and above) */
@@ -1323,5 +1333,8 @@ h4 {
   }
   .mt_100 {
     margin-top: 100px;
+  }
+  .report_active_slider {
+    height: 500px;
   }
 }

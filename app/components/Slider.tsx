@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,10 +34,7 @@ export interface ReportData {
 
 // --- Helpers ---
 function stripHtml(html: string): string {
-  return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/\[&hellip;\]/g, "")
-    .trim();
+  return html.replace(/<[^>]*>/g, "").replace(/\[&hellip;\]/g, "").trim();
 }
 
 function extractImageSrcs(html: string): string[] {
@@ -112,6 +109,7 @@ const Slider = () => {
   const [reports, setReports] = useState<ReportData[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -126,13 +124,36 @@ const Slider = () => {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reports.length);
+    resetAutoplay();
   };
 
   const prevSlide = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + reports.length) % reports.length
     );
+    resetAutoplay();
   };
+
+  // --- AutoPlay Logic ---
+  const startAutoplay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % reports.length);
+    }, 5000); // change every 5 seconds
+  };
+
+  const resetAutoplay = () => {
+    startAutoplay();
+  };
+
+  useEffect(() => {
+    if (reports.length > 1) {
+      startAutoplay();
+    }
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [reports]);
 
   if (loading) {
     return (
@@ -199,7 +220,7 @@ const Slider = () => {
             >
               <Link href={`/our-reports/${activeSlide.slug}`}>
                 {/* Image Wrapper */}
-                <div className="relative h-96 rounded-lg overflow-hidden">
+                <div className="relative report_active_slider rounded-lg overflow-hidden">
                   {activeSlide.featuredImage && (
                     <Image
                       src={activeSlide.featuredImage}
@@ -243,7 +264,7 @@ const Slider = () => {
             >
               <div>
                 {/* Image Wrapper */}
-                <div className="relative h-96 rounded-lg overflow-hidden">
+                <div className="relative h-[350px] rounded-lg overflow-hidden">
                   {inactiveSlide.featuredImage && (
                     <Image
                       src={inactiveSlide.featuredImage}
