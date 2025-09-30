@@ -34,7 +34,10 @@ export interface ReportData {
 
 // --- Helpers ---
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").replace(/\[&hellip;\]/g, "").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\[&hellip;\]/g, "")
+    .trim();
 }
 
 function extractImageSrcs(html: string): string[] {
@@ -139,7 +142,7 @@ const Slider = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % reports.length);
-    }, 5000); // change every 5 seconds
+    }, 15000); // change every 5 seconds
   };
 
   const resetAutoplay = () => {
@@ -264,7 +267,7 @@ const Slider = () => {
             >
               <div>
                 {/* Image Wrapper */}
-                <div className="relative h-[350px] rounded-lg overflow-hidden">
+                <div className="relative h-[350px] report_inactive_slider rounded-lg overflow-hidden">
                   {inactiveSlide.featuredImage && (
                     <Image
                       src={inactiveSlide.featuredImage}
