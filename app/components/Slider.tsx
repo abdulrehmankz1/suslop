@@ -96,7 +96,7 @@ const fetchAllReports = async (): Promise<WPReport[]> => {
 const SkeletonSlide = () => {
   return (
     <div className="w-full lg:w-[60%] animate-pulse">
-      <div className="relative h-96 rounded-lg overflow-hidden bg-gray-200"></div>
+      <div className="relative report_active_slider rounded-lg overflow-hidden bg-gray-200"></div>
       <div className="mt-5 space-y-3">
         <div className="h-4 w-20 bg-gray-200 rounded"></div>
         <div className="h-6 w-3/4 bg-gray-200 rounded"></div>
