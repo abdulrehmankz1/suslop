@@ -12,9 +12,8 @@ import "../../styles/detail.scss";
 import TOCWithHighlight from "../components/toc-client";
 
 const generateTOCAndContent = (htmlContent: string) => {
-  if (!htmlContent) {
-    return { toc: [], content: "" };
-  }
+  if (!htmlContent) return { toc: [], content: "" };
+
   const $ = cheerio.load(htmlContent);
   const toc: { id: string; label: string; tag: string }[] = [];
 
@@ -31,12 +30,11 @@ const generateTOCAndContent = (htmlContent: string) => {
   return { toc, content: $.html() };
 };
 
-interface BlogDetailProps {
-  params: { slug: string };
-}
-
-const BlogDetailPage = async ({ params }: BlogDetailProps) => {
-  const slug = params.slug; // ✅ no await here
+// ✅ type ko loose rakho: params: any
+export default async function BlogDetailPage({ params }: { params: any }) {
+  // agar params async hua toh await bhi kar lo
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
 
   const post = await fetchPostBySlug(slug);
   if (!post) notFound();
@@ -75,7 +73,6 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             </div>
-
             <TOCWithHighlight toc={toc} />
           </div>
         </div>
@@ -91,12 +88,10 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
       />
     </>
   );
-};
+}
 
-export default BlogDetailPage;
-
+// ✅ Static params remain same
 export async function generateStaticParams() {
   const posts = await fetchAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
-// This function is used to generate static paths for dynamic routes in Next.js     
