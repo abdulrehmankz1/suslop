@@ -102,11 +102,11 @@ const Services = () => {
         {/* Service Section */}
         <div className="service_section w-full md:py-12 py-10 -mt-1 px-3 md:px-4 lg:px-5">
           <div className="container mx-auto relative">
-            <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
+            <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] mx-auto text-center lg:mb-12 mb-7">
               <h2 className="mb-3 text-dark">
                 Holistic Solutions for Complex Challenges
               </h2>
-              <p className="text-black max-w-2xl mx-auto">
+              <p className="text-black mx-auto">
                 We bring decades of multidisciplinary experience to create
                 tailored strategies that work for people and the planet.
               </p>

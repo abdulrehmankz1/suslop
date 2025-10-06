@@ -41,7 +41,7 @@ const BlogCard = ({
 
         {/* Content */}
         <div>
-          <h4 className="text-dark">{title}</h4>
+          <h4 className="text-dark line-clamp-2">{title}</h4>
           <p className="text-dark opacity-[0.7] mt-2 mb-4 line-clamp-2">
             {description}
           </p>

@@ -44,16 +44,16 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center text-lg relative">
-          <ul className="flex items-center">
+          <ul className="flex items-center gap-6">
             <li>
-              <Link href="/" className="hover:text-white/70 transition pe-8">
+              <Link href="/" className="hover:text-white/70 transition px-2 py-2">
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href="/about-us"
-                className="hover:text-white/70 transition pe-8"
+                className="hover:text-white/70 transition px-2 py-2"
               >
                 About Us
               </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/our-services"
-                className="hover:text-white/70 transition pe-8"
+                className="hover:text-white/70 transition px-2 py-2"
               >
                 Our Services
               </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/our-projects"
-                className="hover:text-white/70 transition pe-8"
+                className="hover:text-white/70 transition px-2 py-2"
               >
                 Our Projects
               </Link>
@@ -147,15 +147,6 @@ const Navbar = () => {
                 className="block px-2 py-2 hover:text-white/70 transition"
               >
                 Insights
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact-us"
-                className="btn primary_btn_outline w-full mt-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact Us
               </Link>
             </li>
           </ul>

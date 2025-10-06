@@ -125,20 +125,18 @@ const Footer = () => {
 
         {/* Divider + Email Section */}
         <div className="border-t border-white/30 lg:my-12 md:my-7 my-5"></div>
-        <div className="flex items-center justify-between">
-          <a
-            href="mailto:hello@company.com"
+        <a href="mailto:hello@company.com" className="flex items-center justify-between">
+          <div
             className="text-xl sm:text-3xl md:text-5xl lg:text-[65px] text-fefe hover:underline"
           >
             hello@company.com
-          </a>
-          <a
-            href="mailto:hello@company.com"
+          </div>
+          <div
             className="bg-white text-black md:p-4 p-2 rounded-full hover:bg-gray-200 cursor-pointer"
           >
             <ArrowUpRight size={24} />
-          </a>
-        </div>
+          </div>
+        </a>
 
         <div className="border-t border-white/30 lg:mt-12 md:mt-7 mt-5 mb-5"></div>
 

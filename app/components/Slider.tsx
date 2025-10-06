@@ -190,23 +190,28 @@ const Slider = () => {
         <div className="flex gap-3 mb-5 mt-4 pe-3 justify-end">
           <button
             onClick={prevSlide}
-            className="reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
-                 transition-all duration-300 hover:bg-[#E0E0E0] hover:scale-110 hover:shadow-lg"
+            className="group reports-prev md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+             transition-all duration-300 ease-in-out hover:bg-[#000000]"
           >
             <ArrowLeft
               size={35}
-              className="text-[#AAAAAA] size-6 group-hover:text-dark"
+              className="text-[#AAAAAA] size-6 transition-colors duration-300 ease-in-out group-hover:text-white"
             />
           </button>
 
           <button
             onClick={nextSlide}
-            className="reports-next md:p-4 p-3 bg-dark rounded-full flex items-center justify-center cursor-pointer 
-                 transition-all duration-300 hover:bg-black hover:scale-110 hover:shadow-lg"
+            className="group reports-next md:p-4 p-3 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+             transition-all duration-300 ease-in-out hover:bg-[#000000]"
           >
-            <ArrowRight size={35} className="text-white size-6" />
+            <ArrowRight
+              size={35}
+              className="text-[#AAAAAA] size-6 transition-colors duration-300 ease-in-out group-hover:text-white"
+            />
           </button>
         </div>
+
+
       </div>
 
       {/* Main Slides */}
@@ -236,7 +241,7 @@ const Slider = () => {
 
                 <div>
                   <div className="text-green-deep mt-5">Report</div>
-                  <h4 className="text-dark my-2.5">{activeSlide.title}</h4>
+                  <h4 className="text-dark my-2.5 line-clamp-2">{activeSlide.title}</h4>
                   <p className="text-dark mb-7 line-clamp-3">
                     {activeSlide.excerpt}
                   </p>
@@ -293,23 +298,28 @@ const Slider = () => {
         <div className="absolute bottom-22 right-4 flex gap-3 z-10">
           <button
             onClick={prevSlide}
-            className="reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
-                 transition-all duration-300 hover:bg-[#E0E0E0] hover:scale-110 hover:shadow-lg"
+            className="group reports-prev p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+              transition-all duration-300 ease-in-out hover:bg-black"
           >
             <ArrowLeft
               size={35}
-              className="text-[#AAAAAA] group-hover:text-dark"
+              className="text-[#AAAAAA] transition-colors duration-300 ease-in-out group-hover:text-white"
             />
           </button>
 
           <button
             onClick={nextSlide}
-            className="reports-next p-4 bg-dark rounded-full flex items-center justify-center cursor-pointer 
-                 transition-all duration-300 hover:bg-black hover:scale-110 hover:shadow-lg"
+            className="group reports-next p-4 bg-[#EFEFEF] rounded-full flex items-center justify-center cursor-pointer 
+              transition-all duration-300 ease-in-out hover:bg-black"
           >
-            <ArrowRight size={35} className="text-white" />
+            <ArrowRight
+              size={35}
+              className="text-[#AAAAAA] transition-colors duration-300 ease-in-out group-hover:text-white"
+            />
           </button>
         </div>
+
+
       </div>
     </div>
   );

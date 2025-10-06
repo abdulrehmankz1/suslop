@@ -151,7 +151,7 @@ const Blog = () => {
                     </SwiperSlide>
                   ))
                 : blogData.map((blog) => (
-                    <SwiperSlide key={blog.id} className="mb-10">
+                    <SwiperSlide key={blog.id}>
                       <BlogCard
                         title={blog.title}
                         description={blog.excerpt}

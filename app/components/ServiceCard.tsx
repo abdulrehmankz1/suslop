@@ -41,8 +41,10 @@ const ServiceCard = ({
       )}
 
       <div>
-        <h4 className="text-dark">{title}</h4>
-        <p className="text-dark opacity-[0.7] md:mt-2 mt-0">{description}</p>
+        <h4 className="text-dark line-clamp-2">{title}</h4>
+        <p className="text-dark opacity-[0.7] md:mt-2 mt-0 line-clamp-2">
+          {description}
+        </p>
 
         {/* Learn More Button */}
         <Link href="/our-services" passHref>

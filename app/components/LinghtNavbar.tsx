@@ -45,11 +45,11 @@ const LightNavbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center text-lg relative text-dark">
-          <ul className="flex items-center">
+          <ul className="flex items-center gap-6">
             <li>
               <Link
                 href="/"
-                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+                className="transition px-2 py-2 hover:text-primary active:text-primary font-medium"
               >
                 Home
               </Link>
@@ -57,7 +57,7 @@ const LightNavbar = () => {
             <li>
               <Link
                 href="/about-us"
-                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+                className="transition px-2 py-2 hover:text-primary active:text-primary font-medium"
               >
                 About Us
               </Link>
@@ -66,7 +66,7 @@ const LightNavbar = () => {
             <li>
               <Link
                 href="/our-services"
-                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+                className="transition px-2 py-2 hover:text-primary active:text-primary font-medium"
               >
                 Our Services
               </Link>
@@ -74,7 +74,7 @@ const LightNavbar = () => {
             <li>
               <Link
                 href="/our-projects"
-                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+                className="transition px-2 py-2 hover:text-primary active:text-primary font-medium"
               >
                 Our Projects
               </Link>
@@ -82,7 +82,7 @@ const LightNavbar = () => {
             <li>
               <Link
                 href="/our-insights"
-                className="transition pe-8 hover:text-primary active:text-primary font-medium"
+                className="transition px-2 py-2 hover:text-primary active:text-primary font-medium"
               >
                 Insights
               </Link>
@@ -154,15 +154,6 @@ const LightNavbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Insights
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact-us"
-                className="btn secondary_btn_outline w-full mt-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact Us
               </Link>
             </li>
           </ul>
