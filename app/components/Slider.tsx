@@ -210,8 +210,6 @@ const Slider = () => {
             />
           </button>
         </div>
-
-
       </div>
 
       {/* Main Slides */}
