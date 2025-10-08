@@ -27,7 +27,7 @@ const OurProjectsApart = () => {
       <section className="pt_100 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           {/* Values */}
-          <div className="p-8 md:p-12 pt-0 md:pt-0 md:pb-0 pb-0">
+          <div>
             <h2 className="text-center xl:w-[50%] lg:w-[70%] w-full text-dark mb-10 md:mb-12 mx-auto">
               What Sets Our Projects Apart{" "}
             </h2>

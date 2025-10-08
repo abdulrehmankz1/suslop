@@ -939,11 +939,20 @@ h4 {
   .report_inactive_slider {
     height: 350px;
   }
-    .project_img_wrapper {
+
+  .project_img_wrapper {
     height: 300px;
     border-radius: 20px;
     overflow: hidden;
   }
+}
+
+/* Large (1024px – 1279px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .slider_container .image_wrapper {
+    height: 500px !important;
+  }
+
 }
 
 /* Large (1024px – 1279px) */
@@ -987,7 +996,7 @@ h4 {
   }
 
   .slider_container .image_wrapper {
-    height: 590px !important;
+    height: 590px;
   }
 
   .reports_section {

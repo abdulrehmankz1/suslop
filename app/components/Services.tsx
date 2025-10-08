@@ -102,7 +102,7 @@ const Services = () => {
         {/* Service Section */}
         <div className="service_section w-full md:py-12 py-10 -mt-1 px-3 md:px-4 lg:px-5">
           <div className="container mx-auto relative">
-            <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] mx-auto text-center lg:mb-12 mb-7">
+            <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
               <h2 className="mb-3 text-dark">
                 Holistic Solutions for Complex Challenges
               </h2>
@@ -134,20 +134,20 @@ const Services = () => {
               >
                 {loading
                   ? Array.from({ length: 3 }).map((_, i) => (
-                      <SwiperSlide key={`skeleton-${i}`}>
-                        <SkeletonCard />
-                      </SwiperSlide>
-                    ))
+                    <SwiperSlide key={`skeleton-${i}`}>
+                      <SkeletonCard />
+                    </SwiperSlide>
+                  ))
                   : servicesData.map((service, i) => (
-                      <SwiperSlide key={service.id}>
-                        <ServiceCard
-                          number={i + 1}
-                          title={service.title}
-                          description={service.description}
-                          image={service.featuredImage || undefined}
-                        />
-                      </SwiperSlide>
-                    ))}
+                    <SwiperSlide key={service.id}>
+                      <ServiceCard
+                        number={i + 1}
+                        title={service.title}
+                        description={service.description}
+                        image={service.featuredImage || undefined}
+                      />
+                    </SwiperSlide>
+                  ))}
               </Swiper>
 
               {/* Custom Pagination */}
@@ -155,11 +155,10 @@ const Services = () => {
                 {Array.from({ length: totalBullets }).map((_, i) => (
                   <button
                     key={i}
-                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === activeBullet
+                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === activeBullet
                         ? "bg-[#0E0E0E] md:w-[120px] w-[80px]"
                         : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
-                    }`}
+                      }`}
                     onClick={() => goToBullet(i)}
                     aria-label={`Go to slide group ${i + 1}`}
                   />

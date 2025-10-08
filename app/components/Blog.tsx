@@ -114,9 +114,11 @@ const Blog = () => {
     <section className="px-3 md:px-4 lg:px-5">
       <div className="w-full py-12 -mt-1 bg_gray_light lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px] lg:px-0 md:px-3 px-3">
         <div className="container mx-auto relative">
-          <div className="xl:w-[60%] lg:w-[75%] w-[80%] mx-auto text-center lg:mb-12 mb-10">
-            <h2 className="mb-3 text-dark">Blog & Perspectives</h2>
-            <p className="text-black max-w-2xl mx-auto">
+          <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
+            <h2 className="mb-3 text-dark">
+              Blog & Perspectives
+            </h2>
+            <p className="text-black mx-auto">
               Our experts share perspectives on the latest sustainability
               challenges, project innovations, and community-driven solutions.
             </p>
@@ -146,24 +148,24 @@ const Blog = () => {
             >
               {loading
                 ? Array.from({ length: 3 }).map((_, i) => (
-                    <SwiperSlide key={i}>
-                      <SkeletonSlide />
-                    </SwiperSlide>
-                  ))
+                  <SwiperSlide key={i}>
+                    <SkeletonSlide />
+                  </SwiperSlide>
+                ))
                 : blogData.map((blog) => (
-                    <SwiperSlide key={blog.id}>
-                      <BlogCard
-                        title={blog.title}
-                        description={blog.excerpt}
-                        image={
-                          blog.featuredImage ||
-                          "/assets/images/service-card.png"
-                        }
-                        linkText="Read Article"
-                        linkHref={`/blog-perspectives/${blog.slug}`}
-                      />
-                    </SwiperSlide>
-                  ))}
+                  <SwiperSlide key={blog.id}>
+                    <BlogCard
+                      title={blog.title}
+                      description={blog.excerpt}
+                      image={
+                        blog.featuredImage ||
+                        "/assets/images/service-card.png"
+                      }
+                      linkText="Read Article"
+                      linkHref={`/blog-perspectives/${blog.slug}`}
+                    />
+                  </SwiperSlide>
+                ))}
             </Swiper>
 
             {/* Custom Pagination */}
@@ -174,11 +176,10 @@ const Blog = () => {
                 {Array.from({ length: totalBullets }).map((_, i) => (
                   <button
                     key={i}
-                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === activeBullet
+                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === activeBullet
                         ? "bg-[#0E0E0E] md:w-[120px] w-20"
                         : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
-                    }`}
+                      }`}
                     onClick={() => goToBullet(i)}
                     aria-label={`Go to slide group ${i + 1}`}
                   />
