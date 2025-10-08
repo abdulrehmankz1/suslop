@@ -33,7 +33,7 @@ const ServicesSection = () => {
         <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
           <h2 className="mb-3 text-dark">Our Service Offerings</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-10 md:gap-7 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-10 md:gap-5 gap-4">
           {loading
             ? // Skeleton loader cards
               Array.from({ length: 6 }).map((_, index) => (

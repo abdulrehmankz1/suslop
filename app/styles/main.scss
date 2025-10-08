@@ -240,14 +240,14 @@ h4 {
 .footer_banner {
   border-radius: 30px;
   background:
-    /* Overlay dark fade from bottom */
-    linear-gradient(to top,
+    /* Overlay dark fade from bottom */ linear-gradient(
+      to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 60%),
+      rgba(0, 0, 0, 0) 60%
+    ),
     /* Subtle side fade */
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
-    /* Image */
-    url("../../public/assets/images/footer-banner.png");
+      linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%),
+    /* Image */ url("../../public/assets/images/footer-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -338,7 +338,6 @@ h4 {
 }
 
 .toc_container {
-
   ul,
   ol {
     li {
@@ -901,22 +900,13 @@ h4 {
   }
 
   .ourTeamSlider {
-    height: 450px;
+    height: 400px;
   }
 
   .team_card {
     .image_wrapper {
       width: 250px;
       height: 300px;
-    }
-
-    /* Hover effect only */
-    &:hover {
-      .image_wrapper {
-        width: 300px !important;
-        height: 350px !important;
-        border-radius: 10px;
-      }
     }
   }
 
@@ -925,11 +915,11 @@ h4 {
   }
 
   .pt_100 {
-    padding-top: 100px;
+    padding-top: 80px;
   }
 
   .mt_100 {
-    margin-top: 100px;
+    margin-top: 80px;
   }
 
   .report_active_slider {
@@ -952,7 +942,6 @@ h4 {
   .slider_container .image_wrapper {
     height: 500px !important;
   }
-
 }
 
 /* Large (1024px – 1279px) */

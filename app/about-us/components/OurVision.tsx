@@ -38,8 +38,8 @@ const OurVision = () => {
     <section className="pt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Mission & Vision */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-black p-8 md:p-12 rounded-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-6 gap-5">
+          <div className="bg-black p-8 lg:p-12 rounded-3xl">
             <h2 className="text-white">Our Mission</h2>
             <p className="text-white mt-3 leading-relaxed">
               To create innovative, practical, and culturally respectful
@@ -47,7 +47,7 @@ const OurVision = () => {
               protecting the natural environment.
             </p>
           </div>
-          <div className="bg-black p-8 md:p-12 rounded-3xl">
+          <div className="bg-black p-8 lg:p-12 rounded-3xl">
             <h2 className="text-white">Our Vision</h2>
             <p className="text-white mt-3 leading-relaxed">
               A world where sustainable development is the standard — not the
