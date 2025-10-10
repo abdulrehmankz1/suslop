@@ -51,7 +51,7 @@ const Page = () => {
         description="At Suslop, we help governments, communities, and industries design and deliver solutions that balance environmental responsibility, economic growth, and social well-being."
         className="rounded-b-4xl"
       />
-      <section className="latest_updates px-3 md:px-4 lg:px-5">
+      <section className="mt_100 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           {/* Heading Row */}
           <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">

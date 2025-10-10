@@ -48,7 +48,7 @@ const OurImpact = () => {
     <section className="px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto md:p-10 px-5 py-10 bg-black rounded-4xl">
         <div className="grid lg:grid-cols-2 grid-cols-1 xl:gap-20 lg:gap-5 gap-10">
-    <div className="xl:w-2/3 w-[90%]">
+          <div className="xl:w-2/3 w-[90%]">
             <h2 className="text-white">Turning Vision into Reality</h2>
           </div>
           <div>

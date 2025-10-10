@@ -113,11 +113,11 @@ const Services = () => {
             </div>
 
             {/* Swiper Slider */}
-            <div className="md:px-4">
+            <div>
               <Swiper
                 modules={[Autoplay]}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
-                spaceBetween={30}
+                spaceBetween={10}
                 loop={true}
                 autoplay={{
                   delay: 4000,
@@ -125,10 +125,10 @@ const Services = () => {
                 }}
                 slidesPerView={1}
                 breakpoints={{
-                  640: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
-                  1280: { slidesPerView: 3 },
+                  640: { slidesPerView: 1, spaceBetween: 10 },
+                  768: { slidesPerView: 2, spaceBetween: 15 },
+                  1024: { slidesPerView: 3.5, spaceBetween: 15 },
+                  1280: { slidesPerView: 3.5, spaceBetween: 25 },
                 }}
                 className="services-swiper"
               >

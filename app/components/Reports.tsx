@@ -6,7 +6,7 @@ import SectionIntro from "./SectionIntro";
 
 const Reports = () => {
   return (
-    <section className="reports_section px-3 md:px-4 lg:px-5">
+    <section className="px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto">
         {/* Heading Row */}
         <SectionIntro

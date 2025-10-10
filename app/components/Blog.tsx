@@ -111,82 +111,78 @@ const Blog = () => {
   );
 
   return (
-    <section className="px-3 md:px-4 lg:px-5">
-      <div className="w-full py-12 -mt-1 bg_gray_light lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px] lg:px-0 md:px-3 px-3">
-        <div className="container mx-auto relative">
-          <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
-            <h2 className="mb-3 text-dark">
-              Blog & Perspectives
-            </h2>
-            <p className="text-black mx-auto">
-              Our experts share perspectives on the latest sustainability
-              challenges, project innovations, and community-driven solutions.
-            </p>
-            <button className="btn secondary_btn lg:mt-6 md:mt-5 mt-4">
-              View All
-            </button>
-          </div>
+    <section className="bg_gray_light w-full py-12 lg:rounded-t-[100px] md:rounded-t-[70px] rounded-t-[50px] lg:px-0 md:px-3 px-3 mt_100">
+      <div className="container mx-auto relative">
+        <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
+          <h2 className="mb-3 text-dark">Blog & Perspectives</h2>
+          <p className="text-black mx-auto">
+            Our experts share perspectives on the latest sustainability
+            challenges, project innovations, and community-driven solutions.
+          </p>
+          <button className="btn secondary_btn lg:mt-6 md:mt-5 mt-4">
+            View All
+          </button>
+        </div>
 
-          {/* Swiper Slider */}
-          <div>
-            <Swiper
-              modules={[Autoplay]}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-              spaceBetween={30}
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-              }}
-              slidesPerView={1}
-              breakpoints={{
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-                1280: { slidesPerView: 3 },
-              }}
-              className="blogs-swiper"
-            >
-              {loading
-                ? Array.from({ length: 3 }).map((_, i) => (
+        {/* Swiper Slider */}
+        <div>
+          <Swiper
+            modules={[Autoplay]}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            spaceBetween={30}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 3 },
+            }}
+            className="blogs-swiper"
+          >
+            {loading
+              ? Array.from({ length: 3 }).map((_, i) => (
                   <SwiperSlide key={i}>
                     <SkeletonSlide />
                   </SwiperSlide>
                 ))
-                : blogData.map((blog) => (
+              : blogData.map((blog) => (
                   <SwiperSlide key={blog.id}>
                     <BlogCard
                       title={blog.title}
                       description={blog.excerpt}
                       image={
-                        blog.featuredImage ||
-                        "/assets/images/service-card.png"
+                        blog.featuredImage || "/assets/images/service-card.png"
                       }
                       linkText="Read Article"
                       linkHref={`/blog-perspectives/${blog.slug}`}
                     />
                   </SwiperSlide>
                 ))}
-            </Swiper>
+          </Swiper>
 
-            {/* Custom Pagination */}
-            {loading ? (
-              <SkeletonPagination />
-            ) : (
-              <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
-                {Array.from({ length: totalBullets }).map((_, i) => (
-                  <button
-                    key={i}
-                    className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === activeBullet
-                        ? "bg-[#0E0E0E] md:w-[120px] w-20"
-                        : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
-                      }`}
-                    onClick={() => goToBullet(i)}
-                    aria-label={`Go to slide group ${i + 1}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Custom Pagination */}
+          {loading ? (
+            <SkeletonPagination />
+          ) : (
+            <div className="flex justify-center lg:mt-12 md:mt-8 mt-3 gap-2">
+              {Array.from({ length: totalBullets }).map((_, i) => (
+                <button
+                  key={i}
+                  className={`md:h-3 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    i === activeBullet
+                      ? "bg-[#0E0E0E] md:w-[120px] w-20"
+                      : "bg-gray-300 md:w-[50px] w-[30px] hover:bg-gray-400"
+                  }`}
+                  onClick={() => goToBullet(i)}
+                  aria-label={`Go to slide group ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <style jsx>{`

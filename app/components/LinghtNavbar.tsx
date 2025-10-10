@@ -25,7 +25,7 @@ const LightNavbar = () => {
   }, []);
 
   return (
-    <header className="absolute top-3 left-0 right-0 z-50 text-fefe bg-transparent">
+    <header className="absolute top-3 left-0 right-0 z-50 text-fefe bg-transparent overflow-hidden">
       <div
         className="container mx-auto flex items-center justify-between px-6 py-4"
         ref={dropdownRef}
@@ -108,57 +108,55 @@ const LightNavbar = () => {
       </div>
 
       {/* Mobile Nav */}
-      {mobileMenuOpen && (
-        <nav className="lg:hidden bg-gray-100 shadow-2xl backdrop-blur border-t border-white/10">
-          <ul className="flex flex-col text-lg p-4 space-y-2">
-            <li>
-              <Link
-                href="/"
-                className="block px-2 py-2 transition text-dark active:text-black font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about-us"
-                className="block px-2 py-2 transition text-dark active:text-black font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/our-services"
-                className="block px-2 py-2 transition text-dark active:text-black font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Our Services
-              </Link>
-            </li>{" "}
-            <li>
-              <Link
-                href="/our-projects"
-                className="block px-2 py-2 transition text-dark active:text-black font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Our Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/our-insights"
-                className="block px-2 py-2 transition text-dark active:text-black font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Insights
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
+      <nav className={`lg:hidden bg-gray-100 shadow-2xl backdrop-blur border-t border-white/10 transition-transform duration-300 ease-in-out transform ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <ul className="flex flex-col text-lg p-4 space-y-2">
+          <li>
+            <Link
+              href="/"
+              className="block px-2 py-2 transition text-dark active:text-black font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about-us"
+              className="block px-2 py-2 transition text-dark active:text-black font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/our-services"
+              className="block px-2 py-2 transition text-dark active:text-black font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Our Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/our-projects"
+              className="block px-2 py-2 transition text-dark active:text-black font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Our Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/our-insights"
+              className="block px-2 py-2 transition text-dark active:text-black font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Insights
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

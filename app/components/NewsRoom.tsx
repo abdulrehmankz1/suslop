@@ -41,7 +41,7 @@ const NewsRoom = () => {
   );
 
   return (
-    <section className="latest_updates px-3 md:px-4 lg:px-5">
+    <section className="mt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading Row */}
         <SectionIntro

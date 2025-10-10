@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { submitContact } from "@/app/server/action";
+import SectionIntro from "@/app/components/SectionIntro";
 
 const Form = () => {
   const [firstName, setFirstName] = useState("");
@@ -49,18 +50,10 @@ const Form = () => {
   return (
     <section className="px-3 md:px-4 lg:px-5 mt_100">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-12 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
-          <div className="xl:col-span-8">
-            <h2 className="text-dark">Let’s Connect</h2>
-          </div>
-          <div className="xl:col-span-4">
-            <p className="text-black">
-              At Suslop, we help governments, communities, and industries design
-              and deliver solutions that balance environmental responsibility,
-              economic growth, and social well-being.
-            </p>
-          </div>
-        </div>
+        <SectionIntro
+          heading="Let’s Connect"
+          paragraph=" At Suslop, we help governments, communities, and industries design and deliver solutions that balance environmental responsibility, economic growth, and social well-being."
+        />
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <input
