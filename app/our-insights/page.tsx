@@ -19,7 +19,7 @@ Our Insights & Reports bring together research, industry trends, and real-world 
         heading="Explore how we can bring your project vision to life."
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
         primaryBtnText="Contact Us"
-        primaryBtnLink="/contact"
+        primaryBtnLink="/contact-us"
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />

@@ -27,10 +27,13 @@ const OurProjectsApart = () => {
       <section className="pt_100 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           {/* Values */}
+          <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
+            <h2 className="mb-3 text-dark">What Sets Our Projects Apart</h2>
+          </div>
           <div>
-            <h2 className="text-center xl:w-[50%] lg:w-[70%] w-full text-dark mb-10 md:mb-12 mx-auto">
+            {/* <h2 className="text-center xl:w-[50%] lg:w-[70%] w-full text-dark mb-10 md:mb-12 mx-auto">
               What Sets Our Projects Apart{" "}
-            </h2>
+            </h2> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
               {valuesData.map((value, index) => (
                 <div key={index} className="text-center sm:text-left">

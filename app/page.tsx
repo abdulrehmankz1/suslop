@@ -25,7 +25,7 @@ export default function Home() {
         heading="Let’s Build Something That Lasts"
         description="Whether you’re at the planning stage or ready to deliver, our team is here to help turn your goals into measurable outcomes."
         primaryBtnText="Contact Us"
-        primaryBtnLink="/contact"
+        primaryBtnLink="/contact-us"
         secondaryBtnText="Schedule a Consultation"
         secondaryBtnLink="/consultation"
       />

@@ -7,6 +7,7 @@ import {
   extractPostData,
   PostData,
 } from "@/services/blog.service";
+import SectionIntro from "@/app/components/SectionIntro";
 
 const Perspectives = () => {
   const [posts, setPosts] = useState<PostData[]>([]);
@@ -32,17 +33,10 @@ const Perspectives = () => {
     <section className="mt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading Row */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 xl:gap-20 lg:gap-5 gap-5 lg:mb-12 md:mb-8 mb-5">
-          <div className="xl:col-span-8">
-            <h2 className="text-dark">Blog & Perspectives</h2>
-          </div>
-          <div className="xl:col-span-4">
-            <p className="text-black">
-              Our experts share perspectives on the latest sustainability
-              challenges, project innovations, and community-driven solutions.
-            </p>
-          </div>
-        </div>
+        <SectionIntro
+          heading="Blog & Perspectives"
+          paragraph="Our experts share perspectives on the latest sustainabilitychallenges, project innovations, and community-driven solutions."
+        />
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -31,7 +31,10 @@ const Projects = () => {
   return (
     <section className="px-3 md:px-4 lg:px-5 pt_100">
       <div className="container mx-auto">
-        <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
+        {/* <div className="lg:w-[60%] md:w-[75%] mx-auto text-center lg:mb-12 mb-7">
+          <h2 className="mb-3 text-dark">Featured Case Studies</h2>
+        </div> */}
+        <div className="2xl:w-[45%] xl:w-[55%] lg:w-[70%] md:w-[80%] w-full mx-auto text-center lg:mb-12 mb-7">
           <h2 className="mb-3 text-dark">Featured Case Studies</h2>
         </div>
         {loading

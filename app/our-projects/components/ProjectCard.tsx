@@ -45,7 +45,7 @@ const ProjectCard = ({
       </div>
 
       {/* Content block */}
-      <div className="w-full lg:w-[70%]">
+      <div className="w-full xl:w-[70%] lg:w-[60%]">
         <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-4">
           <h4 className="text-dark lg:w-[50%]">{title}</h4>
 
