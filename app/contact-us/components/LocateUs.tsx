@@ -3,7 +3,7 @@ import React from "react";
 
 const LocateUs = () => {
   return (
-    <section className="mt_100">
+    <section className="mt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Heading */}
         <h2 className="text-dark text-center md:text-left">Locate Us</h2>
