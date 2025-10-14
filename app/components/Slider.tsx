@@ -142,7 +142,7 @@ const Slider = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % reports.length);
-    }, 15000); // change every 5 seconds
+    }, 5000); // change every 5 seconds
   };
 
   const resetAutoplay = () => {

@@ -63,7 +63,7 @@ const Page = async ({ params }: CaseStudyPageProps) => {
 
   return (
     <>
-      <section className="mt_100 pt-8">
+      <section className="mt_100 pt-8 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           <div className="featured_image_wrapper">
             <Image
@@ -79,7 +79,7 @@ const Page = async ({ params }: CaseStudyPageProps) => {
           </div>
         </div>
       </section>
-      <section className="mt-12">
+      <section className="mt-12 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           <h2 className="text-dark lg:w-[60%] md:w-[80%] w-full">
             {projectData?.title || "Project Title"}
@@ -93,7 +93,7 @@ const Page = async ({ params }: CaseStudyPageProps) => {
           </div>
         </div>
       </section>
-      <section className="mt-10">
+      <section className="mt-10 px-3 md:px-4 lg:px-5">
         <div className="container mx-auto">
           <div
             className="blog_detail_section"
