@@ -1,4 +1,3 @@
-// app/blog-perspectives/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import CTA from "@/app/components/CTA";
@@ -10,6 +9,7 @@ import {
 import * as cheerio from "cheerio";
 import "../../styles/detail.scss";
 import TOCWithHighlight from "../components/toc-client";
+import TOCDropdownClient from "../components/TOCDropdownClient";
 
 const generateTOCAndContent = (htmlContent: string) => {
   if (!htmlContent) return { toc: [], content: "" };
@@ -30,9 +30,7 @@ const generateTOCAndContent = (htmlContent: string) => {
   return { toc, content: $.html() };
 };
 
-// ✅ type ko loose rakho: params: any
 export default async function BlogDetailPage({ params }: { params: any }) {
-  // agar params async hua toh await bhi kar lo
   const resolvedParams = await Promise.resolve(params);
   const slug = resolvedParams.slug;
 
@@ -46,6 +44,10 @@ export default async function BlogDetailPage({ params }: { params: any }) {
 
   return (
     <>
+      <section className="container mx-auto scroll-smooth">
+        {/* Mobile TOC Dropdown (Client Component) */}
+        <TOCDropdownClient toc={toc} />
+      </section>
       <section className="px-4 sm:px-6 lg:px-8 mt-32">
         <div className="container mx-auto scroll-smooth">
           {blogData.featuredImage && (
@@ -65,6 +67,9 @@ export default async function BlogDetailPage({ params }: { params: any }) {
 
       <section className="px-4 sm:px-6 lg:px-8 mt_100">
         <div className="container mx-auto scroll-smooth">
+          {/* Mobile TOC Dropdown (Client Component) */}
+          <TOCDropdownClient toc={toc} />
+
           <div className="blog_detail_page flex flex-col lg:flex-row items-start justify-between gap-12">
             <div className="w-full lg:w-[70%]">
               <h1 className="text-dark text_h2">{blogData.title}</h1>
@@ -73,6 +78,8 @@ export default async function BlogDetailPage({ params }: { params: any }) {
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             </div>
+
+            {/* Desktop TOC */}
             <TOCWithHighlight toc={toc} />
           </div>
         </div>
@@ -90,7 +97,6 @@ export default async function BlogDetailPage({ params }: { params: any }) {
   );
 }
 
-// ✅ Static params remain same
 export async function generateStaticParams() {
   const posts = await fetchAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
