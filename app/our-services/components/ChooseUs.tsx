@@ -35,8 +35,9 @@ const ChooseUs = () => {
                   <Image
                     src={value.icon}
                     alt={value.title}
-                    width={50}
-                    height={50}
+                    width={35}
+                    height={35}
+                    className="sm:w-[45px] sm:h-[45px]"
                     draggable="false"
                   />
                 </div>

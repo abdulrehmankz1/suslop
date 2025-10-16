@@ -21,7 +21,7 @@ const UpdatesCard = ({ image, title, link }: UpdatesCardProps) => {
           className="object-cover w-full! h-full!"
         />
       </div>
-      <div className="hover:underline mt-6 block">
+      <div className="hover:underline md:mt-6 mt-3 block">
         <h4 className="text-dark line-clamp-2">{title}</h4>
       </div>
     </Link>

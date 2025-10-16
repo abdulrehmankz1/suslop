@@ -38,7 +38,7 @@ const OurVision = () => {
     <section className="pt_100 px-3 md:px-4 lg:px-5">
       <div className="container mx-auto">
         {/* Mission & Vision */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-6 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-6 md:gap-5 gap-4">
           <div className="bg-black p-8 lg:p-12 rounded-3xl">
             <h2 className="text-white">Our Mission</h2>
             <p className="text-white mt-3 leading-relaxed">
@@ -58,7 +58,7 @@ const OurVision = () => {
         </div>
 
         {/* Values */}
-        <div className="bg-black p-8 md:p-12 rounded-3xl mt-6">
+        <div className="bg-black p-8 md:p-12 rounded-3xl md:mt-6 mt-4">
           <h2 className="text-white text-center mb-10 md:mb-12">Our Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
             {valuesData.map((value, index) => (
@@ -67,11 +67,13 @@ const OurVision = () => {
                   <Image
                     src={value.icon}
                     alt={value.title}
-                    width={50}
-                    height={50}
+                    width={35}
+                    height={35}
+                    className="sm:w-[45px] sm:h-[45px]"
                     draggable="false"
                   />
                 </div>
+
                 <h4 className="text-white mt-6">{value.title}</h4>
                 <p className="text-white mt-2 opacity-70 leading-relaxed">
                   {value.description}

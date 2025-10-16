@@ -331,6 +331,10 @@ h4 {
   box-shadow: 0 17px 37px 0 rgba(0, 0, 0, 0.05);
 }
 
+.our_story {
+  border-radius: 100px 100px 0 0;
+}
+
 .our_story_none {
   background-color: transparent;
   border-radius: none;
@@ -520,6 +524,9 @@ h4 {
   .project_subtitle {
     font-size: 20px;
   }
+  .our_story {
+    border-radius: 40px 40px 0 0;
+  }
 }
 
 /* Extra Small (Mobile < 640px) */
@@ -669,6 +676,9 @@ h4 {
     border-radius: 20px;
     overflow: hidden;
   }
+  .our_story {
+    border-radius: 60px 60px 0 0;
+  }
 }
 
 /* Small (640px – 767px) */
@@ -803,6 +813,9 @@ h4 {
     border-radius: 20px;
     overflow: hidden;
   }
+  .our_story {
+    border-radius: 60px 60px 0 0;
+  }
 }
 
 /* Medium (768px – 1023px) */
@@ -934,6 +947,10 @@ h4 {
     height: 300px;
     border-radius: 20px;
     overflow: hidden;
+  }
+
+  .our_story {
+    border-radius: 60px 60px 0 0;
   }
 }
 
@@ -1081,6 +1098,10 @@ h4 {
     height: 320px;
     border-radius: 20px;
     overflow: hidden;
+  }
+
+  .our_story {
+    border-radius: 100px 100px 0 0;
   }
 }
 
@@ -1256,6 +1277,10 @@ h4 {
     border-radius: 20px;
     overflow: hidden;
   }
+
+  .our_story {
+    border-radius: 100px 100px 0 0;
+  }
 }
 
 /* 2XL (1536px and above) */
@@ -1425,5 +1450,9 @@ h4 {
     height: 320px;
     border-radius: 20px;
     overflow: hidden;
+  }
+
+  .our_story {
+    border-radius: 100px 100px 0 0;
   }
 }

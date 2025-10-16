@@ -27,7 +27,7 @@ const InsightsReportCard = ({
           className="object-cover w-full! h-full!"
         />
       </div>
-      <div className="mt-6 block">
+      <div className="md:mt-6 mt-3 block">
         {/* Date from props */}
         <div className="text-[#00000080] text-lg mb-1">{date}</div>
         {/* Title underline on hover */}

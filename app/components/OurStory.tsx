@@ -43,36 +43,39 @@ const OurStory = ({
       }`}
     >
       {/* Big image (60%) */}
-      <div className="sm:w-[60%] w-full relative aspect-[460/535]">
+      <div className="sm:w-[60%]">
         <Image
           src="/assets/images/right.png"
           alt="Main"
-          fill
+          width={462}
+          height={538}
           sizes="(max-width: 768px) 100vw, 60vw"
-          className="object-cover rounded-lg"
+          className="w-full rounded-[20px]"
           draggable={false}
         />
       </div>
 
       {/* Stacked images (40%) */}
       <div className="sm:w-[40%] w-full flex flex-row sm:flex-col gap-3 mt-3 sm:mt-0">
-        <div className="relative w-full aspect-[320/245]">
+        <div className="w-full">
           <Image
             src="/assets/images/left-top.png"
             alt="Top"
-            fill
+            height={247}
+            width={318}
             sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-cover rounded-lg"
+            className="w-full rounded-[20px]"
             draggable={false}
           />
         </div>
-        <div className="relative w-full aspect-[320/245]">
+        <div className="w-full">
           <Image
             src="/assets/images/left-bottom.png"
             alt="Bottom"
-            fill
+            width={318}
+            height={427}
             sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-cover rounded-lg"
+            className="w-full rounded-[20px]"
             draggable={false}
           />
         </div>
@@ -81,7 +84,7 @@ const OurStory = ({
   );
 
   return (
-    <section className={`${styleVariant} mt_100 pt_100 px-3 md:px-4 lg:px-5`}>
+    <section className={`${styleVariant} mt_100 md:pt-12 pt-7 px-3 md:px-4 lg:px-5`}>
       <div className="container mx-auto">
         <div
           className={`flex w-full gap-9 ${
